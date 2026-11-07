@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1344px; height: 768px; background: #05080f; font-family: 'DejaVu Sans', sans-serif; }
+  .canvas { position: relative; width: 1344px; height: 768px; background: #0b1220; overflow: hidden; }
+  .el { position: absolute; border: 2px dashed rgba(255,255,255,0.55); display: flex; align-items: center; justify-content: center; }
+  .label { background: rgba(5,8,15,0.85); color: #fff; font-size: 15px; padding: 4px 10px; border-radius: 4px; text-align: center; line-height: 1.3; border-left: 3px solid #3ee6d8; }
+  .vp { position: absolute; width: 26px; height: 26px; border: 3px solid #ffb35c; border-radius: 50%; transform: translate(-50%,-50%); left: 50%; top: 47%; }
+  .vp::after { content: "точка схода"; position: absolute; top: 30px; left: 50%; transform: translateX(-50%); color: #ffb35c; font-size: 14px; white-space: nowrap; background: rgba(5,8,15,0.85); padding: 2px 8px; border-radius: 4px; }
+  .title { position: absolute; top: 14px; left: 18px; color: #fff; z-index: 10; }
+  .title b { font-size: 22px; } .title span { font-size: 14px; color: #8fa3bf; display: block; margin-top: 3px; }
+  .hud { position: absolute; bottom: 12px; right: 16px; color: #8fa3bf; font-size: 13px; text-align: right; z-index: 10; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="title"><b>LAYOUT — промежуточное представление (шаг 1 из 2)</b><span>структура сцены до рендера · метод Reve «The Layout Bet» · 1344×768</span></div>
+
+  <div class="el" style="left:0;top:0;width:1344px;height:138px;background:#131c2c;justify-content:flex-start;padding-left:14px"><div class="label">ceiling<br>потолок, кабельные лотки</div></div>
+  <div class="el" style="left:40px;top:138px;width:417px;height:461px;background:linear-gradient(135deg,#1a2740,#0e1626)"><div class="label">rack_row_left<br>ряд стоек слева → перспектива<br><span style="color:#2f7cff">■ LED #2f7cff</span></div></div>
+  <div class="el" style="left:887px;top:138px;width:417px;height:461px;background:linear-gradient(225deg,#1a2740,#0e1626)"><div class="label">rack_row_right<br>ряд стоек справа (зеркально)</div></div>
+  <div class="el" style="left:457px;top:154px;width:430px;height:323px;background:linear-gradient(180deg,#0e2438,#0f3a52)"><div class="label">back_wall<br>стена стоек в глубине<br><span style="color:#3ee6d8">■ LED-стена #3ee6d8</span></div></div>
+  <div class="el" style="left:457px;top:477px;width:430px;height:139px;background:#16202f;justify-content:flex-start;padding-left:14px"><div class="label">aisle · центральный проход</div></div>
+  <div class="el" style="left:0;top:599px;width:1344px;height:169px;background:#10192b"><div class="label">floor<br>отражения LED в полированном бетоне</div></div>
+  <div class="el" style="left:632px;top:422px;width:80px;height:231px;border-color:#ffb35c;background:rgba(255,179,92,0.08);align-items:flex-end;padding-bottom:10px"><div class="label" style="border-left-color:#ffb35c;font-size:12px">human</div></div>
+  <div class="el" style="left:538px;top:38px;width:268px;height:85px;border-color:#ffb35c;background:rgba(255,179,92,0.06)"><div class="label" style="border-left-color:#ffb35c">light_strips<br>тёплые светильники</div></div>
+
+  <div class="vp"></div>
+  <div class="hud">layout.json → рендер<br>позиции заданы нормализованными bbox</div>
+</div>
+</body>
+</html>
