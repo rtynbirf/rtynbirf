@@ -21,8 +21,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Сверка со средой -> автогенерация секции README
+      - name: Сверка со средой -> регенерация секции README
         run: python scripts/swarm_sync.py
         env:
           SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Коммит только при реальных изменениях (bot + skip ci)
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "README без изменений — коммит не нужен"
+          else
+            git config user.name "swarm-sync[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "swarm-sync: сверка со средой [skip ci]"
+            git push
+          fi
