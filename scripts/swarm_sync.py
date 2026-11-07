@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """SWARM-SYNC — клетка роя: сверка со средой и автогенерация секции README.
 Запускается в GitHub Actions и локально. Только stdlib. Токен не печатает."""
-import base64, json, os, re, sys, time, urllib.request
+import base64, json, os, re, sys, time, urllib.error, urllib.request
 
 API = "https://api.github.com"
 OWNER, REPO = "rtynbirf", "rtynbirf"
@@ -16,6 +16,16 @@ def req(tok, url, method="GET", payload=None):
     with urllib.request.urlopen(r, timeout=30) as resp:
         raw = resp.read().decode()
         return (json.loads(raw) if raw.strip() else {}), resp.headers
+
+def req_raw(tok, url):
+    """Сырой текст файла (Accept raw) — обходит quirk content:null у contents API."""
+    h = hdr(tok); h["Accept"] = "application/vnd.github.raw+json"
+    r = urllib.request.Request(url, headers=h)
+    try:
+        with urllib.request.urlopen(r, timeout=30) as resp:
+            return resp.status, resp.read().decode()
+    except urllib.error.HTTPError as e:
+        return e.code, ""
 
 # --- выбор токенов: чтение данных (нужны приватные) и запись (лучше от bot) ---
 READ_TOK = os.environ.get("SWARM_TOKEN") or os.environ.get("GITHUB_TOKEN")
@@ -82,17 +92,20 @@ for n, p, l, c, s, pu in top_commits:
 lines.append(END)
 
 # --- запись только при реальном изменении (анти-пустые-коммиты, best practice) ---
-st, readme = req(WRITE_TOK, f"{API}/repos/{OWNER}/{REPO}/contents/README.md")
-cur = base64.b64decode(readme["content"]).decode()
+# sha берём из JSON, текущий текст — через raw: content бывает null при обычном запросе
+st, meta = req(WRITE_TOK, f"{API}/repos/{OWNER}/{REPO}/contents/README.md")
+sha = meta.get("sha") if isinstance(meta, dict) else None
+st2, cur = req_raw(WRITE_TOK, f"{API}/repos/{OWNER}/{REPO}/contents/README.md")
+if st2 != 200:
+    cur = ""
 section = "\n".join(lines)
-new = re.sub(re.escape(BEGIN) + r".*?" + re.escape(END), section.replace("\\", "\\\\"), cur, flags=re.S)
-if BEGIN not in cur:
-    new = cur.rstrip() + "\n\n" + section + "\n"
+new = re.sub(re.escape(BEGIN) + r".*?" + re.escape(END), section.replace("\\", "\\\\"), cur, flags=re.S) if BEGIN in cur else (cur.rstrip() + "\n\n" + section + "\n")
 if new == cur:
     print("изменений нет — коммит не создаём (анти-шум)")
-    return_ok = True
 else:
-    body = {"message": f"swarm-sync: сверка со средой {now} [skip ci]", "content": base64.b64encode(new.encode()).decode(), "sha": readme["sha"]}
-    st2, resp = req(WRITE_TOK, f"{API}/repos/{OWNER}/{REPO}/contents/README.md", "PUT", body)
-    print("README обновлён:", st2)
+    body = {"message": f"swarm-sync: сверка со средой {now} [skip ci]", "content": base64.b64encode(new.encode()).decode()}
+    if sha:
+        body["sha"] = sha
+    st3, resp = req(WRITE_TOK, f"{API}/repos/{OWNER}/{REPO}/contents/README.md", "PUT", body)
+    print("README обновлён:", st3)
 print(f"сверка: {len(repos)} репо, {total_commits} коммитов, {priv} приватных")
