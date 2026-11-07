@@ -1,0 +1,28 @@
+name: SWARM-SYNC (сверка со средой)
+
+on:
+  schedule:
+    - cron: '17 3 * * *'   # ежедневно; минута 17 — смещение от пика нагрузки (best practice)
+  workflow_dispatch: {}      # ручной запуск всегда доступен
+
+concurrency:
+  group: swarm-sync-${{ github.repository }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Сверка со средой -> автогенерация секции README
+        run: python scripts/swarm_sync.py
+        env:
+          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
