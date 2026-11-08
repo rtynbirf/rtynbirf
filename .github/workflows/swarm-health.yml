@@ -45,6 +45,10 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add swarm_health.json README.md
             git commit -m "swarm-health: свежая опись + бейджи [skip ci]"
+            # Волна ×5: бот-пуш может проиграть гонку параллельным пушам в main
+            # (08.11 20:16-20:24 так легли ×5 red: «fetch first»). Rebase перед
+            # пушем делает бот-коммит устойчивым к соседним волнам.
+            git pull --rebase origin main
             git push
           fi
       - name: "Приёмка: raw-JSON 200 и бейджи резолвятся 200"
