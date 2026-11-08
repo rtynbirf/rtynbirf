@@ -1,3 +1,17 @@
-*.swp
+# python
+__pycache__/
+*.pyc
+
+# outputs of cells
+xray.json
+report.md
+
+# OS junk
 .DS_Store
 Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+*.tmp
+*.orig
