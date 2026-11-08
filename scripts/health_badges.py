@@ -255,16 +255,29 @@ def assert_fresh(path=JSON_PATH):
     print("FRESH: OK")
 
 
+def _get_retry(url, retries=4, pause=4):
+    last = None
+    for _ in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                return resp.status, resp.read().decode("utf-8", "replace")
+        except Exception as e:  # shields.io/CDN бывают медленными — честная повторная попытка
+            last = e
+            time.sleep(pause)
+    raise SystemExit("GET недоступен после %d попыток: %s (%s)" % (retries, url[:120], last))
+
+
 def check(retries=6):
     last = None
     for attempt in range(retries):
         try:
-            req = urllib.request.Request(RAW_URL, headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                code, body = resp.status, resp.read().decode()
+            code, body = _get_retry(RAW_URL, retries=1)
             assert code == 200
             inv = json.loads(body)
             break
+        except SystemExit:
+            raise
         except Exception as e:  # CDN githubusercontent догоняет после коммита
             last = e
             time.sleep(4)
@@ -275,14 +288,11 @@ def check(retries=6):
     print("✓ raw JSON 200 · сгенерирован %s · возраст %.2f дн" % (inv["generated_at"], age))
 
     row, _ = badge_row(inv)
-    import re
     urls = re.findall(r"\((https://img\.shields\.io[^)]+)\)", row)
     assert len(urls) == 4, "ожидались 4 бейджа, найдено %d" % len(urls)
     for u in urls:
-        req = urllib.request.Request(u, headers={"User-Agent": UA})
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            svg = resp.read().decode("utf-8", "replace")
-            assert resp.status == 200 and "<svg" in svg, "бейдж не отрисовался: %s" % u
+        status, svg = _get_retry(u)
+        assert status == 200 and "<svg" in svg, "бейдж не отрисовался: %s" % u
         print("✓ бейдж 200: %s" % urllib.parse.unquote(u)[:110])
     print("CHECK: OK")
 
