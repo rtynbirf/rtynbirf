@@ -8,7 +8,7 @@
 «Строю то, что работает без интернета и без разрешений.»
 
 [![Public repos](https://img.shields.io/badge/public%20repos-26-2E2540?style=flat-square)](https://github.com/rtynbirf?tab=repositories)
-[![Commits](https://img.shields.io/badge/commits-2600%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
+[![Commits](https://img.shields.io/badge/commits-2700%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
 [![Showcase](https://img.shields.io/badge/showcase-rtynbirf.github.io-8B5CF6?style=flat-square)](https://rtynbirf.github.io)
 [![Followers](https://img.shields.io/github/followers/rtynbirf?style=flat-square&color=2E2540&label=followers)](https://github.com/rtynbirf)
 [![Audit](https://img.shields.io/badge/audited-2026--11--08-2E2540?style=flat-square)](https://github.com/rtynbirf)
