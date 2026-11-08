@@ -55,13 +55,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # output — orphan-ветка со SVG змейки: скриптов в ней нет,
+      # поэтому retention-скрипт берём с main (вторая checkout в отдельный путь).
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 (SHA-канон)
         with:
           ref: output
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 (SHA-канон)
+        with:
+          ref: main
+          path: _main
       - name: Самоиспытание retention
-        run: python3 scripts/retention_output.py --selftest
+        run: python3 _main/scripts/retention_output.py --selftest
       - name: Подрезка змейки-коммитов старше 90 дней
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RETENTION_ALLOW_PRUNE: '1'
-        run: python3 scripts/retention_output.py --max-age-days 90 --apply
+        run: python3 _main/scripts/retention_output.py --max-age-days 90 --apply
