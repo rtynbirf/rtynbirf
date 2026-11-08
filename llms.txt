@@ -1,0 +1,31 @@
+# rtynbirf
+> Полимат-универсум: 39 репозиториев, 2600+ коммитов с 2022 года. СИНГУЛЯР · РОЙ · Атласы · Windows-инструменты
+
+Автоген 2026-11-08 · источник: живой GitHub API (номера и файлы не руками) · владелец rtynbirf · ветка `main`
+
+## Мембрана
+- README.md — для человека (rtynbirf · AUTONOMOUS SYSTEMS LAB)
+- AGENTS.md — есть
+- LICENSE — MIT
+- topics: polymath, portfolio, profile-readme, russian, singularity
+
+## Карта корня
+- .github/
+- AGENTS.md
+- LICENSE
+- README.md
+- SECURITY.md
+- assets/
+- banner.png
+- cells/
+- scripts/
+
+## CI
+- workflow: generate-snake
+- workflow: snake
+- workflow: swarm-sync
+
+## Ссылки
+- [GitHub](https://github.com/rtynbirf/rtynbirf)
+- [README](https://github.com/rtynbirf/rtynbirf/blob/main/README.md)
+- [raw llms.txt](https://raw.githubusercontent.com/rtynbirf/rtynbirf/main/llms.txt)
