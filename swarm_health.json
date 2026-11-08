@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T20:25:11Z",
+  "generated_at": "2026-11-08T21:49:28Z",
   "generated_date": "2026-11-08",
   "heavyweights": {
     "badge_color": "orange",
@@ -35,15 +35,15 @@
     "repos": [
       {
         "conclusion": "failure",
-        "repo": "domovoy-tweaker",
-        "url": "https://github.com/rtynbirf/domovoy-tweaker/actions/runs/42519398062",
-        "workflow": "CI"
+        "repo": "singulyar",
+        "url": "https://github.com/rtynbirf/singulyar/actions/runs/42527073306",
+        "workflow": "Оракулы дома зелёные (sovereign check)"
       },
       {
         "conclusion": "failure",
-        "repo": "singulyar",
-        "url": "https://github.com/rtynbirf/singulyar/actions/runs/42517960432",
-        "workflow": "Оракулы дома зелёные (sovereign check)"
+        "repo": "universal-agent",
+        "url": "https://github.com/rtynbirf/universal-agent/actions/runs/42526415578",
+        "workflow": "ci"
       }
     ]
   }
