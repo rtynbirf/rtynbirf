@@ -34,7 +34,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
         run: python3 scripts/health_badges.py --live --write
-      - name: Приёмка: свежесть описи ≤ 8 дней
+      - name: "Приёмка: свежесть описи ≤ 8 дней"
         run: python3 scripts/health_badges.py --assert-fresh
       - name: Коммит только при реальных изменениях
         run: |
@@ -47,7 +47,7 @@ jobs:
             git commit -m "swarm-health: свежая опись + бейджи [skip ci]"
             git push
           fi
-      - name: Приёмка: raw-JSON 200 и бейджи резолвятся 200
+      - name: "Приёмка: raw-JSON 200 и бейджи резолвятся 200"
         run: python3 scripts/health_badges.py --check
 
   retention:
