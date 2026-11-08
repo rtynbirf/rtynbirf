@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T21:49:28Z",
+  "generated_at": "2026-11-08T23:51:25Z",
   "generated_date": "2026-11-08",
   "heavyweights": {
     "badge_color": "orange",
@@ -31,19 +31,13 @@
   },
   "wounds": {
     "badge_color": "red",
-    "count": 2,
+    "count": 1,
     "repos": [
       {
         "conclusion": "failure",
         "repo": "singulyar",
-        "url": "https://github.com/rtynbirf/singulyar/actions/runs/42527073306",
+        "url": "https://github.com/rtynbirf/singulyar/actions/runs/42527737533",
         "workflow": "Оракулы дома зелёные (sovereign check)"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "universal-agent",
-        "url": "https://github.com/rtynbirf/universal-agent/actions/runs/42526415578",
-        "workflow": "ci"
       }
     ]
   }
