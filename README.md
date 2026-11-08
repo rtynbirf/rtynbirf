@@ -7,10 +7,11 @@
 **Autonomous agents · Generative media · Offline sovereignty.**
 «Строю то, что работает без интернета и без разрешений.»
 
-[![Public repos](https://img.shields.io/badge/public%20repos-25-2E2540?style=flat-square)](https://github.com/rtynbirf?tab=repositories)
+[![Public repos](https://img.shields.io/badge/public%20repos-26-2E2540?style=flat-square)](https://github.com/rtynbirf?tab=repositories)
 [![Commits](https://img.shields.io/badge/commits-2600%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
 [![Showcase](https://img.shields.io/badge/showcase-rtynbirf.github.io-8B5CF6?style=flat-square)](https://rtynbirf.github.io)
 [![Followers](https://img.shields.io/github/followers/rtynbirf?style=flat-square&color=2E2540&label=followers)](https://github.com/rtynbirf)
+[![Audit](https://img.shields.io/badge/audited-2026--11--08-2E2540?style=flat-square)](https://github.com/rtynbirf)
 [![Views](https://komarev.com/ghpvc/?username=rtynbirf&style=flat-square&color=2E2540&label=views)](https://github.com/rtynbirf)
 
 ---
@@ -57,7 +58,7 @@
 > **Memory** — каждый прогон остаётся артефактом: `state.json`, `PULSE.md`.
 > **Honesty** — недоделанное помечается недоделанным; фоллбек вместо вранья.
 
-## THE UNIVERSE · 25 repos · 6 clusters
+## THE UNIVERSE · 26 public repos · 6 clusters
 
 | Cluster | Repositories |
 |---|---|
