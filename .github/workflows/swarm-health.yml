@@ -1,0 +1,67 @@
+name: swarm-health (бейджи здоровья роя + retention output)
+
+# Волна ×4 · П49 (issue #4):
+# 1) живая опись swarm_health.json из GitHub API → бейджи shields dynamic JSON в README
+#    (бейджи читают живой JSON; свежесть описи ≤ 8 дней — еженедельный ритм 7 дней);
+# 2) retention output-ветки: змейки-коммиты старше 90 дней подрезаются (печать до разрушения).
+# Честно: витрина — публичный срез роя; приватные клетки в опись не попадают.
+
+on:
+  schedule:
+    - cron: '41 4 * * 1'   # еженедельно, ПН 04:41 UTC — свежесть ≤ 7 дн ≤ 8 дн (приёмка)
+  workflow_dispatch: {}
+
+concurrency:
+  group: swarm-health
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 (SHA-канон)
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.12'
+      - name: Самоиспытание генератора
+        run: python3 scripts/health_badges.py --selftest
+      - name: Живой API-забор → опись + бейджи в README
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
+        run: python3 scripts/health_badges.py --live --write
+      - name: Приёмка: свежесть описи ≤ 8 дней
+        run: python3 scripts/health_badges.py --assert-fresh
+      - name: Коммит только при реальных изменениях
+        run: |
+          if git diff --quiet -- swarm_health.json README.md; then
+            echo "опись без изменений — ритм без шума"
+          else
+            git config user.name "swarm-health[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add swarm_health.json README.md
+            git commit -m "swarm-health: свежая опись + бейджи [skip ci]"
+            git push
+          fi
+      - name: Приёмка: raw-JSON 200 и бейджи резолвятся 200
+        run: python3 scripts/health_badges.py --check
+
+  retention:
+    needs: health
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 (SHA-канон)
+        with:
+          ref: output
+      - name: Самоиспытание retention
+        run: python3 scripts/retention_output.py --selftest
+      - name: Подрезка змейки-коммитов старше 90 дней
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RETENTION_ALLOW_PRUNE: '1'
+        run: python3 scripts/retention_output.py --max-age-days 90 --apply

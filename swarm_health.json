@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-11-08T20:15:33Z",
+  "generated_date": "2026-11-08",
+  "heavyweights": {
+    "badge_color": "orange",
+    "count": 1,
+    "repos": [
+      {
+        "repo": "singulyar",
+        "size_mib": 1547.5
+      }
+    ]
+  },
+  "open_prs": {
+    "badge_color": "brightgreen",
+    "count": 0,
+    "query": "is:pr is:open user:rtynbirf"
+  },
+  "schema": "swarm_health/1",
+  "source": {
+    "api": "https://api.github.com/users/rtynbirf/repos",
+    "coverage": "public",
+    "repos_scanned": 27,
+    "repos_total": 27,
+    "rules": {
+      "fresh_days_max": 8,
+      "heavyweights_mib": 512,
+      "wounds": "последний завершённый прогон на default-ветке в {failure,startup_failure,timed_out}"
+    },
+    "unscanned": []
+  },
+  "wounds": {
+    "badge_color": "red",
+    "count": 1,
+    "repos": [
+      {
+        "conclusion": "failure",
+        "repo": "singulyar",
+        "url": "https://github.com/rtynbirf/singulyar/actions/runs/42517960432",
+        "workflow": "Оракулы дома зелёные (sovereign check)"
+      }
+    ]
+  }
+}
