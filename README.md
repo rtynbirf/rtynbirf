@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="banner.png" width="100%" alt="rtynbirf — 39 worlds, one organism">
+  <img src="banner.png" width="100%" alt="rtynbirf — 41 worlds, one organism">
 </div>
 
 # rtynbirf · AUTONOMOUS SYSTEMS LAB
