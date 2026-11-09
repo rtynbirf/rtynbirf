@@ -99,7 +99,7 @@
 </div>
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=rtynbirf&theme=discord&no-frame=true&no-bg=true&column=4&row=2&margin-w=8" alt="trophy" width="100%" />
+  <img src="assets/trophy-shelf.svg" width="100%" alt="Полка вечных медалей: Старт 2022 · Офлайн-первый · Рой 6 кластеров · Доказательства" />
 </div>
 
 ## THE SWARM CRAWLS
