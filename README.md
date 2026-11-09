@@ -87,12 +87,7 @@
 
 ## STATS
 
-<table>
-<tr>
-<td><img src="https://github-readme-stats.vercel.app/api?username=rtynbirf&show_icons=true&hide_border=true&bg_color=00000000&title_color=8B5CF6&text_color=9B8FB8&icon_color=22D3EE" alt="stats"></td>
-<td><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rtynbirf&layout=compact&hide_border=true&bg_color=00000000&title_color=8B5CF6&text_color=9B8FB8" alt="top langs"></td>
-</tr>
-</table>
+> Живая сверка чисел — в **SWARM-SYNC** ниже: суточная автогенерация по GitHub API, ни одного ручного числа. Языки, коммиты, топ-репо — там же.
 
 <div align="center">
   <img src="https://streak-stats.demolab.com?user=rtynbirf&hide_border=true&background=00000000&ring=8B5CF6&fire=22D3EE&currStreakNum=E9E4F5&currStreakLabel=8B5CF6&sideNums=9B8FB8&sideLabels=7C8BA8&dates=7C8BA8" alt="streak" width="49%" />
