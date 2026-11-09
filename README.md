@@ -152,7 +152,6 @@
 <div align="center">
   <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 28 репо, GitHub API" />
 </div>
-</div>
 
 <div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=rtynbirf&hide_border=true&bg_color=00000000&color=E8DCC8&line=D9A441&point=F5D78E&area=true&area_color=3A2F14&custom_title=ПУЛЬС%20ВСЕЛЕННОЙ%20·%20КОММИТЫ" alt="activity graph" width="100%" />
