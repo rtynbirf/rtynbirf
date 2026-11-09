@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="210" viewBox="0 0 1200 210" role="img" aria-label="Полка вечных медалей">
+  <defs>
+    <linearGradient id="m1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#4C1D95"/>
+    </linearGradient>
+    <linearGradient id="m2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#155E75"/>
+    </linearGradient>
+    <linearGradient id="m3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F0ABFC"/><stop offset="1" stop-color="#86198F"/>
+    </linearGradient>
+    <linearGradient id="m4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FDF6E3"/><stop offset="1" stop-color="#B45309"/>
+    </linearGradient>
+    <linearGradient id="shelfbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0620"/><stop offset="1" stop-color="#1A1033"/>
+    </linearGradient>
+    <linearGradient id="edge2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="1196" height="206" rx="16" fill="url(#shelfbg)" stroke="#8B5CF6" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="2" y="2" width="1196" height="5" rx="2.5" fill="url(#edge2)"/>
+
+  <g transform="translate(150,96)">
+    <polygon points="-14,-38 14,-38 8,-14 -8,-14" fill="#B91C1C"/>
+    <circle r="26" fill="url(#m1)" stroke="#E9E4F5" stroke-width="2"/>
+    <text y="6" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">2022</text>
+    <text y="-48" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="700" letter-spacing="1" fill="#C4B5FD">СТАРТ УНИВЕРУМА</text>
+    <text y="52" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">живёт с декабря 2022</text>
+  </g>
+
+  <g transform="translate(450,96)">
+    <polygon points="-14,-38 14,-38 8,-14 -8,-14" fill="#B91C1C"/>
+    <circle r="26" fill="url(#m2)" stroke="#E9E4F5" stroke-width="2"/>
+    <text y="6" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="18" font-weight="700" fill="#0B0620">◉</text>
+    <text y="-48" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="700" letter-spacing="1" fill="#67E8F9">ОФЛАЙН-ПЕРВЫЙ</text>
+    <text y="52" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">без сети и без разрешений</text>
+  </g>
+
+  <g transform="translate(750,96)">
+    <polygon points="-14,-38 14,-38 8,-14 -8,-14" fill="#B91C1C"/>
+    <circle r="26" fill="url(#m3)" stroke="#E9E4F5" stroke-width="2"/>
+    <text y="6" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">×6</text>
+    <text y="-48" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="700" letter-spacing="1" fill="#F0ABFC">РОЙ · 6 КЛАСТЕРОВ</text>
+    <text y="52" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">эмерджентный организм репо</text>
+  </g>
+
+  <g transform="translate(1050,96)">
+    <polygon points="-14,-38 14,-38 8,-14 -8,-14" fill="#B91C1C"/>
+    <circle r="26" fill="url(#m4)" stroke="#E9E4F5" stroke-width="2"/>
+    <text y="6" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="700" fill="#0B0620">✓</text>
+    <text y="-48" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="700" letter-spacing="1" fill="#FDF6E3">ДОКАЗАТЕЛЬСТВА</text>
+    <text y="52" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">lean · evidence-audit · проверяемо</text>
+  </g>
+</svg>
