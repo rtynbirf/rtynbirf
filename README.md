@@ -15,7 +15,7 @@
 
 [![Public repos](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Frtynbirf&query=%24.public_repos&label=public%20repos&color=241D12&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf?tab=repositories)
 [![Commits](https://img.shields.io/badge/commits-2700%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
-[![Showcase](https://img.shields.io/badge/showcase-rtynbirf.github.io-8B5CF6?style=flat-square)](https://rtynbirf.github.io)
+[![Showcase](https://img.shields.io/badge/showcase-rtynbirf.github.io-D9A441?style=flat-square)](https://rtynbirf.github.io)
 [![Followers](https://img.shields.io/github/followers/rtynbirf?style=flat-square&color=2E2540&label=followers)](https://github.com/rtynbirf)
 [![Audit](https://img.shields.io/badge/audited-2026--11--08-2E2540?style=flat-square)](https://github.com/rtynbirf)
 [![Views](https://komarev.com/ghpvc/?username=rtynbirf&style=flat-square&color=2E2540&label=views)](https://github.com/rtynbirf)
