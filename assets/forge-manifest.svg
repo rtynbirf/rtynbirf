@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1344" height="96" viewBox="0 0 1344 96">
+
+<defs>
+  <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F2C464"/>
+    <stop offset="0.55" stop-color="#D9A441"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="gGoldX" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8A6420"/>
+    <stop offset="0.5" stop-color="#F2C464"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="gVig" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#191410"/>
+    <stop offset="0.6" stop-color="#12100C"/>
+    <stop offset="1" stop-color="#0B0A08"/>
+  </radialGradient>
+  <linearGradient id="gFade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#D9A441" stop-opacity="0"/>
+    <stop offset="0.5"  stop-color="#D9A441" stop-opacity="1"/>
+    <stop offset="1"    stop-color="#D9A441" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<rect width="1344" height="96" fill="#0B0A08"/>
+<line x1="60" y1="16" x2="1284" y2="16" stroke="url(#gFade)" stroke-width="1.4"/>
+<line x1="60" y1="80" x2="1284" y2="80" stroke="url(#gFade)" stroke-width="1.4"/>
+<path d="M 60 11 L 65 16 L 60 21 L 55 16 Z" fill="#F2C464" opacity="0.95"/><path d="M 1284 11 L 1289 16 L 1284 21 L 1279 16 Z" fill="#F2C464" opacity="0.95"/>
+<path d="M 60 75 L 65 80 L 60 85 L 55 80 Z" fill="#D9A441" opacity="0.8"/><path d="M 1284 75 L 1289 80 L 1284 85 L 1279 80 Z" fill="#D9A441" opacity="0.8"/>
+<text x="672" y="56" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="31" letter-spacing="7" fill="#F2C464" opacity="0">РОЙ СТРОИТ · ЧЕЛОВЕК ВЕДЁТ
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.04;0.10;0.26;0.32;1" dur="16s" begin="0.0s" repeatCount="indefinite"/>
+</text><text x="672" y="56" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="31" letter-spacing="7" fill="#F2C464" opacity="0">ОФЛАЙН ЖИВЁТ ЗДЕСЬ
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.04;0.10;0.26;0.32;1" dur="16s" begin="4.0s" repeatCount="indefinite"/>
+</text><text x="672" y="56" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="31" letter-spacing="7" fill="#F2C464" opacity="0">КАЖДАЯ ЦИФРА ПРОВЕРЯЕМА
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.04;0.10;0.26;0.32;1" dur="16s" begin="8.0s" repeatCount="indefinite"/>
+</text><text x="672" y="56" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="31" letter-spacing="7" fill="#F2C464" opacity="0">ЗАХОДИ С ПОТОЛКА · УЙДЁШЬ С КАРТОЙ
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.04;0.10;0.26;0.32;1" dur="16s" begin="12.0s" repeatCount="indefinite"/>
+</text>
+<path d="M 120 44 L 124 48 L 120 52 L 116 48 Z" fill="#E8722A" opacity="0.9"/>
+  <animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite"/>
+<path d="M 1224 44 L 1228 48 L 1224 52 L 1220 48 Z" fill="#E8722A" opacity="0.9"/>
+  <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+</svg>
