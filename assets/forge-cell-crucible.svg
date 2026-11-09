@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320">
+
+<defs>
+  <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F2C464"/>
+    <stop offset="0.55" stop-color="#D9A441"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="gGoldX" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8A6420"/>
+    <stop offset="0.5" stop-color="#F2C464"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="gVig" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#191410"/>
+    <stop offset="0.6" stop-color="#12100C"/>
+    <stop offset="1" stop-color="#0B0A08"/>
+  </radialGradient>
+  <linearGradient id="gFade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#D9A441" stop-opacity="0"/>
+    <stop offset="0.5"  stop-color="#D9A441" stop-opacity="1"/>
+    <stop offset="1"    stop-color="#D9A441" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<rect width="640" height="320" fill="#0B0A08"/><rect x="8" y="8" width="624" height="304" fill="#12100C" stroke="#3A2E14" stroke-width="1.5"/>
+  <path d="M 8 34 V 8 H 34" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 606 8 H 632 V 34" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 632 286 V 312 H 606" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 34 312 H 8 V 286" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+
+<!-- тигль -->
+<path d="M 88 208 L 168 208 L 156 252 L 100 252 Z" fill="#0B0A08" stroke="#D9A441" stroke-width="2.5"/>
+<line x1="80" y1="208" x2="176" y2="208" stroke="#F2C464" stroke-width="3.5"/>
+<g opacity="0.95"><path d="M 128 208 C 112 176 116 148 128 124 C 140 148 144 176 128 208 Z" fill="#D9A441" transform-origin="128 208">
+  <animateTransform attributeName="transform" type="scale" values="1;1.14;0.94;1" dur="2.4s" begin="0s" repeatCount="indefinite"/>
+</path></g><g opacity="0.95"><path d="M 128 208 C 112 176 116 148 128 124 C 140 148 144 176 128 208 Z" fill="#F2C464" transform-origin="128 208">
+  <animateTransform attributeName="transform" type="scale" values="1;1.14;0.94;1" dur="1.7s" begin="-0.6s" repeatCount="indefinite"/>
+</path></g><g opacity="0.95"><path d="M 128 208 C 112 176 116 148 128 124 C 140 148 144 176 128 208 Z" fill="#E8722A" transform-origin="128 208">
+  <animateTransform attributeName="transform" type="scale" values="1;1.14;0.94;1" dur="1.3s" begin="-0.9s" repeatCount="indefinite"/>
+</path></g>
+<circle cx="126" cy="200" r="2.3" fill="#F2C464" opacity="0"><animate attributeName="cy" values="200;120" dur="2.26s" begin="-0.60s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" keyTimes="0;0.3;1" dur="2.26s" begin="-0.60s" repeatCount="indefinite"/></circle><circle cx="117" cy="200" r="2.5" fill="#F2C464" opacity="0"><animate attributeName="cy" values="200;120" dur="2.21s" begin="-2.38s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" keyTimes="0;0.3;1" dur="2.21s" begin="-2.38s" repeatCount="indefinite"/></circle><circle cx="125" cy="200" r="2.0" fill="#F2C464" opacity="0"><animate attributeName="cy" values="200;120" dur="2.00s" begin="-1.58s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" keyTimes="0;0.3;1" dur="2.00s" begin="-1.58s" repeatCount="indefinite"/></circle><circle cx="127" cy="200" r="1.7" fill="#F2C464" opacity="0"><animate attributeName="cy" values="200;120" dur="1.84s" begin="-2.39s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" keyTimes="0;0.3;1" dur="1.84s" begin="-2.39s" repeatCount="indefinite"/></circle><circle cx="122" cy="200" r="1.7" fill="#F2C464" opacity="0"><animate attributeName="cy" values="200;120" dur="2.51s" begin="-2.09s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" keyTimes="0;0.3;1" dur="2.51s" begin="-2.09s" repeatCount="indefinite"/></circle><circle cx="130" cy="200" r="1.8" fill="#F2C464" opacity="0"><animate attributeName="cy" values="200;120" dur="1.96s" begin="-1.38s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" keyTimes="0;0.3;1" dur="1.96s" begin="-1.38s" repeatCount="indefinite"/></circle><circle cx="140" cy="200" r="1.6" fill="#F2C464" opacity="0"><animate attributeName="cy" values="200;120" dur="2.09s" begin="-0.48s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" keyTimes="0;0.3;1" dur="2.09s" begin="-0.48s" repeatCount="indefinite"/></circle>
+<text x="230" y="106" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="6" fill="#C9C2B4">ЖИВАЯ КУЗНЯ</text>
+<text x="230" y="148" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="bold" letter-spacing="2" fill="#F2C464">ПУЛЬС: ЖИВ</text>
+<line x1="230" y1="168" x2="596" y2="168" stroke="#3A2E14" stroke-width="1.2"/>
+<text x="230" y="196" font-family="'Courier New', monospace" font-size="14" fill="#C9C2B4">LAYOUT · RENDER · CRITIC</text>
+<text x="230" y="220" font-family="'Courier New', monospace" font-size="14" fill="#C9C2B4">loop закрыт · правки до попадания</text>
+<text x="230" y="252" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="3" fill="#8A6420">смена 2026-11-10</text>
+<path d="M 218 97 L 222 101 L 218 105 L 214 101 Z" fill="#D9A441" opacity="1.0"/>
+</svg>
