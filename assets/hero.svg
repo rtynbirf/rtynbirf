@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Полимат-универсум">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0620"/>
+      <stop offset="0.55" stop-color="#17102E"/>
+      <stop offset="1" stop-color="#2E2540"/>
+    </linearGradient>
+    <linearGradient id="wave1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="0.5" stop-color="#6D5AE8"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="wave2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="ttl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#C4B5FD"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#67E8F9"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#bg)"/>
+  <ellipse cx="600" cy="150" rx="420" ry="120" fill="url(#halo)"/>
+
+  <g fill="#FFFFFF">
+    <circle cx="90" cy="60" r="1.6"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.6s" begin="0s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="130" r="1.2"><animate attributeName="opacity" values="1;0.2;1" dur="3.4s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="45" r="1.8"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.9s" begin="1.1s" repeatCount="indefinite"/></circle>
+    <circle cx="450" cy="95" r="1.1"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.8s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="560" cy="40" r="1.5"><animate attributeName="opacity" values="1;0.25;1" dur="2.2s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="700" cy="120" r="1.2"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.1s" begin="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="830" cy="55" r="1.7"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.4s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="950" cy="140" r="1.2"><animate attributeName="opacity" values="1;0.2;1" dur="3.6s" begin="1.3s" repeatCount="indefinite"/></circle>
+    <circle cx="1080" cy="70" r="1.6"><animate attributeName="opacity" values="0.25;1;0.25" dur="2.8s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="1150" cy="180" r="1.1"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.3s" begin="2s" repeatCount="indefinite"/></circle>
+    <circle cx="60" cy="220" r="1.3"><animate attributeName="opacity" values="1;0.25;1" dur="2.7s" begin="1.5s" repeatCount="indefinite"/></circle>
+    <circle cx="300" cy="250" r="1.1"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.5s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="240" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="1.9s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <circle r="4" fill="#22D3EE">
+    <animateMotion dur="14s" repeatCount="indefinite" path="M 600 140 m -330 0 a 330 42 0 1 0 660 0 a 330 42 0 1 0 -660 0"/>
+  </circle>
+  <circle r="3" fill="#8B5CF6">
+    <animateMotion dur="11s" repeatCount="indefinite" path="M 600 140 m 260 -30 a 260 34 0 1 0 -520 0 a 260 34 0 1 0 520 0"/>
+  </circle>
+
+  <text x="600" y="160" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="62" font-weight="700" letter-spacing="6" fill="url(#ttl)">ПОЛИМАТ-УНИВЕРУМ</text>
+  <text x="600" y="212" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="21" letter-spacing="2" fill="#9B8FB8">автономные агенты · генеративное медиа · офлайн-суверенитет</text>
+
+  <g opacity="0.9">
+    <path d="M0,330 C150,290 350,330 600,310 C850,290 1050,330 1200,300 L1200,360 L0,360 Z" fill="url(#wave2)">
+      <animateTransform attributeName="transform" type="translate" values="0 0; -60 0; 0 0" dur="16s" repeatCount="indefinite"/>
+    </path>
+    <path d="M0,345 C200,305 400,345 600,328 C800,310 1000,345 1200,320 L1200,360 L0,360 Z" fill="url(#wave1)" opacity="0.75">
+      <animateTransform attributeName="transform" type="translate" values="-80 0; 80 0; -80 0" dur="12s" repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>
