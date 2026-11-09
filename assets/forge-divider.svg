@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1344" height="26" viewBox="0 0 1344 26">
+
+<defs>
+  <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F2C464"/>
+    <stop offset="0.55" stop-color="#D9A441"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="gGoldX" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8A6420"/>
+    <stop offset="0.5" stop-color="#F2C464"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="gVig" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#191410"/>
+    <stop offset="0.6" stop-color="#12100C"/>
+    <stop offset="1" stop-color="#0B0A08"/>
+  </radialGradient>
+  <linearGradient id="gFade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#D9A441" stop-opacity="0"/>
+    <stop offset="0.5"  stop-color="#D9A441" stop-opacity="1"/>
+    <stop offset="1"    stop-color="#D9A441" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<rect width="1344" height="26" fill="none"/>
+<line x1="36" y1="13" x2="1308" y2="13" stroke="url(#gFade)" stroke-width="1.6"/>
+<path d="M 36 8.5 L 40.5 13 L 36 17.5 L 31.5 13 Z" fill="#D9A441" opacity="0.9"/><path d="M 1308 8.5 L 1312.5 13 L 1308 17.5 L 1303.5 13 Z" fill="#D9A441" opacity="0.9"/>
+<circle cx="36" cy="13" r="3.2" fill="#F2C464">
+  <animate attributeName="cx" values="36;1308" dur="6s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.9;1" dur="6s" repeatCount="indefinite"/>
+</circle>
+<circle cx="36" cy="13" r="5.5" fill="#E8722A" opacity="0">
+  <animate attributeName="cx" values="36;1308" dur="6s" begin="-5.86s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.5;0.12;0" keyTimes="0;0.12;1" dur="0.9s" begin="-5.86s" repeatCount="indefinite"/>
+</circle>
+</svg>
