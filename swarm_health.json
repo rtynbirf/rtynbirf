@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T08:15:22Z",
+  "generated_at": "2026-11-09T13:18:26Z",
   "generated_date": "2026-11-09",
   "heavyweights": {
     "badge_color": "orange",
@@ -7,7 +7,7 @@
     "repos": [
       {
         "repo": "singulyar",
-        "size_mib": 1537.0
+        "size_mib": 1055.6
       }
     ]
   },
@@ -30,8 +30,21 @@
     "unscanned": []
   },
   "wounds": {
-    "badge_color": "brightgreen",
-    "count": 0,
-    "repos": []
+    "badge_color": "red",
+    "count": 2,
+    "repos": [
+      {
+        "conclusion": "failure",
+        "repo": "polymath-os",
+        "url": "https://github.com/rtynbirf/polymath-os/actions/runs/42621341195",
+        "workflow": "ПУЛЬС v2 — еженедельный самоаудит"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "universal-agent",
+        "url": "https://github.com/rtynbirf/universal-agent/actions/runs/42612067875",
+        "workflow": "ci"
+      }
+    ]
   }
 }
