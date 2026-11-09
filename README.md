@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="banner.png" width="100%" alt="rtynbirf — 41 worlds, one organism">
+  <img src="assets/hero.svg" width="100%" alt="ПОЛИМАТ-УНИВЕРУМ — автономные агенты · генеративное медиа · офлайн-суверенитет">
 </div>
 
 # rtynbirf · AUTONOMOUS SYSTEMS LAB
@@ -7,7 +7,13 @@
 **Autonomous agents · Generative media · Offline sovereignty.**
 «Строю то, что работает без интернета и без разрешений.»
 
-[![Public repos](https://img.shields.io/badge/public%20repos-26-2E2540?style=flat-square)](https://github.com/rtynbirf?tab=repositories)
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Unbounded&weight=700&size=20&duration=3500&pause=1100&color=8B5CF6&center=true&vCenter=true&width=720&lines=%D0%A0%D0%9E%D0%99+%D0%A1%D0%A2%D0%A0%D0%9E%D0%98%D0%A2+%C2%B7+%D0%A7%D0%95%D0%9B%D0%9E%D0%92%D0%95%D0%9A+%D0%92%D0%95%D0%94%D0%81%D0%A2;%D0%9E%D0%A4%D0%9B%D0%90%D0%99%D0%9D+%D0%96%D0%98%D0%92%D0%81%D0%A2+%D0%97%D0%94%D0%95%D0%A1%D0%AC;%D0%9A%D0%90%D0%96%D0%94%D0%90%D0%AF+%D0%A6%D0%98%D0%A4%D0%A0%D0%90+%D0%9F%D0%A0%D0%9E%D0%92%D0%95%D0%A0%D0%AF%D0%95%D0%9C%D0%90;%D0%97%D0%90%D0%A5%D0%9E%D0%94%D0%98+%D0%A1+%D0%9F%D0%9E%D0%A2%D0%9E%D0%9B%D0%9A%D0%90+%D0%A3%D0%99%D0%94%D0%95%D0%A8%D0%AC+%D0%A1+%D0%9A%D0%90%D0%A0%D0%A2%D0%9E%D0%99" alt="typing" />
+</div>
+
+<div align="center"><img src="assets/divider.svg" width="100%" alt="разделитель"></div>
+
+[![Public repos](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Frtynbirf&query=%24.public_repos&label=public%20repos&color=2E2540&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf?tab=repositories)
 [![Commits](https://img.shields.io/badge/commits-2700%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
 [![Showcase](https://img.shields.io/badge/showcase-rtynbirf.github.io-8B5CF6?style=flat-square)](https://rtynbirf.github.io)
 [![Followers](https://img.shields.io/github/followers/rtynbirf?style=flat-square&color=2E2540&label=followers)](https://github.com/rtynbirf)
@@ -62,7 +68,13 @@
 > **Memory** — каждый прогон остаётся артефактом: `state.json`, `PULSE.md`.
 > **Honesty** — недоделанное помечается недоделанным; фоллбек вместо вранья.
 
-## THE UNIVERSE · 26 public repos · 6 clusters
+## КАРТА ВСЕЛЕННОЙ
+
+<div align="center">
+  <img src="assets/swarm-orbit.svg" width="100%" alt="6 кластеров вокруг СИНГУЛЯРА: РОЙ · ПОЛИМАТ · РУВСОН · АТЛАСЫ · ОС · ВЕБ">
+</div>
+
+## THE UNIVERSE · 6 кластеров · живой счёт в SWARM-SYNC ниже
 
 | Cluster | Repositories |
 |---|---|
@@ -82,6 +94,14 @@
 </tr>
 </table>
 
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=rtynbirf&hide_border=true&background=00000000&ring=8B5CF6&fire=22D3EE&currStreakNum=E9E4F5&currStreakLabel=8B5CF6&sideNums=9B8FB8&sideLabels=7C8BA8&dates=7C8BA8" alt="streak" width="49%" />
+</div>
+
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=rtynbirf&theme=discord&no-frame=true&no-bg=true&column=4&row=2&margin-w=8" alt="trophy" width="100%" />
+</div>
+
 ## THE SWARM CRAWLS
 
 <picture>
@@ -89,7 +109,18 @@
   <img src="https://raw.githubusercontent.com/rtynbirf/rtynbirf/output/github-contribution-grid-snake.svg" alt="contribution snake" width="100%">
 </picture>
 
+## СВЕТ ВСЕЛЕННОЙ · 3D
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rtynbirf/rtynbirf/main/profile-3d-contrib/profile-night-rainbow.svg">
+  <img src="https://raw.githubusercontent.com/rtynbirf/rtynbirf/main/profile-3d-contrib/profile-green-animate.svg" alt="3d contributions" width="100%">
+</picture>
+
 ---
+
+<div align="center">
+  <img src="assets/footer.svg" width="100%" alt="офлайн живёт здесь">
+</div>
 
 <div align="center">
 <sub><b><a href="https://rtynbirf.github.io">rtynbirf.github.io</a></b> — витрина вселенной · built by the swarm, for the swarm</sub>
