@@ -8,10 +8,14 @@
 «Строю то, что работает без интернета и без разрешений.»
 
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Unbounded&weight=700&size=20&duration=3500&pause=1100&color=D9A441&center=true&vCenter=true&width=720&lines=%D0%A0%D0%9E%D0%99+%D0%A1%D0%A2%D0%A0%D0%9E%D0%98%D0%A2+%C2%B7+%D0%A7%D0%95%D0%9B%D0%9E%D0%92%D0%95%D0%9A+%D0%92%D0%95%D0%94%D0%81%D0%A2;%D0%9E%D0%A4%D0%9B%D0%90%D0%99%D0%9D+%D0%96%D0%98%D0%92%D0%81%D0%A2+%D0%97%D0%94%D0%95%D0%A1%D0%AC;%D0%9A%D0%90%D0%96%D0%94%D0%90%D0%AF+%D0%A6%D0%98%D0%A4%D0%A0%D0%90+%D0%9F%D0%A0%D0%9E%D0%92%D0%95%D0%A0%D0%AF%D0%95%D0%9C%D0%90;%D0%97%D0%90%D0%A5%D0%9E%D0%94%D0%98+%D0%A1+%D0%9F%D0%9E%D0%A2%D0%9E%D0%9B%D0%9A%D0%90+%D0%A3%D0%99%D0%94%D0%95%D0%A8%D0%AC+%D0%A1+%D0%9A%D0%90%D0%A0%D0%A2%D0%9E%D0%99" alt="typing" />
+  <img src="assets/forge-hero.svg" width="100%" alt="Живая эмблема кузни: восходящий феникс в кольце рун, орбитальный блеск, искры" />
 </div>
 
-<div align="center"><img src="assets/divider.svg" width="100%" alt="разделитель"></div>
+<div align="center">
+  <img src="assets/forge-manifest.svg" width="100%" alt="Лента девизов: РОЙ СТРОИТ · ЧЕЛОВЕК ВЕДЁТ · ОФЛАЙН ЖИВЁТ ЗДЕСЬ · КАЖДАЯ ЦИФРА ПРОВЕРЯЕМА" />
+</div>
+
+<div align="center"><img src="assets/forge-divider.svg" width="100%" alt="разделитель с бегущей искрой"></div>
 
 [![Public repos](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Frtynbirf&query=%24.public_repos&label=public%20repos&color=241D12&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf?tab=repositories)
 [![Commits](https://img.shields.io/badge/commits-2700%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
@@ -25,6 +29,22 @@
 <!-- HEALTH:END -->
 
 ---
+
+## ЖИВАЯ КУЗНЯ · BENTO
+
+<table>
+<tr>
+<td width="50%"><img src="assets/forge-cell-medallion.svg" width="100%" alt="Аватар кузни: феникс в круге, вписан без обреза"/></td>
+<td width="50%"><img src="assets/forge-cell-crucible.svg" width="100%" alt="Пульс кузни: жив"/></td>
+</tr>
+<tr>
+<td width="50%"><img src="assets/forge-cell-ledger.svg" width="100%" alt="Опись цифр кузни"/></td>
+<td width="50%"><img src="assets/forge-cell-seal.svg" width="100%" alt="Печать роя"/></td>
+</tr>
+</table>
+
+> Ни одного стороннего виджета: эмблема, лента девизов и капсулы выкованы вручную.
+> Каждый блок — один self-contained SVG, анимация встроена в файл и работает прямо в `<img>`.
 
 ## FLAGSHIPS
 
@@ -122,12 +142,16 @@
 > Живая сверка чисел — в **SWARM-SYNC** ниже: суточная автогенерация по GitHub API, ни одного ручного числа. Языки, коммиты, топ-репо — там же.
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=rtynbirf&hide_border=true&background=00000000&ring=D9A441&fire=F59E0B&currStreakNum=E8DCC8&currStreakLabel=D9A441&sideNums=C9B98F&sideLabels=8A7A5C&dates=8A7A5C" alt="streak" width="49%" />
+  <img src="assets/forge-cell-flame.svg" width="49%" alt="Серия кузни: огонь не гаснет, суточный прогон" />
 </div>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=rtynbirf&show_icons=true&hide_border=true&bg_color=0B0A08&title_color=D9A441&text_color=E8DCC8&icon_color=D9A441&count_private=true&include_all_commits=true&hide_rank=false" alt="stats" width="49%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rtynbirf&layout=compact&hide_border=true&bg_color=0B0A08&title_color=D9A441&text_color=E8DCC8&langs_count=8" alt="top-langs" width="49%" />
+  <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 28 флотов · 2 раны · 1 PR · 1 тяжеловес" />
+</div>
+
+<div align="center">
+  <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 28 репо, GitHub API" />
+</div>
 </div>
 
 <div align="center">
