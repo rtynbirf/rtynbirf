@@ -29,3 +29,4 @@
 - [GitHub](https://github.com/rtynbirf/rtynbirf)
 - [README](https://github.com/rtynbirf/rtynbirf/blob/main/README.md)
 - [raw llms.txt](https://raw.githubusercontent.com/rtynbirf/rtynbirf/main/llms.txt)
+- [PULSE.md](PULSE.md): живой пульс репозитория — прогоны, пломбы, здоровье.
