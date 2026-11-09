@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320">
+
+<defs>
+  <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F2C464"/>
+    <stop offset="0.55" stop-color="#D9A441"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="gGoldX" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8A6420"/>
+    <stop offset="0.5" stop-color="#F2C464"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="gVig" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#191410"/>
+    <stop offset="0.6" stop-color="#12100C"/>
+    <stop offset="1" stop-color="#0B0A08"/>
+  </radialGradient>
+  <linearGradient id="gFade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#D9A441" stop-opacity="0"/>
+    <stop offset="0.5"  stop-color="#D9A441" stop-opacity="1"/>
+    <stop offset="1"    stop-color="#D9A441" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<rect width="640" height="320" fill="#0B0A08"/><rect x="8" y="8" width="624" height="304" fill="#12100C" stroke="#3A2E14" stroke-width="1.5"/>
+  <path d="M 8 34 V 8 H 34" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 606 8 H 632 V 34" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 632 286 V 312 H 606" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 34 312 H 8 V 286" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+
+<g>
+  <line x1="317.0" y1="160.0" x2="327.0" y2="160.0" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="315.3" y1="179.4" x2="325.1" y2="181.2" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="310.2" y1="198.3" x2="319.6" y2="201.7" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="302.0" y1="216.0" x2="310.7" y2="221.0" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="290.8" y1="232.0" x2="298.5" y2="238.4" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="277.0" y1="245.8" x2="283.4" y2="253.5" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="261.0" y1="257.0" x2="266.0" y2="265.7" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="243.3" y1="265.2" x2="246.7" y2="274.6" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="224.4" y1="270.3" x2="226.2" y2="280.1" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="205.0" y1="272.0" x2="205.0" y2="282.0" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="185.6" y1="270.3" x2="183.8" y2="280.1" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="166.7" y1="265.2" x2="163.3" y2="274.6" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="149.0" y1="257.0" x2="144.0" y2="265.7" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="133.0" y1="245.8" x2="126.6" y2="253.5" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="119.2" y1="232.0" x2="111.5" y2="238.4" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="108.0" y1="216.0" x2="99.3" y2="221.0" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="99.8" y1="198.3" x2="90.4" y2="201.7" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="94.7" y1="179.4" x2="84.9" y2="181.2" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="93.0" y1="160.0" x2="83.0" y2="160.0" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="94.7" y1="140.6" x2="84.9" y2="138.8" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="99.8" y1="121.7" x2="90.4" y2="118.3" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="108.0" y1="104.0" x2="99.3" y2="99.0" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="119.2" y1="88.0" x2="111.5" y2="81.6" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="133.0" y1="74.2" x2="126.6" y2="66.5" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="149.0" y1="63.0" x2="144.0" y2="54.3" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="166.7" y1="54.8" x2="163.3" y2="45.4" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="185.6" y1="49.7" x2="183.8" y2="39.9" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="205.0" y1="48.0" x2="205.0" y2="38.0" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="224.4" y1="49.7" x2="226.2" y2="39.9" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="243.3" y1="54.8" x2="246.7" y2="45.4" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="261.0" y1="63.0" x2="266.0" y2="54.3" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="277.0" y1="74.2" x2="283.4" y2="66.5" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="290.8" y1="88.0" x2="298.5" y2="81.6" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="302.0" y1="104.0" x2="310.7" y2="99.0" stroke="#D9A441" stroke-width="2.2" opacity="0.9"/><line x1="310.2" y1="121.7" x2="319.6" y2="118.3" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/><line x1="315.3" y1="140.6" x2="325.1" y2="138.8" stroke="#D9A441" stroke-width="1.2" opacity="0.9"/>
+  <animateTransform attributeName="transform" type="rotate" from="0 205 160" to="360 205 160" dur="70s" repeatCount="indefinite"/>
+</g>
+<rect x="145" y="100" width="120" height="120" fill="none" stroke="#D9A441" stroke-width="2" transform="rotate(45 205 160)"/>
+<rect x="157" y="112" width="96" height="96" fill="none" stroke="#8A6420" stroke-width="1.2" transform="rotate(45 205 160)"/>
+<path d="M 205 129.5 C 199.9 149.0 199.3 170.0 205 186.5 C 210.7 170.0 210.1 149.0 205 129.5 Z" fill="url(#gGold)" opacity="1.0" />
+<path d="M 202.6 156.5 C 186.4 149.0 173.8 137.0 166.6 118.4 C 176.2 129.2 191.8 143.0 203.2 150.2 Z" fill="url(#gGold)" opacity="1.0" />
+<path d="M 207.4 156.5 C 223.6 149.0 236.2 137.0 243.4 118.4 C 233.8 129.2 218.2 143.0 206.8 150.2 Z" fill="url(#gGold)" opacity="1.0" />
+<path d="M 202.9 164.6 C 191.8 165.2 182.8 161.0 178.6 152.0 C 188.2 156.8 196.6 160.4 203.5 162.8 Z" fill="url(#gGoldX)" opacity="1.0" />
+<path d="M 207.1 164.6 C 218.2 165.2 227.2 161.0 231.4 152.0 C 221.8 156.8 213.4 160.4 206.5 162.8 Z" fill="url(#gGoldX)" opacity="1.0" />
+<path d="M 205 182.0 C 200.8 194.0 197.2 203.0 193.6 211.4 C 200.2 206.0 203.2 198.5 205 191.0 Z" fill="url(#gGold)" opacity="1.0" />
+<path d="M 205 183.5 C 206.8 197.0 205.6 207.5 205 216.5 C 204.4 207.5 203.2 197.0 205 183.5 Z" fill="url(#gGoldX)" opacity="1.0" />
+<path d="M 205 182.0 C 209.2 194.0 212.8 203.0 216.4 211.4 C 209.8 206.0 206.8 198.5 205 191.0 Z" fill="url(#gGold)" opacity="1.0" />
+<path d="M 205 129.5 c -2.6999999999999997 -0.6 -3.9 -3.0 -3.3 -5.3999999999999995 c 2.4 1.5 4.2 1.5 6.6 0.0 c 0.6 2.4 -0.6 4.5 -3.3 5.3999999999999995 Z" fill="url(#gGold)" opacity="1.0" />
+<path d="M 205 124.4 C 203.2 120.80000000000001 204.4 118.4 205.6 116.0 C 206.8 119.0 206.5 122.0 205 124.4 Z" fill="#E8722A" opacity="1.0" />
+<text x="360" y="106" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="6" fill="#C9C2B4">ГЕРБ ПОЛИМАТА</text>
+<text x="360" y="148" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="bold" letter-spacing="2" fill="#F2C464">ПЕЧАТЬ РОЯ</text>
+<text x="360" y="178" font-family="Georgia, 'Times New Roman', serif" font-size="15" fill="#8A6420">обсидиан · расплавленное золото</text>
+<line x1="360" y1="200" x2="596" y2="200" stroke="#3A2E14" stroke-width="1.2"/>
+<text x="360" y="228" font-family="'Courier New', monospace" font-size="14" fill="#C9C2B4">42 флота · 1 штандарт каждый</text>
+<text x="360" y="252" font-family="'Courier New', monospace" font-size="14" fill="#C9C2B4">канон РЕВО · без единого слова</text>
+<path d="M 348 97 L 352 101 L 348 105 L 344 101 Z" fill="#D9A441" opacity="1.0"/>
+</svg>
