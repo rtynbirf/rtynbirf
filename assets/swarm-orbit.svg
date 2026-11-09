@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Карта вселенной: 6 кластеров вокруг СИНГУЛЯРА">
+  <defs>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0620"/>
+      <stop offset="1" stop-color="#1A1033"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FDF6E3"/>
+      <stop offset="0.45" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#4C1D95"/>
+    </radialGradient>
+    <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="1196" height="556" rx="18" fill="url(#card)" stroke="#8B5CF6" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="2" y="2" width="1196" height="6" rx="3" fill="url(#edge)"/>
+
+  <text x="600" y="52" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="26" font-weight="700" letter-spacing="4" fill="#E9E4F5">КАРТА ВСЕЛЕННОЙ</text>
+  <text x="600" y="80" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" letter-spacing="1" fill="#9B8FB8">6 кластеров · 1 организм · всё работает офлайн</text>
+
+  <g transform="translate(600,310)">
+    <circle r="120" fill="none" stroke="#8B5CF6" stroke-opacity="0.22" stroke-width="1"/>
+    <circle r="190" fill="none" stroke="#8B5CF6" stroke-opacity="0.16" stroke-width="1"/>
+    <circle r="255" fill="none" stroke="#22D3EE" stroke-opacity="0.12" stroke-width="1"/>
+
+    <circle r="48" fill="none" stroke="#8B5CF6" stroke-width="2">
+      <animate attributeName="r" values="48;78" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-opacity" values="0.7;0" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="48" fill="none" stroke="#22D3EE" stroke-width="2">
+      <animate attributeName="r" values="48;78" dur="3.2s" begin="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-opacity" values="0.7;0" dur="3.2s" begin="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="120" fill="url(#sunGlow)"/>
+    <circle r="46" fill="url(#sun)"/>
+    <text y="-66" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#FDF6E3">СИНГУЛЯР</text>
+    <text y="112" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="13" fill="#9B8FB8">офлайн-караоке · 64 песни · 200 ядер</text>
+
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="26s" repeatCount="indefinite"/>
+      <circle cx="120" cy="0" r="9" fill="#22D3EE"/>
+    </g>
+    <text x="150" y="-6" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="600" fill="#67E8F9">РОЙ · cell-swarm</text>
+    <text x="150" y="12" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">клетки · сверка · эмерджентность</text>
+
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="200" to="-160" dur="34s" repeatCount="indefinite"/>
+      <circle cx="-190" cy="0" r="11" fill="#8B5CF6"/>
+    </g>
+    <text x="-190" y="-38" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="600" fill="#C4B5FD">ПОЛИМАТ</text>
+    <text x="-190" y="-20" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">ген · os · атлас</text>
+
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="120" to="480" dur="40s" repeatCount="indefinite"/>
+      <circle cx="255" cy="0" r="10" fill="#67E8F9"/>
+    </g>
+    <text x="268" y="52" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="600" fill="#67E8F9">РУВСОН</text>
+    <text x="268" y="70" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">тексты · голос · движок</text>
+
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="60" to="-300" dur="30s" repeatCount="indefinite"/>
+      <circle cx="-255" cy="0" r="9" fill="#F0ABFC"/>
+    </g>
+    <text x="-255" y="42" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="600" fill="#F0ABFC">АТЛАСЫ</text>
+    <text x="-255" y="60" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">665 инструментов · доказательства</text>
+
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="300" to="-60" dur="44s" repeatCount="indefinite"/>
+      <circle cx="0" cy="-190" r="10" fill="#C4B5FD"/>
+    </g>
+    <text x="30" y="-196" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="600" fill="#C4B5FD">ОС · суверенные машины</text>
+    <text x="30" y="-178" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">polymath-os · os-forge · browser</text>
+
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="180" to="540" dur="36s" repeatCount="indefinite"/>
+      <circle cx="0" cy="190" r="9" fill="#FDF6E3"/>
+    </g>
+    <text x="24" y="196" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="15" font-weight="600" fill="#FDF6E3">ВЕБ · витрина</text>
+    <text x="24" y="214" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="12" fill="#7C8BA8">rtynbirf.github.io · pwa</text>
+  </g>
+
+  <text x="600" y="538" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans', sans-serif" font-size="13" letter-spacing="1" fill="#5E5A78">built by the swarm · led by a human</text>
+</svg>
