@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="200" viewBox="0 0 640 200">
+
+<defs>
+  <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F2C464"/>
+    <stop offset="0.55" stop-color="#D9A441"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="gGoldX" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8A6420"/>
+    <stop offset="0.5" stop-color="#F2C464"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="gVig" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#191410"/>
+    <stop offset="0.6" stop-color="#12100C"/>
+    <stop offset="1" stop-color="#0B0A08"/>
+  </radialGradient>
+  <linearGradient id="gFade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#D9A441" stop-opacity="0"/>
+    <stop offset="0.5"  stop-color="#D9A441" stop-opacity="1"/>
+    <stop offset="1"    stop-color="#D9A441" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<rect width="640" height="200" fill="#0B0A08"/><rect x="8" y="8" width="624" height="184" fill="#12100C" stroke="#3A2E14" stroke-width="1.5"/>
+  <path d="M 8 28 V 8 H 28" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 612 8 H 632 V 28" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 632 172 V 192 H 612" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 28 192 H 8 V 172" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+
+<text x="56" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="6" fill="#C9C2B4">ЗДОРОВЬЕ РОЯ · СРЕЗ 2026-11-10</text>
+<text x="56" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#F2C464">28<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  ФЛОТОВ</tspan></text>
+<text x="286" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#C05A3A">2<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  РАНЫ · ЛЕЧУ</tspan></text>
+<text x="56" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#D9A441">1<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  PR ОТКРЫТ</tspan></text>
+<text x="286" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#D9A441">1<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  ТЯЖЕЛОВЕС 1056 MiB</tspan></text>
+<text x="56" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="12" letter-spacing="2" fill="#8A6420">живая сверка — SWARM-SYNC ниже · GitHub API</text>
+</svg>
