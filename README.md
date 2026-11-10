@@ -19,6 +19,10 @@
   <img src="assets/forge-manifest.svg" width="100%" alt="Лента девизов: РОЙ СТРОИТ · ЧЕЛОВЕК ВЕДЁТ · ОФЛАЙН ЖИВЁТ ЗДЕСЬ · КАЖДАЯ ЦИФРА ПРОВЕРЯЕМА" />
 </div>
 
+<div align="center">
+  <img src="assets/forge-pid1.svg" width="100%" alt="ЧЕЛОВЕК=АККАУНТ=PID1: init-кольца и boot-лог дома, загрузка продолжается" />
+</div>
+
 <div align="center"><img src="assets/forge-divider.svg" width="100%" alt="разделитель с бегущей искрой"></div>
 
 ## ЗАХОДИ С ПОТОЛКА
@@ -126,6 +130,10 @@
   <img src="assets/forge-swarm.svg" width="100%" alt="Карта связей роя: семь флагманов-узлов с реальным весом, импульсы бегут по рёбрам к ядру ПОЛИМАТ" />
 </div>
 
+<div align="center">
+  <img src="assets/forge-spawn.svg" width="100%" alt="Дерево процессов дома: PID1 порождает шесть кластеров вселенной, импульсы бегут по ветвям" />
+</div>
+
 ## ШТАНДАРТЫ ФЛОТОВ · OBSIDIAN & MOLTEN GOLD
 
 > Каждая репа несёт написанную картину-штандарт: барокко- chiaroscuro, обсидиан, расплавленное золото.
@@ -204,6 +212,10 @@
 
 <div align="center">
   <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 48 флотов · 0 ран · 4 PR · 1 тяжеловес" />
+</div>
+
+<div align="center">
+  <img src="assets/forge-cell-boot.svg" width="49%" alt="BOOT LOG: dmesg кузни, инициализация ЧЕЛОВЕК=АККАУНТ=PID1" />
 </div>
 
 <div align="center">
