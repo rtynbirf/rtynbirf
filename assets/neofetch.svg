@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="470" viewBox="0 0 780 470" role="img" aria-label="neofetch-карта вселенной rtynbirf">
+  <defs>
+    <linearGradient id="nterm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0A08"/>
+      <stop offset="1" stop-color="#1C1508"/>
+    </linearGradient>
+    <linearGradient id="nedge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D9A441"/>
+      <stop offset="1" stop-color="#FFBD2E"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .mono { font-family: ui-monospace, 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace; }
+    .frame { fill: #D9A441; font-size: 14px; }
+    .core  { fill: #FFC96B; font-size: 14px; }
+    .lbl   { fill: #D9A441; font-size: 14px; font-weight: 700; }
+    .val   { fill: #F5EBD8; font-size: 14px; font-weight: 600; }
+    .sub   { fill: #9A8A64; font-size: 11px; }
+    .prompt{ fill: #FFBD2E; font-size: 14px; }
+  </style>
+  <rect x="2" y="2" width="776" height="466" rx="16" fill="url(#nterm)" stroke="#D9A441" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="2" y="2" width="776" height="6" rx="3" fill="url(#nedge)"/>
+  <rect x="2" y="16" width="776" height="34" fill="#241D12" stroke="#D9A441" stroke-opacity="0.2"/>
+  <circle cx="28" cy="33" r="6" fill="#FF5F56"/>
+  <circle cx="50" cy="33" r="6" fill="#FFBD2E"/>
+  <circle cx="72" cy="33" r="6" fill="#27C93F"/>
+  <text x="390" y="38" text-anchor="middle" class="mono sub">polimat@universum — zsh</text>
+  <text x="30" y="78" class="mono prompt">➜ ~ polimat --fetch</text>
+  <text x="60" y="110" class="frame">· · · · · · · · ·</text>
+  <text x="60" y="131" class="frame">    ╭─────────╮</text>
+  <text x="60" y="152" class="core">  ╭─┤  ◉◉◉◉◉  ├─╮</text>
+  <text x="60" y="173" class="core">  │ │  ◉◉◉◉◉  │ │</text>
+  <text x="60" y="194" class="core">  ╰─┤  ◉◉◉◉◉  ├─╯</text>
+  <text x="60" y="215" class="frame">    ╰────┬────╯</text>
+  <text x="60" y="236" class="frame">· · · · · · · · ·</text>
+  <text x="330" y="118" class="lbl">ОС</text>
+  <text x="448" y="118" class="val">офлайн-суверен</text>
+  <text x="448" y="133" class="sub">без облака · без сети · без разрешений</text>
+  <text x="330" y="158" class="lbl">РОЙ</text>
+  <text x="448" y="158" class="val">6 кластеров · 1 организм</text>
+  <text x="448" y="173" class="sub">клетки · сверка · эмерджентность</text>
+  <text x="330" y="198" class="lbl">РЕПО</text>
+  <text x="448" y="198" class="val">44 мира</text>
+  <text x="448" y="213" class="sub">29 публичных · 15 приватных</text>
+  <text x="330" y="238" class="lbl">КОММИТЫ</text>
+  <text x="448" y="238" class="val">3311</text>
+  <text x="448" y="253" class="sub">с 2022 · методика SWARM-SYNC</text>
+  <text x="330" y="278" class="lbl">ЯЗЫКИ</text>
+  <text x="448" y="278" class="val">HTML 29.0 · JS 11.7 · Python 11.0 МБ</text>
+  <text x="448" y="293" class="sub">по объёму кода</text>
+  <text x="330" y="318" class="lbl">ЗВЁЗДЫ</text>
+  <text x="448" y="318" class="val">3</text>
+  <text x="448" y="333" class="sub">каждая — благодарность</text>
+  <text x="330" y="358" class="lbl">UPTIME</text>
+  <text x="448" y="358" class="val">с 2022-12 · 1439 дней</text>
+  <text x="448" y="373" class="sub">непрерывная сборка</text>
+  <text x="330" y="398" class="lbl">СТАТУС</text>
+  <text x="448" y="398" class="val">рой сверен</text>
+  <text x="448" y="413" class="sub">офлайн живёт · заходи с потолка</text>
+  <text x="740" y="446" text-anchor="end" class="mono sub">выковано роем · 2026-11-10 07:39 UTC</text>
+</svg>
