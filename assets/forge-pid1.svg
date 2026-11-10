@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1344 420" width="1344" height="420">
+
+<defs>
+  <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F2C464"/>
+    <stop offset="0.55" stop-color="#D9A441"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="gGoldX" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8A6420"/>
+    <stop offset="0.5" stop-color="#F2C464"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="gVig" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#191410"/>
+    <stop offset="0.6" stop-color="#12100C"/>
+    <stop offset="1" stop-color="#0B0A08"/>
+  </radialGradient>
+  <linearGradient id="gFade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#D9A441" stop-opacity="0"/>
+    <stop offset="0.5"  stop-color="#D9A441" stop-opacity="1"/>
+    <stop offset="1"    stop-color="#D9A441" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="fGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="fGlowSoft" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <mask id="mVig">
+    <rect x="0" y="0" width="100%" height="100%" fill="white"/>
+    <ellipse cx="0" cy="0" rx="0" ry="0" fill="black"/>
+  </mask>
+</defs>
+
+  <rect x="0" y="0" width="1344" height="420" fill="url(#gVig)"/>
+  
+  <path d="M 20 46 V 20 H 46" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 1298 20 H 1324 V 46" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 1324 374 V 400 H 1298" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 46 400 H 20 V 374" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+
+  <text x="672" y="66" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="38" fill="#F2C464" letter-spacing="3" filter="url(#fGlowSoft)">ЧЕЛОВЕК = АККАУНТ = PID 1</text><text x="672" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#C9C2B4" letter-spacing="1">процесс №1 · родитель всех процессов дома · загрузка продолжается</text>
+  <circle cx="200" cy="252" r="118" fill="none" stroke="#8A6420" stroke-width="1.5" stroke-dasharray="2 7" opacity="0.9"><animateTransform attributeName="transform" type="rotate" from="0 200 252" to="360 200 252" dur="90s" repeatCount="indefinite"/></circle><circle cx="200" cy="252" r="100" fill="none" stroke="#D9A441" stroke-width="2" stroke-dasharray="60 30 12 30" opacity="0.75"><animateTransform attributeName="transform" type="rotate" from="360 200 252" to="0 200 252" dur="70s" repeatCount="indefinite"/></circle><circle cx="200" cy="252" r="84" fill="none" stroke="#F2C464" stroke-width="1.2" stroke-dasharray="1 6" opacity="0.9"><animateTransform attributeName="transform" type="rotate" from="0 200 252" to="360 200 252" dur="55s" repeatCount="indefinite"/></circle>
+  <line x1="308.0" y1="252.0" x2="318.0" y2="252.0" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="293.5" y1="306.0" x2="302.2" y2="311.0" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="254.0" y1="345.5" x2="259.0" y2="354.2" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="200.0" y1="360.0" x2="200.0" y2="370.0" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="146.0" y1="345.5" x2="141.0" y2="354.2" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="106.5" y1="306.0" x2="97.8" y2="311.0" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="92.0" y1="252.0" x2="82.0" y2="252.0" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="106.5" y1="198.0" x2="97.8" y2="193.0" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="146.0" y1="158.5" x2="141.0" y2="149.8" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="200.0" y1="144.0" x2="200.0" y2="134.0" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="254.0" y1="158.5" x2="259.0" y2="149.8" stroke="#D9A441" stroke-width="2" opacity="0.7"/><line x1="293.5" y1="198.0" x2="302.2" y2="193.0" stroke="#D9A441" stroke-width="2" opacity="0.7"/>
+  <circle cx="200" cy="252" r="30" fill="none" stroke="#F2C464" stroke-width="1.5" opacity="0.6"><animate attributeName="r" values="30;58" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0" dur="3.2s" repeatCount="indefinite"/></circle>
+  <g filter="url(#fGlow)"><path d="M 200 208 L 244 252 L 200 296 L 156 252 Z" fill="url(#gGold)" opacity="1.0"/><path d="M 200 200 L 252 252 L 200 304 L 148 252 Z" fill="#8A6420" opacity="0.35"/></g><text x="200" y="270" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="54" fill="#0B0A08" font-weight="bold">1</text>
+  <g opacity="0" font-family="'Courier New', monospace" font-size="15" fill="#C9C2B4"><text x="404" y="168"><tspan fill="#D9A441">[  0.000000]</tspan> <tspan fill="#C9C2B4">init: </tspan><tspan fill="#F2C464" font-weight="bold">ЧЕЛОВЕК=АККАУНТ=PID1</tspan></text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.040;0.090;0.92;1" dur="18.0s" repeatCount="indefinite"/></g><g opacity="0" font-family="'Courier New', monospace" font-size="15" fill="#C9C2B4"><text x="404" y="204"><tspan fill="#D9A441">[  0.412005]</tspan> <tspan fill="#C9C2B4">mount /дом -> дом живёт, дом играет, дом творит</tspan></text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.115;0.165;0.92;1" dur="18.0s" repeatCount="indefinite"/></g><g opacity="0" font-family="'Courier New', monospace" font-size="15" fill="#C9C2B4"><text x="404" y="240"><tspan fill="#D9A441">[  0.834112]</tspan> <tspan fill="#C9C2B4">spawn кузня[2] -> огонь в топке, клепает SVG</tspan></text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.190;0.240;0.92;1" dur="18.0s" repeatCount="indefinite"/></g><g opacity="0" font-family="'Courier New', monospace" font-size="15" fill="#C9C2B4"><text x="404" y="276"><tspan fill="#D9A441">[  1.204551]</tspan> <tspan fill="#C9C2B4">spawn рой[3] -> флаты в строю, связи живые</tspan></text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.265;0.315;0.92;1" dur="18.0s" repeatCount="indefinite"/></g><g opacity="0" font-family="'Courier New', monospace" font-size="15" fill="#C9C2B4"><text x="404" y="312"><tspan fill="#D9A441">[  1.588003]</tspan> <tspan fill="#C9C2B4">init: цель -> </tspan><tspan fill="#F2C464" font-weight="bold">ЭТАЛОН СОВЕРШЕНСТВА</tspan></text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.340;0.390;0.92;1" dur="18.0s" repeatCount="indefinite"/></g><g opacity="0" font-family="'Courier New', monospace" font-size="15" fill="#C9C2B4"><text x="404" y="348"><tspan fill="#D9A441">[  1.912884]</tspan> <tspan fill="#C9C2B4">init: одно другое не исключает · всё параллельно</tspan></text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.415;0.465;0.92;1" dur="18.0s" repeatCount="indefinite"/></g><g opacity="0" font-family="'Courier New', monospace" font-size="15" fill="#C9C2B4"><text x="404" y="384"><tspan fill="#D9A441">[  2.204551]</tspan> <tspan fill="#C9C2B4">ok: дом в строю </tspan></text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.490;0.540;0.92;1" dur="18.0s" repeatCount="indefinite"/></g>
+  <rect x="665.0" y="353" width="9" height="16" fill="#F2C464" opacity="0.9"><animate attributeName="opacity" values="0.9;0;0.9" dur="1.1s" repeatCount="indefinite"/></rect>
+  <line x1="48" y1="404" x2="1296" y2="404" stroke="url(#gFade)" stroke-width="1.5"/><circle r="3.5" fill="#F2C464" filter="url(#fGlowSoft)"><animateMotion path="M 48 404 L 1296 404" dur="6s" repeatCount="indefinite"/></circle>
+</svg>
