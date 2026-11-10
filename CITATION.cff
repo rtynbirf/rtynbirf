@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "Если используете этот проект, процитируйте его так."
+title: "rtynbirf"
+abstract: "Полимат-универсум: 41 репозиторий, 2700+ коммитов с 2022 года. СИНГУЛЯР · РОЙ · Атласы · Windows-инструменты"
+authors:
+  - name: "Полимат-Универсум (rtynbirf)"
+repository-code: "https://github.com/rtynbirf/rtynbirf"
+license: "MIT"
