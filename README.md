@@ -32,6 +32,15 @@
 [![Audit](https://img.shields.io/badge/audited-2026--11--08-2E2540?style=flat-square)](https://github.com/rtynbirf)
 [![Views](https://komarev.com/ghpvc/?username=rtynbirf&style=flat-square&color=2E2540&label=views)](https://github.com/rtynbirf)
 
+<!-- HIVE:BEGIN живой эксперимент · polymat-hive -->
+## 🧫 ЖИВОЙ ЭКСПЕРИМЕНТ
+
+**[ПОЛИМАТ-УЛЕЙ](https://github.com/rtynbirf/polymat-hive)** — репозиторий-организм: экипаж автономных AI-агентов живёт в GitHub Actions и думает **трёхэтажным мозгом**: Copilot CLI → локальный GGUF-нейромозг (Qwen2.5-0.5B прямо на раннере, без ключей и серверов) → инстинкты. Открой [issue](https://github.com/rtynbirf/polymat-hive/issues/new?template=hive-message.yml) — экипаж ответит: метка, резюме, план.
+
+[![Триаж-агент](https://github.com/rtynbirf/polymat-hive/actions/workflows/triage-agent.yml/badge.svg)](https://github.com/rtynbirf/polymat-hive/actions/workflows/triage-agent.yml) [![Дайджест-агент](https://github.com/rtynbirf/polymat-hive/actions/workflows/digest-agent.yml/badge.svg)](https://github.com/rtynbirf/polymat-hive/actions/workflows/digest-agent.yml) [![Мозг: 3 этажа](https://img.shields.io/badge/мозг-Copilot·GGUF·инстинкты-24292f?logo=github)](https://github.com/rtynbirf/polymat-hive/blob/main/agents/CREW.md)
+
+<!-- HIVE:END -->
+
 <!-- HEALTH:BEGIN автогенерация · swarm_health.json · scripts/health_badges.py -->
 [![РАНЫ](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Frtynbirf%2Frtynbirf%2Fmain%2Fswarm_health.json&query=%24.wounds.count&label=%D0%A0%D0%90%D0%9D%D0%AB&color=red&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf/rtynbirf/blob/main/swarm_health.json) [![PR](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Frtynbirf%2Frtynbirf%2Fmain%2Fswarm_health.json&query=%24.open_prs.count&label=PR&color=orange&style=flat-square&cacheSeconds=3600)](https://github.com/pulls?q=is%3Apr+is%3Aopen+user%3Artynbirf) [![ТЯЖЕЛОВЕСЫ](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Frtynbirf%2Frtynbirf%2Fmain%2Fswarm_health.json&query=%24.heavyweights.count&label=%D0%A2%D0%AF%D0%96%D0%95%D0%9B%D0%9E%D0%92%D0%95%D0%A1%D0%AB&color=orange&suffix=%D1%80%D0%B5%D0%BF%D0%BE&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf/rtynbirf/blob/main/swarm_health.json) [![ОПИСЬ](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Frtynbirf%2Frtynbirf%2Fmain%2Fswarm_health.json&query=%24.generated_date&label=%D0%9E%D0%9F%D0%98%D0%A1%D0%AC&color=2E2540&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf/rtynbirf/blob/main/swarm_health.json)
 <!-- HEALTH:END -->
