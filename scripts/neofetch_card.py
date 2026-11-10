@@ -50,6 +50,14 @@ lang_str = " · ".join("%s %.1f" % (ABBR.get(n, n), v / 1e6) for n, v in top_lan
 priv = sum(1 for r in repos if r["private"])
 pub = len(repos) - priv
 
+def mir(n):
+    n = abs(n) % 100
+    if 11 <= n <= 14: return "миров"
+    n %= 10
+    if n == 1: return "мир"
+    if 2 <= n <= 4: return "мира"
+    return "миров"
+
 def esc(s): return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 try:
@@ -87,7 +95,7 @@ def rows(x, y0, lh, items):
 items = [
     ("ОС", "офлайн-суверен", "без облака · без сети · без разрешений"),
     ("РОЙ", "6 кластеров · 1 организм", "клетки · сверка · эмерджентность"),
-    ("РЕПО", "%d мира" % len(repos), "%d публичных · %d приватных" % (pub, priv)),
+    ("РЕПО", "%d %s" % (len(repos), mir(len(repos))), "%d публичных · %d приватных" % (pub, priv)),
     ("КОММИТЫ", "%d" % total_commits, "с 2022 · методика SWARM-SYNC"),
     ("ЯЗЫКИ", lang_str, "по объёму кода"),
     ("ЗВЁЗДЫ", "%d" % stars, "каждая — благодарность"),
