@@ -63,6 +63,10 @@
 > Ни одного стороннего виджета: эмблема, лента девизов и капсулы выкованы вручную.
 > Каждый блок — один self-contained SVG, анимация встроена в файл и работает прямо в `<img>`.
 
+<div align="center">
+  <img src="assets/forge-emberline.svg" width="100%" alt="Дымная линия кузни: живой feTurbulence-дым золота и амбера, бегущая искра" />
+</div>
+
 ## FLAGSHIPS
 
 <table>
@@ -97,6 +101,14 @@
 </td>
 </tr>
 </table>
+
+## РОЙ В СТРОЮ · живая шахматка
+
+<div align="center">
+  <img src="assets/forge-city.svg" width="100%" alt="Живой строй: шахматка 33 публичных флотов, 1368 MiB кода, тяжеловесы в янтарной раме, бегущая искра обходит строй" />
+</div>
+
+> 33 публичных флота из живого среза GitHub API · 2026-11-10 · каждый блок — репозиторий с языком и весом · сумма и резерв — в золотых ячейках.
 
 ## ШТАНДАРТЫ ФЛОТОВ · OBSIDIAN & MOLTEN GOLD
 
@@ -175,11 +187,11 @@
 </div>
 
 <div align="center">
-  <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 28 флотов · 2 раны · 1 PR · 1 тяжеловес" />
+  <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 33 флота · 3 раны · 10 PR · 1 тяжеловес" />
 </div>
 
 <div align="center">
-  <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 28 репо, GitHub API" />
+  <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 33 репо, GitHub API" />
 </div>
 
 <div align="center">
