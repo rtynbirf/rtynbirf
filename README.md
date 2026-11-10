@@ -12,6 +12,10 @@
 </div>
 
 <div align="center">
+  <img src="assets/forge-pulse.svg" width="100%" alt="Кардиограмма кузни: ДОМ ЖИВЁТ — сердце роя бьётся, бегущая искра по живому пульсу" />
+</div>
+
+<div align="center">
   <img src="assets/forge-manifest.svg" width="100%" alt="Лента девизов: РОЙ СТРОИТ · ЧЕЛОВЕК ВЕДЁТ · ОФЛАЙН ЖИВЁТ ЗДЕСЬ · КАЖДАЯ ЦИФРА ПРОВЕРЯЕМА" />
 </div>
 
@@ -105,10 +109,16 @@
 ## РОЙ В СТРОЮ · живая шахматка
 
 <div align="center">
-  <img src="assets/forge-city.svg" width="100%" alt="Живой строй: шахматка 33 публичных флотов, 1368 MiB кода, тяжеловесы в янтарной раме, бегущая искра обходит строй" />
+  <img src="assets/forge-city.svg" width="100%" alt="Живой строй: шахматка 48 публичных флотов, 1582 MiB кода, тяжеловес в янтарной раме, бегущая искра обходит строй" />
 </div>
 
-> 33 публичных флота из живого среза GitHub API · 2026-11-10 · каждый блок — репозиторий с языком и весом · сумма и резерв — в золотых ячейках.
+> 48 публичных флотов из живого среза GitHub API · 2026-11-10 · свод открыт настежь — приватных 0 · каждый блок — репозиторий с языком и весом · сумма, печать и кузня — в золотых ячейках.
+
+## КАРТА СВЯЗЕЙ РОЯ · импульсы
+
+<div align="center">
+  <img src="assets/forge-swarm.svg" width="100%" alt="Карта связей роя: семь флагманов-узлов с реальным весом, импульсы бегут по рёбрам к ядру ПОЛИМАТ" />
+</div>
 
 ## ШТАНДАРТЫ ФЛОТОВ · OBSIDIAN & MOLTEN GOLD
 
@@ -187,16 +197,20 @@
 </div>
 
 <div align="center">
-  <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 33 флота · 3 раны · 10 PR · 1 тяжеловес" />
+  <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 48 флотов · 0 ран · 4 PR · 1 тяжеловес" />
 </div>
 
 <div align="center">
-  <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 33 репо, GitHub API" />
+  <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 48 репо, GitHub API" />
 </div>
 
+## ХРОНИКА КУЗНИ · ГОД ПЛАВКИ
+
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=rtynbirf&hide_border=true&bg_color=00000000&color=E8DCC8&line=D9A441&point=F5D78E&area=true&area_color=3A2F14&custom_title=ПУЛЬС%20ВСЕЛЕННОЙ%20·%20КОММИТЫ" alt="activity graph" width="100%" />
+  <img src="assets/forge-grid.svg" width="100%" alt="Хроника кузни: годовая шахматка из живого GitHub GraphQL — 3746 дел за год, пик 581 в день, сканирующий луч и золотые вспышки" />
 </div>
+
+> Последний сторонний виджет-график (vercel-генератор) заменён ручной ковкой: 53 недели из живого GraphQL, сканирующий луч, вспышки на горячих днях. Ни одного сервиса-генератора.
 
 <div align="center">
   <img src="assets/trophy-shelf.svg" width="100%" alt="Полка вечных медалей: Старт 2022 · Офлайн-первый · Рой 6 кластеров · Доказательства" />
