@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1344 340" width="1344" height="340">
+
+<defs>
+  <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F2C464"/>
+    <stop offset="0.55" stop-color="#D9A441"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="gGoldX" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8A6420"/>
+    <stop offset="0.5" stop-color="#F2C464"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="gVig" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#191410"/>
+    <stop offset="0.6" stop-color="#12100C"/>
+    <stop offset="1" stop-color="#0B0A08"/>
+  </radialGradient>
+  <linearGradient id="gFade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#D9A441" stop-opacity="0"/>
+    <stop offset="0.5"  stop-color="#D9A441" stop-opacity="1"/>
+    <stop offset="1"    stop-color="#D9A441" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="fGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="fGlowSoft" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <mask id="mVig">
+    <rect x="0" y="0" width="100%" height="100%" fill="white"/>
+    <ellipse cx="0" cy="0" rx="0" ry="0" fill="black"/>
+  </mask>
+</defs>
+
+  <rect x="0" y="0" width="1344" height="340" fill="url(#gVig)"/>
+  
+  <path d="M 20 46 V 20 H 46" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 1298 20 H 1324 V 46" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 1324 294 V 320 H 1298" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 46 320 H 20 V 294" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+
+  <text x="48" y="52" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#F2C464" letter-spacing="3">ДЕРЕВО ПРОЦЕССОВ ДОМА</text><text x="48" y="78" font-family="'Courier New', monospace" font-size="12.5" fill="#C9C2B4">pstree · PID1 порождает кластеры · импульсы бегут по ветвям без остановки</text>
+  <circle cx="672" cy="122" r="42" fill="none" stroke="#F2C464" stroke-width="1.3" opacity="0.55"><animate attributeName="r" values="42;76" dur="3.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.55;0" dur="3.6s" repeatCount="indefinite"/></circle>
+  <path d="M 672 168 L 672 185 L 130 185 L 130 219" fill="none" stroke="#8A6420" stroke-width="1.4" opacity="0.75"/><path d="M 672 168 L 672 185 L 346 185 L 346 219" fill="none" stroke="#8A6420" stroke-width="1.4" opacity="0.75"/><path d="M 672 168 L 672 185 L 562 185 L 562 219" fill="none" stroke="#8A6420" stroke-width="1.4" opacity="0.75"/><path d="M 672 168 L 672 185 L 778 185 L 778 219" fill="none" stroke="#8A6420" stroke-width="1.4" opacity="0.75"/><path d="M 672 168 L 672 185 L 994 185 L 994 219" fill="none" stroke="#8A6420" stroke-width="1.4" opacity="0.75"/><path d="M 672 168 L 672 185 L 1210 185 L 1210 219" fill="none" stroke="#8A6420" stroke-width="1.4" opacity="0.75"/>
+  <circle r="3.2" fill="#F2C464" filter="url(#fGlowSoft)" opacity="0"><animateMotion path="M 672 168 L 672 185 L 130 185 L 130 219" dur="5.5s" begin="0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.82;1" dur="5.5s" begin="0.0s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#F2C464" filter="url(#fGlowSoft)" opacity="0"><animateMotion path="M 672 168 L 672 185 L 346 185 L 346 219" dur="5.5s" begin="0.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.82;1" dur="5.5s" begin="0.9s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#F2C464" filter="url(#fGlowSoft)" opacity="0"><animateMotion path="M 672 168 L 672 185 L 562 185 L 562 219" dur="5.5s" begin="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.82;1" dur="5.5s" begin="1.8s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#F2C464" filter="url(#fGlowSoft)" opacity="0"><animateMotion path="M 672 168 L 672 185 L 778 185 L 778 219" dur="5.5s" begin="2.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.82;1" dur="5.5s" begin="2.7s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#F2C464" filter="url(#fGlowSoft)" opacity="0"><animateMotion path="M 672 168 L 672 185 L 994 185 L 994 219" dur="5.5s" begin="3.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.82;1" dur="5.5s" begin="3.6s" repeatCount="indefinite"/></circle><circle r="3.2" fill="#F2C464" filter="url(#fGlowSoft)" opacity="0"><animateMotion path="M 672 168 L 672 185 L 1210 185 L 1210 219" dur="5.5s" begin="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.82;1" dur="5.5s" begin="4.5s" repeatCount="indefinite"/></circle>
+  <g filter="url(#fGlow)"><path d="M 672 80 L 714 122 L 672 164 L 630 122 Z" fill="url(#gGold)" opacity="1.0"/></g><text x="672" y="128" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#0B0A08" font-weight="bold">PID 1</text>
+  <g filter="url(#fGlowSoft)"><circle cx="130" cy="227" r="9" fill="url(#gGold)"><animate attributeName="opacity" values="1;0.72;1" dur="2.40s" repeatCount="indefinite"/></circle></g><text x="130" y="259" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#D9A441" letter-spacing="1">SINGULAR</text><text x="130" y="277" text-anchor="middle" font-family="'Courier New', monospace" font-size="10.5" fill="#C9C2B4" opacity="0.85">офлайн-караоке</text><g filter="url(#fGlowSoft)"><circle cx="346" cy="227" r="9" fill="url(#gGold)"><animate attributeName="opacity" values="1;0.72;1" dur="2.75s" repeatCount="indefinite"/></circle></g><text x="346" y="259" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#D9A441" letter-spacing="1">SWARM</text><text x="346" y="277" text-anchor="middle" font-family="'Courier New', monospace" font-size="10.5" fill="#C9C2B4" opacity="0.85">организм-рой</text><g filter="url(#fGlowSoft)"><circle cx="562" cy="227" r="9" fill="url(#gGold)"><animate attributeName="opacity" values="1;0.72;1" dur="3.10s" repeatCount="indefinite"/></circle></g><text x="562" y="259" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#D9A441" letter-spacing="1">ATLASES</text><text x="562" y="277" text-anchor="middle" font-family="'Courier New', monospace" font-size="10.5" fill="#C9C2B4" opacity="0.85">атласы-доказательства</text><g filter="url(#fGlowSoft)"><circle cx="778" cy="227" r="9" fill="url(#gGold)"><animate attributeName="opacity" values="1;0.72;1" dur="3.45s" repeatCount="indefinite"/></circle></g><text x="778" y="259" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#D9A441" letter-spacing="1">OS</text><text x="778" y="277" text-anchor="middle" font-family="'Courier New', monospace" font-size="10.5" fill="#C9C2B4" opacity="0.85">суверенные машины</text><g filter="url(#fGlowSoft)"><circle cx="994" cy="227" r="9" fill="url(#gGold)"><animate attributeName="opacity" values="1;0.72;1" dur="3.80s" repeatCount="indefinite"/></circle></g><text x="994" y="259" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#D9A441" letter-spacing="1">AGENTS</text><text x="994" y="277" text-anchor="middle" font-family="'Courier New', monospace" font-size="10.5" fill="#C9C2B4" opacity="0.85">автономные умы</text><g filter="url(#fGlowSoft)"><circle cx="1210" cy="227" r="9" fill="url(#gGold)"><animate attributeName="opacity" values="1;0.72;1" dur="4.15s" repeatCount="indefinite"/></circle></g><text x="1210" y="259" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#D9A441" letter-spacing="1">VAULT</text><text x="1210" y="277" text-anchor="middle" font-family="'Courier New', monospace" font-size="10.5" fill="#C9C2B4" opacity="0.85">хранилище</text>
+  <text x="672" y="324" text-anchor="middle" font-family="'Courier New', monospace" font-size="11.5" fill="#8A6420" letter-spacing="1">связь: непрерывная · источник: живой GitHub API · одно другое не исключает</text>
+</svg>
