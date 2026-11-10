@@ -23,6 +23,14 @@
   <img src="assets/forge-pid1.svg" width="100%" alt="ЧЕЛОВЕК=АККАУНТ=PID1: init-кольца и boot-лог дома, загрузка продолжается" />
 </div>
 
+<div align="center">
+  <img src="assets/forge-musa.svg" width="100%" alt="МУЗА ЖИВЁТ ЗДЕСЬ: созвездие из 9 звёзд, феникс, вертикальная типографика, СОВЕРШЕНСТВУ НЕТ ПРЕДЕЛА" />
+</div>
+
+<div align="center">
+  <img src="assets/forge-now.svg" width="100%" alt="СЕЙЧАС В КУЗНЕ: бегущий тикер живого среза дома, now-page" />
+</div>
+
 <div align="center"><img src="assets/forge-divider.svg" width="100%" alt="разделитель с бегущей искрой"></div>
 
 ## ЗАХОДИ С ПОТОЛКА
@@ -216,6 +224,10 @@
 
 <div align="center">
   <img src="assets/forge-cell-boot.svg" width="49%" alt="BOOT LOG: dmesg кузни, инициализация ЧЕЛОВЕК=АККАУНТ=PID1" />
+</div>
+
+<div align="center">
+  <img src="assets/forge-qr.svg" width="49%" alt="QR-КАПСУЛА ДОМА: код выкован собственным энкодером, модули-ромбы, ведёт на витрину" />
 </div>
 
 <div align="center">
