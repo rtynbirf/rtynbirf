@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" width="640" height="200">
+
+<defs>
+  <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F2C464"/>
+    <stop offset="0.55" stop-color="#D9A441"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="gGoldX" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8A6420"/>
+    <stop offset="0.5" stop-color="#F2C464"/>
+    <stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="gVig" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#191410"/>
+    <stop offset="0.6" stop-color="#12100C"/>
+    <stop offset="1" stop-color="#0B0A08"/>
+  </radialGradient>
+  <linearGradient id="gFade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"    stop-color="#D9A441" stop-opacity="0"/>
+    <stop offset="0.5"  stop-color="#D9A441" stop-opacity="1"/>
+    <stop offset="1"    stop-color="#D9A441" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="fGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="3.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="fGlowSoft" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <mask id="mVig">
+    <rect x="0" y="0" width="100%" height="100%" fill="white"/>
+    <ellipse cx="0" cy="0" rx="0" ry="0" fill="black"/>
+  </mask>
+</defs>
+
+  <rect x="0" y="0" width="640" height="200" fill="#241D12"/>
+  <rect x="1.5" y="1.5" width="637" height="197" fill="none" stroke="#3A2E14" stroke-width="3"/>
+  
+  <path d="M 12 30 V 12 H 30" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 610 12 H 628 V 30" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 628 170 V 188 H 610" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+  <path d="M 30 188 H 12 V 170" stroke="#D9A441" stroke-width="2.5" fill="none"/>
+
+  <path d="M 40 29 L 49 38 L 40 47 L 31 38 Z" fill="url(#gGold)" opacity="1.0"/><text x="62" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#F2C464" letter-spacing="2">BOOT LOG</text><text x="604" y="44" text-anchor="end" font-family="'Courier New', monospace" font-size="10.5" fill="#8A6420">dmesg · init · 12s loop</text>
+  <g opacity="0"><text x="36" y="78" font-family="'Courier New', monospace" font-size="13" fill="#C9C2B4"><tspan fill="#D9A441">[  0.000]</tspan> init: <tspan fill="#F2C464" font-weight="bold">ЧЕЛОВЕК=АККАУНТ=PID1</tspan> .. ok</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.11;0.9;1" dur="12s" repeatCount="indefinite"/></g><g opacity="0"><text x="36" y="108" font-family="'Courier New', monospace" font-size="13" fill="#C9C2B4"><tspan fill="#D9A441">[  0.412]</tspan> spawn кузня[2] .. клепает SVG</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.16;0.22;0.9;1" dur="12s" repeatCount="indefinite"/></g><g opacity="0"><text x="36" y="138" font-family="'Courier New', monospace" font-size="13" fill="#C9C2B4"><tspan fill="#D9A441">[  0.834]</tspan> spawn рой[3] .. флаты в строю</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.27;0.33;0.9;1" dur="12s" repeatCount="indefinite"/></g><g opacity="0"><text x="36" y="168" font-family="'Courier New', monospace" font-size="13" fill="#C9C2B4"><tspan fill="#D9A441">[  1.204]</tspan> ok: дом живёт · золото течёт</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.38;0.44;0.9;1" dur="12s" repeatCount="indefinite"/></g>
+  <rect x="348.0" y="156" width="8" height="14" fill="#F2C464" opacity="0.9"><animate attributeName="opacity" values="0.9;0;0.9" dur="1.1s" repeatCount="indefinite"/></rect>
+</svg>
