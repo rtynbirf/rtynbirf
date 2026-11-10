@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-11-09T13:18:26Z",
-  "generated_date": "2026-11-09",
+  "generated_at": "2026-11-10T11:31:33Z",
+  "generated_date": "2026-11-10",
   "heavyweights": {
     "badge_color": "orange",
     "count": 1,
     "repos": [
       {
         "repo": "singulyar",
-        "size_mib": 1055.6
+        "size_mib": 1072.9
       }
     ]
   },
   "open_prs": {
     "badge_color": "orange",
-    "count": 1,
+    "count": 10,
     "query": "is:pr is:open user:rtynbirf"
   },
   "schema": "swarm_health/1",
   "source": {
     "api": "https://api.github.com/users/rtynbirf/repos",
     "coverage": "public",
-    "repos_scanned": 27,
-    "repos_total": 27,
+    "repos_scanned": 33,
+    "repos_total": 33,
     "rules": {
       "fresh_days_max": 8,
       "heavyweights_mib": 512,
@@ -31,19 +31,25 @@
   },
   "wounds": {
     "badge_color": "red",
-    "count": 2,
+    "count": 3,
     "repos": [
       {
         "conclusion": "failure",
-        "repo": "polymath-os",
-        "url": "https://github.com/rtynbirf/polymath-os/actions/runs/42621341195",
-        "workflow": "ПУЛЬС v2 — еженедельный самоаудит"
+        "repo": "combain-v2",
+        "url": "https://github.com/rtynbirf/combain-v2/actions/runs/42806823231",
+        "workflow": "github_actions in / for docker/login-action - Update #1692825758"
       },
       {
         "conclusion": "failure",
-        "repo": "universal-agent",
-        "url": "https://github.com/rtynbirf/universal-agent/actions/runs/42612067875",
-        "workflow": "ci"
+        "repo": "domovenok",
+        "url": "https://github.com/rtynbirf/domovenok/actions/runs/42807915077",
+        "workflow": "npm_and_yarn in /. for sharp - Update #1692837791"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "singulyar",
+        "url": "https://github.com/rtynbirf/singulyar/actions/runs/42807870249",
+        "workflow": "Оракулы дома зелёные (sovereign check)"
       }
     ]
   }
