@@ -1,0 +1,31 @@
+name: ТЕРМИНАЛ РОЯ (neofetch-карта)
+
+on:
+  schedule:
+    - cron: "50 4 * * *"
+  workflow_dispatch: {}
+concurrency:
+  group: neofetch-card
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Генерация карты (методика SWARM-SYNC)
+        run: python3 scripts/neofetch_card.py assets/neofetch.svg
+        env:
+          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Коммит карты (только при изменениях)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "ТЕРМИНАЛ: суточная neofetch-карта [skip ci]" || echo "изменений нет"
+          git push
