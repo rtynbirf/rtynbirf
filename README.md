@@ -17,6 +17,14 @@
 
 <div align="center"><img src="assets/forge-divider.svg" width="100%" alt="разделитель с бегущей искрой"></div>
 
+## ЗАХОДИ С ПОТОЛКА
+
+> Ты здесь случайно — и это лучший способ зайти. Три двери:
+
+| 🎼 Послушать | 🤖 Изучить роя | 🗺 Открыть всё |
+|---|---|---|
+| [**СИНГУЛЯР**](https://rtynbirf.github.io) — офлайн-караоке прямо в браузере, ничего не нужно устанавливать | [**cell-swarm**](https://github.com/rtynbirf/cell-swarm) — эмерджентная архитектура роя клеток | [**ЕДИНЫЙ СВОД**](https://github.com/rtynbirf/edinyy-svod) — каталог всех миров вселенной |
+
 [![Public repos](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Frtynbirf&query=%24.public_repos&label=public%20repos&color=241D12&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf?tab=repositories)
 [![Commits](https://img.shields.io/badge/commits-2700%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
 [![Showcase](https://img.shields.io/badge/showcase-rtynbirf.github.io-D9A441?style=flat-square)](https://rtynbirf.github.io)
@@ -120,6 +128,18 @@
 > **Memory** — каждый прогон остаётся артефактом: `state.json`, `PULSE.md`.
 > **Honesty** — недоделанное помечается недоделанным; фоллбек вместо вранья.
 
+## СТЕК ВСЕЛЕННОЙ · чем построено
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=py,js,html,css,rust,c,bash,md&theme=dark" alt="стек вселенной" />
+  <br>
+  <img src="https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white" alt="PowerShell" />
+  <img src="https://img.shields.io/badge/Lean-241D12?style=flat-square&logoColor=D9A441" alt="Lean" />
+  <img src="https://img.shields.io/badge/WebAudio-241D12?style=flat-square&logoColor=D9A441" alt="WebAudio" />
+  <img src="https://img.shields.io/badge/Service%20Worker-241D12?style=flat-square&logoColor=D9A441" alt="Service Worker" />
+  <img src="https://img.shields.io/badge/OPFS-241D12?style=flat-square&logoColor=D9A441" alt="OPFS" />
+</p>
+
 ## КАРТА ВСЕЛЕННОЙ
 
 <div align="center">
@@ -160,6 +180,14 @@
 <div align="center">
   <img src="assets/trophy-shelf.svg" width="100%" alt="Полка вечных медалей: Старт 2022 · Офлайн-первый · Рой 6 кластеров · Доказательства" />
 </div>
+
+## ТЕРМИНАЛ РОЯ · живая neofetch-карта
+
+<div align="center">
+  <img src="assets/neofetch.svg" width="100%" alt="neofetch-карта: живые цифры вселенной, суточная автогенерация по методике SWARM-SYNC" />
+</div>
+
+> Карта собирается собственным Action суточно по живому GitHub API — методика сверки та же, что у SWARM-SYNC, числа сходятся до единицы. Палитра — обсидиан и расплавленное золото ЖИВОЙ КУЗНИ.
 
 ## THE SWARM CRAWLS
 
