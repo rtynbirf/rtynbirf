@@ -40,10 +40,10 @@
   <text x="448" y="158" class="val">6 кластеров · 1 организм</text>
   <text x="448" y="173" class="sub">клетки · сверка · эмерджентность</text>
   <text x="330" y="198" class="lbl">РЕПО</text>
-  <text x="448" y="198" class="val">38 мира</text>
+  <text x="448" y="198" class="val">38 миров</text>
   <text x="448" y="213" class="sub">29 публичных · 9 приватных</text>
   <text x="330" y="238" class="lbl">КОММИТЫ</text>
-  <text x="448" y="238" class="val">2769</text>
+  <text x="448" y="238" class="val">2771</text>
   <text x="448" y="253" class="sub">с 2022 · методика SWARM-SYNC</text>
   <text x="330" y="278" class="lbl">ЯЗЫКИ</text>
   <text x="448" y="278" class="val">HTML 26.7 · JS 11.7 · Python 9.4 МБ</text>
@@ -57,5 +57,5 @@
   <text x="330" y="398" class="lbl">СТАТУС</text>
   <text x="448" y="398" class="val">рой сверен</text>
   <text x="448" y="413" class="sub">офлайн живёт · заходи с потолка</text>
-  <text x="740" y="446" text-anchor="end" class="mono sub">выковано роем · 2026-11-10 07:40 UTC</text>
+  <text x="740" y="446" text-anchor="end" class="mono sub">выковано роем · 2026-11-10 07:44 UTC</text>
 </svg>
