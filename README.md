@@ -75,6 +75,12 @@
 
 <table>
 <tr>
+<td colspan="2">
+  <a href="https://github.com/rtynbirf/polymath-multiagent"><img src="https://raw.githubusercontent.com/rtynbirf/polymath-multiagent/main/banner.png" width="100%" alt="polymath-multiagent — четыре потока расплавленного золота сливаются в одного феникса"></a>
+  <sub><b>polymath-multiagent</b> — parallel agent orchestration, «одно другое не исключает» · <code>MCP-server</code> <code>SSE-dashboard</code> <code>stdlib-only</code> <code>19 tests green</code></sub>
+</td>
+</tr>
+<tr>
 <td width="50%">
   <a href="https://github.com/rtynbirf/polymath-gen"><img src="https://raw.githubusercontent.com/rtynbirf/polymath-gen/main/banner.png" width="100%" alt="polymath-gen — картина"></a>
   <sub><b>polymath-gen</b> — autonomous media agent with self-critique loop · <code>Python</code> <code>GLM-4V</code> <code>ComfyUI</code></sub>
