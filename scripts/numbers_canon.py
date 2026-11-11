@@ -5,7 +5,7 @@
 прогона даёт заниженные числа, поэтому канон меряет под SWARM_TOKEN (полный обзор).
 Артефакт: swarm_numbers.json. Честный красный: сумма пяти ≠ календарю GraphQL.
 Запись — в рабочую копию, коммит делает workflow-шаг."""
-import json, os, re, sys, time, urllib.request, datetime
+import json, os, re, sys, time, urllib.error, urllib.request, datetime
 
 API = "https://api.github.com"
 OWNER, REPO = "rtynbirf", "rtynbirf"
@@ -90,7 +90,15 @@ def svg_panel(path):
     return out
 
 def main():
-    five, cal_total, restricted, frm, to = graphql_five()
+    try:
+        five, cal_total, restricted, frm, to = graphql_five()
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 403):
+            src = "SWARM_TOKEN" if os.environ.get("SWARM_TOKEN") else "GITHUB_TOKEN"
+            sys.exit(f"канон не измерен: {src} отклонён GitHub (HTTP {e.code}) — "
+                     f"Хозяину: выпустить новый PAT (repo, workflow) и обновить секрет SWARM_TOKEN, "
+                     f"затем диспатч «ЗАВОДНОЙ КЛЮЧ» — клетки заведутся сами")
+        raise
     sum5 = sum(five.values())
     pub = public_search(frm, to)
     panel = svg_panel(os.environ.get("GITHUB_WORKSPACE", ".") + "/" + SVG)
