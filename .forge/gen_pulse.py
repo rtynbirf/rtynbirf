@@ -85,9 +85,9 @@ def rebuild_now(svg, m):
 
 def rebuild_readme(md, m):
     date_b = m["msk"].strftime("%Y-%m-%d").replace("-", "--")
-    md, k1 = re.subn(r"\[!\[Commits\]\(https://img\.shields\.io/badge/commits-[^)]*\)\]",
+    md, k1 = re.subn(r"\[!\[Commits\]\(https://img\.shields\.io/badge/commits-[^)]*\)\](?:\(https://github\.com/rtynbirf\))*",
                      "[![Commits](https://img.shields.io/badge/commits-%d%%2B%%20since%%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)" % m["commits"], md)
-    md, k2 = re.subn(r"\[!\[Audit\]\(https://img\.shields\.io/badge/audited-[^)]*\)\]",
+    md, k2 = re.subn(r"\[!\[Audit\]\(https://img\.shields\.io/badge/audited-[^)]*\)\](?:\(https://github\.com/rtynbirf\))*",
                      "[![Audit](https://img.shields.io/badge/audited-%s-2E2540?style=flat-square)](https://github.com/rtynbirf)" % date_b, md)
     return md, (k1 + k2)
 

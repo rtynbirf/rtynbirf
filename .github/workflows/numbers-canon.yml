@@ -1,0 +1,39 @@
+name: КАНОН ЦИФР · сверка пяти
+
+on:
+  schedule:
+    - cron: "10 4 * * *"   # после 3d-contrib (03:40) и swarm-sync (03:17); крон может душиться — заводит ЗАВОДНОЙ КЛЮЧ
+  workflow_dispatch: {}
+concurrency:
+  group: numbers-canon
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  canon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: измерение канона (полный обзор через SWARM_TOKEN)
+        env:
+          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/numbers_canon.py
+      - name: толчок канона (bot + rebase + skip ci)
+        run: |
+          git config user.name "numbers-canon[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add swarm_numbers.json
+          if git diff --cached --quiet; then
+            echo "канон не изменился — коммит не нужен (анти-шум)"
+          else
+            git commit -m "⟳ канон цифр: сверка пяти приведена к реальности (автомат) [skip ci]"
+            git push
+          fi

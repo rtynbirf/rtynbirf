@@ -1,0 +1,29 @@
+{
+  "schema": "swarm_numbers/1",
+  "generated_at": "2026-11-11T14:34:30Z",
+  "window": {
+    "from": "2025-11-12",
+    "to": "2026-11-11"
+  },
+  "graphql": {
+    "five": {
+      "Commit": 3687,
+      "Issue": 323,
+      "PullReq": 72,
+      "Review": 0,
+      "Repo": 63
+    },
+    "sum_of_five": 4145,
+    "calendar_total": 4145,
+    "restricted": 0,
+    "invariant_sum5_eq_calendar": true
+  },
+  "public_search": {
+    "Commit": 2533,
+    "Issue": 323,
+    "PullReq": 72,
+    "Repo": 62,
+    "window": "2025-11-12..2026-11-11"
+  },
+  "svg_panel": null
+}
