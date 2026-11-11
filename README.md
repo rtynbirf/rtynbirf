@@ -89,6 +89,15 @@
 <tr>
 <td colspan="2">
   <a href="https://github.com/rtynbirf/polymath-multiagent"><img src="https://raw.githubusercontent.com/rtynbirf/polymath-multiagent/main/banner.png" width="100%" alt="polymath-multiagent — четыре потока расплавленного золота сливаются в одного феникса"></a>
+
+<!--ФОРЖ:МУЗА:НАЧАЛО-->
+<div align="center">
+  <img src="repo-muse.svg" width="100%" alt="Муза rtynbirf: картина кузни ПОЛИМАТ, раунд 8" />
+  <br/>
+  <img src="forge-divider.svg" width="62%" alt="разделитель кузни ПОЛИМАТ" />
+</div>
+<!--ФОРЖ:МУЗА:КОНЕЦ-->
+
   <sub><b>polymath-multiagent</b> — parallel agent orchestration, «одно другое не исключает» · <code>MCP-server</code> <code>SSE-dashboard</code> <code>stdlib-only</code> <code>19 tests green</code></sub>
 </td>
 </tr>
@@ -316,3 +325,19 @@
 - **commons** — 173 коммитов · Python
 - **github-runbook** 🔒 — 140 коммитов · Python
 <!-- SWARM:END -->
+
+<!--ФОРЖ:ПОДВАЛ-->
+---
+
+<div align="center">
+  <sub>◆ картина и штандарт — ручная ковка <a href="https://github.com/rtynbirf">КУЗНИ ПОЛИМАТ</a> · ЧЕЛОВЕК=АККАУНТ=PID1 ◆</sub>
+</div>
+
+<!--ФОРЖ:КАРТА-->
+## КАРТА ДОМА
+
+<div align="center">
+  <img src="assets/forge-map.svg" width="100%" alt="Карта дома: 63 комнаты — 20 живых светятся, 43 под сводом архива" />
+</div>
+
+20 живых комнат светятся — в каждой теперь стоит своя муза (раунд 8). 43 комнаты под сводом архива: GitHub запер их на замок (read-only), но карта помнит каждую — и угольная звезда rumu неприкосновенна.
