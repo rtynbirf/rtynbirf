@@ -29,11 +29,13 @@ jobs:
         run: |
           git config user.name "numbers-canon[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
+          # волна 12: ребейз — только на чистом дереве. Коммит сначала, ребейз после:
+          # артефакт уже написан, но до коммита он «unstaged changes» и зуб отказывается кусать.
           git add swarm_numbers.json
           if git diff --cached --quiet; then
             echo "канон не изменился — коммит не нужен (анти-шум)"
           else
             git commit -m "⟳ канон цифр: сверка пяти приведена к реальности (автомат) [skip ci]"
+            git pull --rebase origin main
             git push
           fi
