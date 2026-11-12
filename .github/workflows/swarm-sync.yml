@@ -9,16 +9,15 @@ concurrency:
   group: swarm-sync-${{ github.repository }}
   cancel-in-progress: true
 
-permissions:
-  contents: write
+permissions: read-all
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон)
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон)
         with:
           python-version: '3.12'
       - name: Сверка со средой -> регенерация секции README
@@ -27,6 +26,8 @@ jobs:
           SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Коммит только при реальных изменениях (bot + skip ci)
+        env:
+          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
         run: |
           if git diff --quiet -- README.md; then
             echo "README без изменений — коммит не нужен"
@@ -38,5 +39,6 @@ jobs:
             # урок волны ×5 / волна 12: клетки роя пушат в main параллельно —
             # голый push падает «fetch first». Ребейз перед пушем — не опция, а зуб.
             git pull --rebase origin main
-            git push
+            # волна 13: GITHUB_TOKEN read-only (read-all); пуш — рукой роя (SWARM_TOKEN)
+            git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi

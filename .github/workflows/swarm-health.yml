@@ -15,16 +15,15 @@ concurrency:
   group: swarm-health
   cancel-in-progress: false
 
-permissions:
-  contents: write
+permissions: read-all
 
 jobs:
   health:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 (SHA-канон)
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон) # v4 (SHA-канон)
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон)
         with:
           python-version: '3.12'
       - name: Самоиспытание генератора
@@ -37,6 +36,8 @@ jobs:
       - name: "Приёмка: свежесть описи ≤ 8 дней"
         run: python3 scripts/health_badges.py --assert-fresh
       - name: Коммит только при реальных изменениях
+        env:
+          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
         run: |
           if git diff --quiet -- swarm_health.json README.md; then
             echo "опись без изменений — ритм без шума"
@@ -49,7 +50,8 @@ jobs:
             # (08.11 20:16-20:24 так легли ×5 red: «fetch first»). Rebase перед
             # пушем делает бот-коммит устойчивым к соседним волнам.
             git pull --rebase origin main
-            git push
+            # волна 13: GITHUB_TOKEN read-only (read-all); пуш — рукой роя (SWARM_TOKEN)
+            git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi
       - name: "Приёмка: raw-JSON 200 и бейджи резолвятся 200"
         run: python3 scripts/health_badges.py --check
@@ -61,10 +63,10 @@ jobs:
     steps:
       # output — orphan-ветка со SVG змейки: скриптов в ней нет,
       # поэтому retention-скрипт берём с main (вторая checkout в отдельный путь).
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 (SHA-канон)
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон)
         with:
           ref: output
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 (SHA-канон)
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон)
         with:
           ref: main
           path: _main
@@ -72,6 +74,7 @@ jobs:
         run: python3 _main/scripts/retention_output.py --selftest
       - name: Подрезка змейки-коммитов старше 90 дней
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # волна 13: подрезка требует write в git-data API — рука роя (SWARM_TOKEN)
+          GITHUB_TOKEN: ${{ secrets.SWARM_TOKEN }}
           RETENTION_ALLOW_PRUNE: '1'
         run: python3 _main/scripts/retention_output.py --max-age-days 90 --apply

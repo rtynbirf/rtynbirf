@@ -33,8 +33,7 @@ on:
       - "swarm-health (бейджи здоровья роя + retention output)"
       - "ТЕРМИНАЛ РОЯ (neofetch-карта)"
     types: [completed]
-permissions:
-  actions: write
+permissions: read-all
 
 concurrency:
   group: doctor-${{ github.event.workflow_run.id }}
@@ -52,7 +51,9 @@ jobs:
     steps:
       - name: "Реран упавших jobs (только API, без checkout)"
         env:
-          GH_TOKEN: ${{ github.token }}
+          # волна 13: реран требует actions:write — рука роя (SWARM_TOKEN);
+          # GITHUB_TOKEN в доме read-only (permissions: read-all)
+          GH_TOKEN: ${{ secrets.SWARM_TOKEN }}
         run: |
           rid="${{ github.event.workflow_run.id }}"
           code=$(curl -s -o /tmp/heal.json -w "%{http_code}" -X POST \

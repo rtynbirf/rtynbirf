@@ -3,8 +3,7 @@ on:
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch:
-permissions:
-  contents: write
+permissions: read-all
 concurrency:
   group: pulse-truth
   cancel-in-progress: false
@@ -12,8 +11,8 @@ jobs:
   pulse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон)
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон)
         with:
           python-version: "3.12"
       - name: перемерить дом
@@ -21,6 +20,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python .forge/gen_pulse.py
       - name: толчок правды
+        env:
+          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -31,5 +32,6 @@ jobs:
             git commit -m "⟳ пульс правды: цифры дома приведены к реальности (автомат)"
             # волна 12: пуш каждые 30 минут = самый частый источник гонки; ребейз — зуб
             git pull --rebase origin main
-            git push
+            # волна 13: GITHUB_TOKEN read-only (read-all); пуш — рукой роя (SWARM_TOKEN)
+            git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi

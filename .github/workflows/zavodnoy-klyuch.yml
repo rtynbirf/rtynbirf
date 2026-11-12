@@ -8,20 +8,20 @@ concurrency:
   group: zavodnoy-klyuch
   cancel-in-progress: true
 
-permissions:
-  actions: write
-  contents: read
+permissions: read-all
 
 jobs:
   wind:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон)
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон)
         with:
           python-version: "3.12"
       - name: завод просроченных клеток
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # волна 13: диспетчинг требует actions:write — рука роя (SWARM_TOKEN);
+          # GITHUB_TOKEN в доме read-only (permissions: read-all)
+          GITHUB_TOKEN: ${{ secrets.SWARM_TOKEN }}
         run: python scripts/zavodnoy_klyuch.py

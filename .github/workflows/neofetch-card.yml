@@ -8,8 +8,7 @@ concurrency:
   group: neofetch-card
   cancel-in-progress: true
 
-permissions:
-  contents: write
+permissions: read-all
 
 jobs:
   build:
@@ -23,11 +22,18 @@ jobs:
           SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Коммит карты (только при изменениях)
+        env:
+          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "ТЕРМИНАЛ: суточная neofetch-карта [skip ci]" || echo "изменений нет"
-          # волна 12: пуш в main — общий ресурс роя; ребейз перед пушем — зуб против «fetch first»
-          git pull --rebase origin main
-          git push
+          if git diff --cached --quiet; then
+            echo "карта не изменилась — коммит не нужен (анти-шум)"
+          else
+            git commit -m "ТЕРМИНАЛ: суточная neofetch-карта [skip ci]"
+            # волна 12: пуш в main — общий ресурс роя; ребейз перед пушем — зуб против «fetch first»
+            git pull --rebase origin main
+            # волна 13: пуш — рукой роя (SWARM_TOKEN)
+            git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+          fi

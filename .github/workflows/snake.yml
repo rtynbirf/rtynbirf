@@ -6,14 +6,13 @@ on:
   push:
     branches: [main]
 
+permissions: read-all
 concurrency:
   group: generate-snake
   cancel-in-progress: true
 jobs:
   generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Generate snake SVGs
         uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
@@ -28,7 +27,5 @@ jobs:
           target_branch: output
           build_dir: dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-permissions:
-  contents: read
+          # волна 13: пуш в output — рукой роя (SWARM_TOKEN); GITHUB_TOKEN read-only
+          GITHUB_TOKEN: ${{ secrets.SWARM_TOKEN }}
