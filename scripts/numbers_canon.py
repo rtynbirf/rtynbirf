@@ -73,7 +73,11 @@ def public_search(frm, to):
     return {"Commit": com, "Issue": iss, "PullReq": prs, "Repo": rep, "window": w}
 
 def svg_panel(path):
-    """Панель SVG: пять чисел, сумма, период. Если файла нет — мягкий пропуск."""
+    """Панель SVG: пять чисел, сумма, период. Если файла нет — мягкий пропуск.
+
+    Период ищется регуляркой по всему SVG, а не по позиции соседнего текста:
+    раскладка панели менялась (урок M-02 — инвариант, а не хрупкий порядок).
+    Не распознанный период — не повод ронять измерение канона."""
     if not os.path.exists(path):
         return None
     s = open(path, encoding="utf-8").read()
@@ -84,9 +88,16 @@ def svg_panel(path):
             j = texts.index(k)
             out[k] = int(texts[j + 1])
         out["total"] = int(texts[texts.index("contributions") - 1])
-        out["period"] = texts[texts.index("contributions") + 1]
     except (ValueError, IndexError):
         return None
+    m = re.search(r"(\d{4}-\d{2}-\d{2})\s*/\s*(\d{4}-\d{2}-\d{2})", s)
+    if m:
+        out["period"] = f"{m.group(1)} / {m.group(2)}"
+        out["period_to"] = m.group(2)
+    else:
+        dates = re.findall(r"\d{4}-\d{2}-\d{2}", s)
+        out["period"] = dates[-1] if dates else None
+        out["period_to"] = dates[-1] if dates else None
     return out
 
 def main():
@@ -113,15 +124,23 @@ def main():
 
     svg_verdict = None
     if panel:
-        age = (to.date() - datetime.date.fromisoformat(panel["period"].split("/")[-1].strip())).days
+        try:
+            age = (to.date() - datetime.date.fromisoformat(panel["period_to"])).days \
+                if panel.get("period_to") else None
+        except ValueError:
+            age = None
         deltas = {k: five[k] - panel[k] for k in five}
+        if age is None:
+            verdict = "период панели не распознан (раскладка SVG изменилась) — канону пять чисел это не мешает"
+        else:
+            verdict = ("свежий" if age <= 1 else
+                       "свежий, срез под замками" if age <= 2 and any(v > 0 for v in deltas.values()) else
+                       f"устарел на {age} дн — заводится ЗАВОДНЫМ КЛЮЧОМ / кроном 3d-contrib")
         svg_verdict = {
-            "period": panel["period"], "age_days": age, "panel": {k: panel[k] for k in five},
+            "period": panel.get("period"), "age_days": age, "panel": {k: panel[k] for k in five},
             "panel_total": panel["total"], "panel_sum_check": sum(panel[k] for k in five) == panel["total"],
             "delta_vs_canon": deltas,
-            "verdict": ("свежий" if age <= 1 else
-                        "свежий, срез под замками" if age <= 2 and any(v > 0 for v in deltas.values()) else
-                        f"устарел на {age} дн — заводится ЗАВОДНЫМ КЛЮЧОМ / кроном 3d-contrib"),
+            "verdict": verdict,
         }
         print("SVG-ПАНЕЛЬ:", json.dumps(svg_verdict, ensure_ascii=False))
 

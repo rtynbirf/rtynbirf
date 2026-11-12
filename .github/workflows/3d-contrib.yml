@@ -27,4 +27,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "3D-contrib: автогенерация" || echo "изменений нет"
+          # волна 12: пуш в main — общий ресурс роя; ребейз перед пушем — зуб против «fetch first»
+          git pull --rebase origin main
           git push
