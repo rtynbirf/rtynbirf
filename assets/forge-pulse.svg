@@ -41,7 +41,7 @@
   <path d="M 0 -8 L 6 0 L 0 8 L -6 0 Z" fill="#E8722A"/>
 </g></g>
 <text x="140" y="94" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" letter-spacing="4" fill="url(#gGoldX)">ДОМ ЖИВЁТ</text>
-<text x="143" y="124" font-family="'Courier New', monospace" font-size="12.5" letter-spacing="2" fill="#C9C2B4">POLIMAT · МУЛЬТИАГЕНТ · 63 ФЛОТА ОТКРЫТЫ · РОЙ НЕ СПИТ · 24/7</text>
+<text x="143" y="124" font-family="'Courier New', monospace" font-size="12.5" letter-spacing="2" fill="#C9C2B4">POLIMAT · МУЛЬТИАГЕНТ · 64 ФЛОТА ОТКРЫТЫ · РОЙ НЕ СПИТ · 24/7</text>
 <path d="M 592 75 L 597 80 L 592 85 L 587 80 Z" fill="#E8722A" opacity="1.0"/>
 <path d="M 620 80 h 60 l 10 -6 7 12 7 -40 8 72 7 -40 5 2 h 116 l 10 -6 7 12 7 -40 8 72 7 -40 5 2 h 116 l 10 -6 7 12 7 -40 8 72 7 -40 5 2 h 116 l 10 -6 7 12 7 -40 8 72 7 -40 5 2 h 96" pathLength="100" fill="none" stroke="#8A6420" stroke-width="2" opacity="0.55"/>
 <path d="M 620 80 h 60 l 10 -6 7 12 7 -40 8 72 7 -40 5 2 h 116 l 10 -6 7 12 7 -40 8 72 7 -40 5 2 h 116 l 10 -6 7 12 7 -40 8 72 7 -40 5 2 h 116 l 10 -6 7 12 7 -40 8 72 7 -40 5 2 h 96" pathLength="100" fill="none" stroke="#E8722A" stroke-width="2.6" opacity="0.4" filter="url(#fPulse)"/>
