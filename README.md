@@ -92,11 +92,12 @@
 
 <!--ФОРЖ:МУЗА:НАЧАЛО-->
 <div align="center">
-  <img src="repo-muse.svg" width="100%" alt="Муза rtynbirf: картина кузни ПОЛИМАТ, раунд 8" />
+  <img src="repo-muse.svg" width="100%" alt="Муза rtynbirf: мастерская ФРИДРИХ · ПУТНИК, кузня ПОЛИМАТ, раунд 11" />
   <br/>
-  <img src="forge-divider.svg" width="62%" alt="разделитель кузни ПОЛИМАТ" />
+  <img src="forge-divider.svg" width="62%" alt="делитель мастерской ФРИДРИХ · ПУТНИК" />
 </div>
 <!--ФОРЖ:МУЗА:КОНЕЦ-->
+
 
   <sub><b>polymath-multiagent</b> — parallel agent orchestration, «одно другое не исключает» · <code>MCP-server</code> <code>SSE-dashboard</code> <code>stdlib-only</code> <code>19 tests green</code></sub>
 </td>
