@@ -29,10 +29,10 @@
   <path d="M 632 172 V 192 H 612" stroke="#D9A441" stroke-width="2.5" fill="none"/>
   <path d="M 28 192 H 8 V 172" stroke="#D9A441" stroke-width="2.5" fill="none"/>
 
-<text x="56" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="6" fill="#C9C2B4">ЗДОРОВЬЕ РОЯ · СРЕЗ 2026-11-10</text>
-<text x="56" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#F2C464">48<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  ФЛОТОВ</tspan></text>
-<text x="286" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#C05A3A">0<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  РАНЫ · ЛЕЧУ</tspan></text>
-<text x="56" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#D9A441">4<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  PR ОТКРЫТЫХ</tspan></text>
-<text x="286" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#D9A441">1<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  ТЯЖЕЛОВЕС 1073 MiB</tspan></text>
+<text x="56" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="6" fill="#C9C2B4">ЗДОРОВЬЕ РОЯ · СРЕЗ 2026-11-13</text>
+<text x="56" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#F2C464">64<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  ФЛОТОВ</tspan></text>
+<text x="286" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#C05A3A">16<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  РАНЫ · ЛЕЧУ</tspan></text>
+<text x="56" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#D9A441">44<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  PR ОТКРЫТЫХ</tspan></text>
+<text x="286" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" fill="#D9A441">1<tspan font-size="15" letter-spacing="2" fill="#C9C2B4">  ТЯЖЕЛОВЕС 1069 MiB</tspan></text>
 <text x="56" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="12" letter-spacing="2" fill="#8A6420">живая сверка — SWARM-SYNC ниже · GitHub API</text>
 </svg>

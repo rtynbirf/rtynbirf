@@ -1,33 +1,33 @@
 {
   "schema": "swarm_numbers/1",
-  "generated_at": "2026-11-12T12:58:48Z",
+  "generated_at": "2026-11-13T12:54:07Z",
   "window": {
-    "from": "2025-11-13",
-    "to": "2026-11-12"
+    "from": "2025-11-14",
+    "to": "2026-11-13"
   },
   "graphql": {
     "five": {
-      "Commit": 3761,
+      "Commit": 3954,
       "Issue": 323,
       "PullReq": 72,
       "Review": 0,
       "Repo": 64
     },
-    "sum_of_five": 4220,
-    "calendar_total": 4220,
+    "sum_of_five": 4413,
+    "calendar_total": 4413,
     "restricted": 0,
     "invariant_sum5_eq_calendar": true
   },
   "public_search": {
-    "Commit": 2612,
+    "Commit": 2807,
     "Issue": 323,
     "PullReq": 72,
     "Repo": 63,
-    "window": "2025-11-13..2026-11-12"
+    "window": "2025-11-14..2026-11-13"
   },
   "svg_panel": {
     "period": "2025-11-09 / 2026-11-12",
-    "age_days": 0,
+    "age_days": 1,
     "panel": {
       "Commit": 3757,
       "Issue": 323,
@@ -38,7 +38,7 @@
     "panel_total": 4216,
     "panel_sum_check": true,
     "delta_vs_canon": {
-      "Commit": 4,
+      "Commit": 197,
       "Issue": 0,
       "PullReq": 0,
       "Review": 0,

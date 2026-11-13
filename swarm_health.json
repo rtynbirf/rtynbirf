@@ -1,1 +1,134 @@
-{"generated_at": "2026-11-10T12:42:17Z", "generated_date": "2026-11-10", "schema": "swarm_health/1", "source": {"api": "https://api.github.com/users/rtynbirf/repos", "coverage": "public", "repos_scanned": 48, "repos_total": 48, "private_total": 0, "rules": {"fresh_days_max": 8, "heavyweights_mib": 512, "wounds": "последний завершённый прогон на default-ветке в {failure,startup_failure,timed_out}"}, "unscanned": []}, "heavyweights": {"badge_color": "orange", "count": 1, "repos": [{"repo": "singulyar", "size_mib": 1073.0}]}, "open_prs": {"badge_color": "orange", "count": 4, "query": "is:pr is:open user:rtynbirf"}, "wounds": {"badge_color": "green", "count": 0, "repos": []}}
+{
+  "generated_at": "2026-11-13T12:54:07Z",
+  "generated_date": "2026-11-13",
+  "heavyweights": {
+    "badge_color": "orange",
+    "count": 1,
+    "repos": [
+      {
+        "repo": "singulyar",
+        "size_mib": 1069.1
+      }
+    ]
+  },
+  "open_prs": {
+    "badge_color": "orange",
+    "count": 44,
+    "query": "is:pr is:open user:rtynbirf"
+  },
+  "schema": "swarm_health/1",
+  "source": {
+    "api": "https://api.github.com/users/rtynbirf/repos",
+    "coverage": "public",
+    "repos_scanned": 64,
+    "repos_total": 64,
+    "rules": {
+      "fresh_days_max": 8,
+      "heavyweights_mib": 512,
+      "wounds": "последний завершённый прогон на default-ветке в {failure,startup_failure,timed_out}"
+    },
+    "unscanned": []
+  },
+  "wounds": {
+    "badge_color": "red",
+    "count": 16,
+    "repos": [
+      {
+        "conclusion": "failure",
+        "repo": "cell-rs",
+        "url": "https://github.com/rtynbirf/cell-rs/actions/runs/43252513100",
+        "workflow": "metabolism"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "markitdown",
+        "url": "https://github.com/rtynbirf/markitdown/actions/runs/43014712114",
+        "workflow": "Push on main"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "nous",
+        "url": "https://github.com/rtynbirf/nous/actions/runs/43252553072",
+        "workflow": "guardian-tripwire"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "polymat-hive",
+        "url": "https://github.com/rtynbirf/polymat-hive/actions/runs/43238749402",
+        "workflow": "github_actions in /. - Update #1698536848"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "polymath-atlas-v107",
+        "url": "https://github.com/rtynbirf/polymath-atlas-v107/actions/runs/43252570881",
+        "workflow": "Scorecard analysis"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "polymath-core",
+        "url": "https://github.com/rtynbirf/polymath-core/actions/runs/43048143807",
+        "workflow": "github_actions in /. - Update #1696196013"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "polymath-os",
+        "url": "https://github.com/rtynbirf/polymath-os/actions/runs/43252578070",
+        "workflow": "OpenSSF Scorecard"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "polymath-tools-atlas",
+        "url": "https://github.com/rtynbirf/polymath-tools-atlas/actions/runs/43252585105",
+        "workflow": "Push on main"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "red-thread-debt-audit",
+        "url": "https://github.com/rtynbirf/red-thread-debt-audit/actions/runs/43252594503",
+        "workflow": "guardian-tripwire"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "repo-doctrine",
+        "url": "https://github.com/rtynbirf/repo-doctrine/actions/runs/43252595068",
+        "workflow": "wave6-t17-manifest-freshness"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "ruvson-lyrics",
+        "url": "https://github.com/rtynbirf/ruvson-lyrics/actions/runs/43252603051",
+        "workflow": "guardian-tripwire"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "ruvson-rse2",
+        "url": "https://github.com/rtynbirf/ruvson-rse2/actions/runs/43252608851",
+        "workflow": "CI"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "singulyar-llm",
+        "url": "https://github.com/rtynbirf/singulyar-llm/actions/runs/43252606852",
+        "workflow": "Push on main"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "uace-pml",
+        "url": "https://github.com/rtynbirf/uace-pml/actions/runs/43252614446",
+        "workflow": "ci"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "universal-agent",
+        "url": "https://github.com/rtynbirf/universal-agent/actions/runs/43252622233",
+        "workflow": "ci"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "web-evolution-1991-2026",
+        "url": "https://github.com/rtynbirf/web-evolution-1991-2026/actions/runs/43252627642",
+        "workflow": "guardian-tripwire"
+      }
+    ]
+  }
+}

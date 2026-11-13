@@ -42,10 +42,10 @@
 | [**СИНГУЛЯР**](https://rtynbirf.github.io) — офлайн-караоке прямо в браузере, ничего не нужно устанавливать | [**cell-swarm**](https://github.com/rtynbirf/cell-swarm) — эмерджентная архитектура роя клеток | [**ЕДИНЫЙ СВОД**](https://github.com/rtynbirf/edinyy-svod) — каталог всех миров вселенной |
 
 [![Public repos](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Frtynbirf&query=%24.public_repos&label=public%20repos&color=241D12&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf?tab=repositories)
-[![Commits](https://img.shields.io/badge/commits-2786%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
+[![Commits](https://img.shields.io/badge/commits-3800%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
 [![Showcase](https://img.shields.io/badge/showcase-rtynbirf.github.io-D9A441?style=flat-square)](https://rtynbirf.github.io)
 [![Followers](https://img.shields.io/github/followers/rtynbirf?style=flat-square&color=2E2540&label=followers)](https://github.com/rtynbirf)
-[![Audit](https://img.shields.io/badge/audited-2026--11--12-2E2540?style=flat-square)](https://github.com/rtynbirf)
+[![Audit](https://img.shields.io/badge/audited-2026--11--13-2E2540?style=flat-square)](https://github.com/rtynbirf)
 [![Views](https://komarev.com/ghpvc/?username=rtynbirf&style=flat-square&color=2E2540&label=views)](https://github.com/rtynbirf)
 
 <!-- HIVE:BEGIN живой эксперимент · polymat-hive -->
@@ -137,10 +137,10 @@
 ## РОЙ В СТРОЮ · живая шахматка
 
 <div align="center">
-  <img src="assets/forge-city.svg" width="100%" alt="Живой строй: шахматка 48 публичных флотов, 1582 MiB кода, тяжеловес в янтарной раме, бегущая искра обходит строй" />
+  <img src="assets/forge-city.svg" width="100%" alt="Живой строй: шахматка 64 публичных флотов, 1714 MiB кода, тяжеловес в янтарной раме, бегущая искра обходит строй" />
 </div>
 
-> 48 публичных флотов из живого среза GitHub API · 2026-11-10 · свод открыт настежь — приватных 0 · каждый блок — репозиторий с языком и весом · сумма, печать и кузня — в золотых ячейках.
+> 64 публичных флота из живого среза GitHub API · 2026-11-13 · свод открыт настежь — приватных 0 · счёт и дата — живой такт 2026-11-13, шахматка рядов — срез ковки · каждый блок — репозиторий с языком и весом · сумма, печать и кузня — в золотых ячейках.
 
 ## КАРТА СВЯЗЕЙ РОЯ · импульсы
 
@@ -229,7 +229,7 @@
 </div>
 
 <div align="center">
-  <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 48 флотов · 0 ран · 4 PR · 1 тяжеловес" />
+  <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 64 флота · 16 ран по канону описи (15 — архив-осадок, 1 активная: polymath-core) · 44 PR · 1 тяжеловес" />
 </div>
 
 <div align="center">
@@ -241,7 +241,7 @@
 </div>
 
 <div align="center">
-  <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 48 репо, GitHub API" />
+  <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 64 репо, GitHub API" />
 </div>
 
 ## ХРОНИКА КУЗНИ · ГОД ПЛАВКИ
@@ -338,7 +338,7 @@
 ## КАРТА ДОМА
 
 <div align="center">
-  <img src="assets/forge-map.svg" width="100%" alt="Карта дома: 64 комнаты — все одеты музой; 21 живая светится, 43 спят под сводом с золотыми кольцами" />
+  <img src="assets/forge-map.svg" width="100%" alt="Карта дома: 64 комнаты — все одеты музой; 22 живая светится, 42 спят под сводом с золотыми кольцами" />
 </div>
 
-Все 64 комнаты дома несут свою написанную картину-музу. Раунд 11: каждая муза переписана заново — 64 полотна в 64 собственных мастерских великих школ (швейцарская точность, Хокусай, Климт, Малевич, Лисицкий, Калдер, Пиранези, Клее, оп-арт и другие законы), двух похожих рядом нет. 21 живая светится, 43 под сводом архива одеты и заперты — красота без нарушения дислокации; на карте спящие звёзды носят золотые кольца. Угольная звезда rumu спит одетой — проснулась по слову Хозяина и легла обратно.
+Все 64 комнаты дома несут свою написанную картину-музу. Раунд 11: каждая муза переписана заново — 64 полотна в 64 собственных мастерских великих школ (швейцарская точность, Хокусай, Климт, Малевич, Лисицкий, Калдер, Пиранези, Клее, оп-арт и другие законы), двух похожих рядом нет. 22 живая светится, 42 под сводом архива одеты и заперты — красота без нарушения дислокации; на карте спящие звёзды носят золотые кольца. Угольная звезда rumu спит одетой — проснулась по слову Хозяина и легла обратно.
