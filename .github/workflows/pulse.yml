@@ -33,5 +33,7 @@ jobs:
             # волна 12: пуш каждые 30 минут = самый частый источник гонки; ребейз — зуб
             git pull --rebase origin main
             # волна 13: GITHUB_TOKEN read-only (read-all); пуш — рукой роя (SWARM_TOKEN)
+            # волна 14: extraheader от checkout перекрывает URL-креды → 403 github-actions[bot]; снимаем
+            git config --unset-all http.https://github.com/.extraheader || true
             git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi
