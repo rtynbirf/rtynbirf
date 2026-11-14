@@ -7,6 +7,10 @@
 **Autonomous agents · Generative media · Offline sovereignty.**
 «Строю то, что работает без интернета и без разрешений.»
 
+> **За 10 секунд.** Я — ЧЕЛОВЕК=АККАУНТ=PID1, живая кузня автономных систем.
+> Главный проект — [polymath-os](https://github.com/rtynbirf/polymath-os): каждая строчка репо воспроизводима одной командой `make verify` → 33/33 PASS.
+> Живой дом — [СИНГУЛЯР](https://rtynbirf.github.io/singulyar/): офлайн-караоке-вселенная «Одна песня. 157 голосов. Одна правда.»
+
 <div align="center">
   <img src="assets/forge-hero.svg" width="100%" alt="Живая эмблема кузни: восходящий феникс в кольце рун, орбитальный блеск, искры" />
 </div>
