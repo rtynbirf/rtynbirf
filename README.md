@@ -8,7 +8,7 @@
 «Строю то, что работает без интернета и без разрешений.»
 
 > **За 10 секунд.** Я — ЧЕЛОВЕК=АККАУНТ=PID1, живая кузня автономных систем.
-> Главный проект — [polymath-os](https://github.com/rtynbirf/polymath-os): каждая строчка репо воспроизводима одной командой `make verify` → 33/33 PASS.
+> Главный проект — [polymath-os](https://github.com/rtynbirf/polymath-os): каждая строчка репо воспроизводима одной командой [`make verify`](https://github.com/rtynbirf/polymath-os/blob/main/Makefile) → 33/33 PASS · 295 тестов · 35 ADR · 5 слоёв.
 > Живой дом — [СИНГУЛЯР](https://rtynbirf.github.io/singulyar/): офлайн-караоке-вселенная «Одна песня. 157 голосов. Одна правда.»
 
 <div align="center">
