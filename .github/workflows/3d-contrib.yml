@@ -16,6 +16,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      with:
+        persist-credentials: false   # волна 14: без extraheader — пуш рукой роя (SWARM_TOKEN)
       - uses: yoshi389111/github-profile-3d-contrib@7d95e7d4cdc028dd1e1cbd957d65f35efb12ae39 # v0.9.3
         env:
           # волна 13: GITHUB_TOKEN в доме read-only; API-обзор — рукой роя
@@ -35,5 +37,8 @@ jobs:
             # волна 12: пуш в main — общий ресурс роя; ребейз перед пушем — зуб против «fetch first»
             git pull --rebase origin main
             # волна 13: пуш — рукой роя (SWARM_TOKEN)
+            # волна 14: extraheader checkout перекрывает URL-креды → 403 github-actions[bot]
+            git config --unset-all http.https://github.com/.extraheader || true
+            git config --worktree --unset-all http.https://github.com/.extraheader 2>/dev/null || true
             git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi

@@ -16,6 +16,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон)
+      with:
+        persist-credentials: false   # волна 14: без extraheader — пуш рукой роя (SWARM_TOKEN)
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон)
         with:
           python-version: "3.12"
@@ -39,5 +41,8 @@ jobs:
             git commit -m "⟳ канон цифр: сверка пяти приведена к реальности (автомат) [skip ci]"
             git pull --rebase origin main
             # волна 13: GITHUB_TOKEN read-only (read-all); пуш — рукой роя (SWARM_TOKEN)
+            # волна 14: extraheader checkout перекрывает URL-креды → 403 github-actions[bot]
+            git config --unset-all http.https://github.com/.extraheader || true
+            git config --worktree --unset-all http.https://github.com/.extraheader 2>/dev/null || true
             git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi
