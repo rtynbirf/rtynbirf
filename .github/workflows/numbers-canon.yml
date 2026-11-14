@@ -16,8 +16,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон)
-      with:
-        persist-credentials: false   # волна 14: без extraheader — пуш рукой роя (SWARM_TOKEN)
+        with:
+          persist-credentials: false  # волна 14: без extraheader — пуш рукой роя (SWARM_TOKEN)
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон)
         with:
           python-version: "3.12"

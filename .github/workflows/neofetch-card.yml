@@ -16,8 +16,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      with:
-        persist-credentials: false   # волна 14: без extraheader — пуш рукой роя (SWARM_TOKEN)
+        with:
+          persist-credentials: false  # волна 14: без extraheader — пуш рукой роя (SWARM_TOKEN)
       - name: Генерация карты (методика SWARM-SYNC)
         run: python3 scripts/neofetch_card.py assets/neofetch.svg
         env:
