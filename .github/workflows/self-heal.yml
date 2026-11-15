@@ -32,6 +32,11 @@ on:
       - "generate snake"
       - "swarm-health (бейджи здоровья роя + retention output)"
       - "ТЕРМИНАЛ РОЯ (neofetch-карта)"
+      - "КАНОН ЦИФР · сверка пяти"
+      - "пульс-правды"
+      - "РЕВО ОБХОД"
+      - "ЗАВОДНОЙ КЛЮЧ · завод спящих"
+      - "Workflow security lint (zizmor)"
     types: [completed]
 permissions: read-all
 
