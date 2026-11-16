@@ -23,7 +23,7 @@
 > Главный проект — [polymath-os](https://github.com/rtynbirf/polymath-os): каждая строчка репо воспроизводима одной командой [`make verify`](https://github.com/rtynbirf/polymath-os/blob/main/Makefile) → 33/33 PASS · 295 тестов · 35 ADR · 5 слоёв.
 > Живой дом — [СИНГУЛЯР](https://rtynbirf.github.io/singulyar/): офлайн-караоке-вселенная «Одна песня. 157 голосов. Одна правда.»
 
-## ГЕНОМ РОЯ · 11 КЛЕТОК — канон пинов профиля
+## ГЕНОМ РОЯ · 14 КЛЕТОК — канон пинов профиля
 
 | # | Клетка | Роль из тела генома |
 |---|---|---|
@@ -38,8 +38,11 @@
 | 9 | [`runtime-protocol`](https://github.com/rtynbirf/runtime-protocol) | исполнимая модель динамики узла: уравнение ρ̇, фазовая машина GENESIS_EXEC |
 | 10 | [`cell-rs`](https://github.com/rtynbirf/cell-rs) | первая Rust-клетка: ядро контура сверки, байт-цепь на векторах NIST |
 | 11 | [`agryp`](https://github.com/rtynbirf/agryp) | процесс-супервизор агентов роя (PID 1): один файл C, только libc, ноль зависимостей |
+| 12 | [`lex-naturae`](https://github.com/rtynbirf/lex-naturae) | законник дома: claim/evidence ledger — отделяет наблюдения от гипотез · 70/70 тестов · аудит v0.7 Z.ai |
+| 13 | [`singulyar-a0-audit`](https://github.com/rtynbirf/singulyar-a0-audit) | независимый аудитор роя: A0-аудит СИНГУЛЯРА PACKAGE VALID + BRIDGE VALID · свидетель, не автор |
+| 14 | [`fond-host`](https://github.com/rtynbirf/fond-host) | CORS-хост минус-фонда (Н-10 · ADR-0007): Pages отдаёт ACAO:* для лестницы WebAudio-плееров |
 
-> Роли — из тела генома (swarm.json, храповик пинов, канон a67184b). Пины профиля API не выставляет
+> Роли — из тела генома (swarm.json, храповик пинов, 0.2.7 · 14 клеток, канон f3cf0312). Пины профиля API не выставляет
 > (GraphQL: 269 мутаций без профильных; REST: все каналы 404 — проба 2026-11-16) — канон держит лицо.
 
 
