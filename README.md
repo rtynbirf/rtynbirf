@@ -102,6 +102,16 @@
 </div>
 <!--ФОРЖ:МУЗА:КОНЕЦ-->
 
+<!--ФОРЖ:ПАСПОРТ:НАЧАЛО-->
+<div align="center">
+  <img src="revo-page.svg" width="100%" alt="РЕВО-паспорт страницы REVO: строение файлов, лексикон, числа — по фактическому контенту" />
+</div>
+
+| ФАЙЛОВ | ПАПОК | КОММИТОВ | ОБНОВЛЕНО | РЕЛИЗОВ |
+|---:|---:|---:|---|---:|
+| 101 | 8 | 217 | 2026-11-16 | 1 |
+<!--ФОРЖ:ПАСПОРТ:КОНЕЦ-->
+
 
   <sub><b>polymath-multiagent</b> — parallel agent orchestration, «одно другое не исключает» · <code>MCP-server</code> <code>SSE-dashboard</code> <code>stdlib-only</code> <code>19 tests green</code></sub>
 </td>
