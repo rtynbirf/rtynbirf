@@ -23,6 +23,26 @@
 > Главный проект — [polymath-os](https://github.com/rtynbirf/polymath-os): каждая строчка репо воспроизводима одной командой [`make verify`](https://github.com/rtynbirf/polymath-os/blob/main/Makefile) → 33/33 PASS · 295 тестов · 35 ADR · 5 слоёв.
 > Живой дом — [СИНГУЛЯР](https://rtynbirf.github.io/singulyar/): офлайн-караоке-вселенная «Одна песня. 157 голосов. Одна правда.»
 
+## ГЕНОМ РОЯ · 11 КЛЕТОК — канон пинов профиля
+
+| # | Клетка | Роль из тела генома |
+|---|---|---|
+| 1 | [`polymath-os`](https://github.com/rtynbirf/polymath-os) | substrate роя: ОС Человека — 5 слоёв + Decree Log (append-only, hash-chained, Ed25519) |
+| 2 | [`singulyar`](https://github.com/rtynbirf/singulyar) | память роя: корпус 64 песни × 200 языков офлайн |
+| 3 | [`singulyar-llm`](https://github.com/rtynbirf/singulyar-llm) | локальный инференс в браузере (Qwen) — кандидат в метаболизм роя |
+| 4 | [`cell65-host`](https://github.com/rtynbirf/cell65-host) | суверенный узел-хост «настроил и забыл» |
+| 5 | [`rumu`](https://github.com/rtynbirf/rumu) | держатель имени РУМУ — клетка-указатель, пин следит за телом |
+| 6 | [`voice-atlas-llm`](https://github.com/rtynbirf/voice-atlas-llm) | атлас голосов: свой голос — при себе, чужой — только по согласию (A21 дома) |
+| 7 | [`global-video-platforms-registry`](https://github.com/rtynbirf/global-video-platforms-registry) | реестр-указатель платформ: хаб хранит магниты, не контент |
+| 8 | [`commons`](https://github.com/rtynbirf/commons) | дом: организм из лучших открытых проектов, якорь моста (ADR-0006) |
+| 9 | [`runtime-protocol`](https://github.com/rtynbirf/runtime-protocol) | исполнимая модель динамики узла: уравнение ρ̇, фазовая машина GENESIS_EXEC |
+| 10 | [`cell-rs`](https://github.com/rtynbirf/cell-rs) | первая Rust-клетка: ядро контура сверки, байт-цепь на векторах NIST |
+| 11 | [`agryp`](https://github.com/rtynbirf/agryp) | процесс-супервизор агентов роя (PID 1): один файл C, только libc, ноль зависимостей |
+
+> Роли — из тела генома (swarm.json, храповик пинов, канон a67184b). Пины профиля API не выставляет
+> (GraphQL: 269 мутаций без профильных; REST: все каналы 404 — проба 2026-11-16) — канон держит лицо.
+
+
 <div align="center">
   <img src="assets/forge-hero.svg" width="100%" alt="Живая эмблема кузни: восходящий феникс в кольце рун, орбитальный блеск, искры" />
 </div>
