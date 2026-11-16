@@ -51,6 +51,10 @@ jobs:
             # пушем делает бот-коммит устойчивым к соседним волнам.
             git pull --rebase origin main
             # волна 13: GITHUB_TOKEN read-only (read-all); пуш — рукой роя (SWARM_TOKEN)
+            # волна 12/16: checkout persist-credentials кладёт http.extraheader, он ПЕРЕБИВАЕТ
+            # basic-auth из URL пуша (пуш уходил как github-actions[bot] → 403 read-all).
+            # Снимаем extraheader — рука роя доходит до GitHub честно.
+            git config --local --unset-all http.https://github.com/.extraheader || true
             git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi
       - name: "Приёмка: raw-JSON 200 и бейджи резолвятся 200"
