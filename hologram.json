@@ -2,7 +2,7 @@
  "hologram": 1,
  "root": "c223bd4a2f6a56783c1fbdb1b1f671fa61c3150ecf320c82796ea5763043a696",
  "n": 73,
- "storage": 68,
+ "storage": 36,
  "r": 3,
  "self": {
   "name": "rtynbirf",
@@ -312,6 +312,18 @@
    "cluster": ""
   },
   {
+   "name": "lean-canon",
+   "desc": "КНИГА LEAN-КАНОНА",
+   "lang": "Lean",
+   "cluster": ""
+  },
+  {
+   "name": "os-forge",
+   "desc": "OS-FORGE v0.1.1 — самодостаточный автономный батник: карта среды (железо+ОС по фактам) → решение → сеть (репозиторий пунктов) → сборка актуальной ОС → готовый ISO с манифестом. Windows (cmd+PowerShell",
+   "lang": "Python",
+   "cluster": "OS"
+  },
+  {
    "name": "repo-doctrine",
    "desc": "Доктрина настройки GitHub-репозиториев: человеком для человека. Чек-листы флагов, защита веток, токены, конвенции агентов, аварийные процедуры, карта аккаунта.",
    "lang": "Python",
@@ -322,6 +334,12 @@
    "desc": "Клетка роя cell-swarm: исполнимая модель динамики узла (уравнение ρ̇, GENESIS_EXEC, VOLATILE_META, CANCER_FILTER). stdlib-only, офлайн.",
    "lang": "Python",
    "cluster": "SWARM"
+  },
+  {
+   "name": "singulyar-llm",
+   "desc": "Локальная модель СИНГУЛЯРА: Qwen2.5-0.5B-Instruct GGUF частями + инструкционный слой (ОБУЧЕНИЕ). Веса Apache-2.0, генерация — в браузере человека.",
+   "lang": "Python",
+   "cluster": "SINGULAR"
   },
   {
    "name": "task-graph-propagator",
