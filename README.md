@@ -127,7 +127,7 @@
 <table>
 <tr>
 <td colspan="2">
-  <a href="https://github.com/rtynbirf/polymath-multiagent"><img src="https://raw.githubusercontent.com/rtynbirf/polymath-multiagent/main/banner.png?v=20261118a"" width="100%" alt="polymath-multiagent — четыре потока расплавленного золота сливаются в одного феникса"></a>
+  <a href="https://github.com/rtynbirf/polymath-multiagent"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-polymath-multiagent.png"" width="100%" alt="polymath-multiagent — четыре потока расплавленного золота сливаются в одного феникса"></a>
 
 <!--ФОРЖ:МУЗА:НАЧАЛО-->
 <div align="center">
@@ -153,31 +153,31 @@
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/polymath-gen"><img src="https://raw.githubusercontent.com/rtynbirf/polymath-gen/main/banner.png?v=20261118a"" width="100%" alt="polymath-gen — картина"></a>
+  <a href="https://github.com/rtynbirf/polymath-gen"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-polymath-gen.png"" width="100%" alt="polymath-gen — картина"></a>
   <sub><b>polymath-gen</b> — autonomous media agent with self-critique loop · <code>Python</code> <code>GLM-4V</code> <code>ComfyUI</code></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/singulyar"><img src="https://raw.githubusercontent.com/rtynbirf/singulyar/rumu/banner.png?v=20261118a"" width="100%" alt="singulyar — картина"></a>
+  <a href="https://github.com/rtynbirf/singulyar"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-singulyar.png"" width="100%" alt="singulyar — картина"></a>
   <sub><b>singulyar</b> — offline karaoke universe RUVSON · <code>PWA</code> <code>Offline-first</code> <code>64 songs</code></sub>
 </td>
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/polymath-tools-atlas"><img src="https://raw.githubusercontent.com/rtynbirf/polymath-tools-atlas/main/banner.png?v=20261118a"" width="100%" alt="polymath-tools-atlas — картина"></a>
+  <a href="https://github.com/rtynbirf/polymath-tools-atlas"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-polymath-tools-atlas.png"" width="100%" alt="polymath-tools-atlas — картина"></a>
   <sub><b>polymath-tools-atlas</b> — 665 AI tools, evidence-ranked · <code>Research</code> <code>Proof-chains</code></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/cell-swarm"><img src="https://raw.githubusercontent.com/rtynbirf/cell-swarm/main/banner.png?v=20261118a"" width="100%" alt="cell-swarm — картина"></a>
+  <a href="https://github.com/rtynbirf/cell-swarm"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-cell-swarm.png"" width="100%" alt="cell-swarm — картина"></a>
   <sub><b>cell-swarm</b> — emergent repo organism · <code>Swarm</code> <code>stdlib-only</code></sub>
 </td>
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/voice-atlas-llm"><img src="https://raw.githubusercontent.com/rtynbirf/voice-atlas-llm/main/banner.png?v=20261118a"" width="100%" alt="voice-atlas-llm — картина"></a>
+  <a href="https://github.com/rtynbirf/voice-atlas-llm"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-voice-atlas-llm.png"" width="100%" alt="voice-atlas-llm — картина"></a>
   <sub><b>voice-atlas-llm</b> — voice cloning expert LLM · <code>TTS/VC/SVC/SVS</code> <code>LoRA</code></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/neutral-browser"><img src="https://raw.githubusercontent.com/rtynbirf/neutral-browser/main/banner.png?v=20261118a"" width="100%" alt="neutral-browser — картина"></a>
+  <a href="https://github.com/rtynbirf/neutral-browser"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-neutral-browser.png"" width="100%" alt="neutral-browser — картина"></a>
   <sub><b>neutral-browser</b> — browser engine from scratch in Rust · <code>Rust</code> <code>0 deps</code></sub>
 </td>
 </tr>
@@ -211,21 +211,21 @@
 <table>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/polymath-os"><img src="https://raw.githubusercontent.com/rtynbirf/polymath-os/main/banner.png?v=20261118a"" width="100%" alt="OS — штандарт"></a>
+  <a href="https://github.com/rtynbirf/polymath-os"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-polymath-os.png"" width="100%" alt="OS — штандарт"></a>
   <sub><b>OS</b> · sovereign machines — <a href="https://github.com/rtynbirf/polymath-os">polymath-os</a></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/release-vault"><img src="https://raw.githubusercontent.com/rtynbirf/release-vault/main/banner.png?v=20261118a"" width="100%" alt="VAULT — штандарт"></a>
+  <a href="https://github.com/rtynbirf/release-vault"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-release-vault.png"" width="100%" alt="VAULT — штандарт"></a>
   <sub><b>VAULT</b> · encrypted off-site archive — <a href="https://github.com/rtynbirf/release-vault">release-vault</a></sub>
 </td>
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/revo"><img src="https://raw.githubusercontent.com/rtynbirf/revo/main/banner.png?v=20261118a"" width="100%" alt="МЕТОД — штандарт"></a>
+  <a href="https://github.com/rtynbirf/revo"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-revo.png"" width="100%" alt="МЕТОД — штандарт"></a>
   <sub><b>МЕТОД</b> · runnable-прототип метода — <a href="https://github.com/rtynbirf/revo">revo</a></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/rtynbirf.github.io"><img src="https://raw.githubusercontent.com/rtynbirf/rtynbirf.github.io/main/banner.png?v=20261118a"" width="100%" alt="ВИТРИНА — штандарт"></a>
+  <a href="https://github.com/rtynbirf/rtynbirf.github.io"><img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/banner-vitrrina.png"" width="100%" alt="ВИТРИНА — штандарт"></a>
   <sub><b>ВИТРИНА</b> · universal player — <a href="https://rtynbirf.github.io">rtynbirf.github.io</a></sub>
 </td>
 </tr>
@@ -319,14 +319,14 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rtynbirf/rtynbirf/output/github-contribution-grid-snake-dark.svg">
-  <img src="https://raw.githubusercontent.com/rtynbirf/rtynbirf/output/github-contribution-grid-snake.svg" alt="contribution snake" width="100%">
+  <img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/github-contribution-grid-snake.svg" alt="contribution snake" width="100%">
 </picture>
 
 ## СВЕТ ВСЕЛЕННОЙ · 3D
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rtynbirf/rtynbirf/main/profile-3d-contrib/profile-night-rainbow.svg">
-  <img src="https://raw.githubusercontent.com/rtynbirf/rtynbirf/main/profile-3d-contrib/profile-green-animate.svg?v=20261118a" alt="3d contributions" width="100%">
+  <img src="https://github.com/rtynbirf/rtynbirf/releases/download/revo-gallery-r17/profile-green-animate.svg" alt="3d contributions" width="100%">
 </picture>
 
 ---
