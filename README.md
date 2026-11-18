@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/polimat-header.png" width="100%" alt="ПОЛИМАТ-УНИВЕРУМ — написанный хедер: обсидиан · золото · феникс-медальон">
+  <img src="polimat-header.png" width="100%" alt="ПОЛИМАТ-УНИВЕРУМ — написанный хедер: обсидиан · золото · феникс-медальон">
 </div>
 
 <!--ФОРЖ:АККАУНТ:НАЧАЛО-->
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/revo-account.svg" width="100%" alt="РЕВО-паспорт аккаунта: мастераские, живые/архив, автопилот на каждой странице" />
+  <img src="revo-account.svg" width="100%" alt="РЕВО-паспорт аккаунта: мастераские, живые/архив, автопилот на каждой странице" />
 </div>
 
 | РЕПО | ЖИВЫХ | МАСТЕРСКИХ | ОБНОВЛЕНО |
@@ -47,30 +47,30 @@
 
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-hero.svg" width="100%" alt="Живая эмблема кузни: восходящий феникс в кольце рун, орбитальный блеск, искры" />
+  <img src="assets/forge-hero.svg" width="100%" alt="Живая эмблема кузни: восходящий феникс в кольце рун, орбитальный блеск, искры" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-pulse.svg" width="100%" alt="Кардиограмма кузни: ДОМ ЖИВЁТ — сердце роя бьётся, бегущая искра по живому пульсу" />
+  <img src="assets/forge-pulse.svg" width="100%" alt="Кардиограмма кузни: ДОМ ЖИВЁТ — сердце роя бьётся, бегущая искра по живому пульсу" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-manifest.svg" width="100%" alt="Лента девизов: РОЙ СТРОИТ · ЧЕЛОВЕК ВЕДЁТ · ОФЛАЙН ЖИВЁТ ЗДЕСЬ · КАЖДАЯ ЦИФРА ПРОВЕРЯЕМА" />
+  <img src="assets/forge-manifest.svg" width="100%" alt="Лента девизов: РОЙ СТРОИТ · ЧЕЛОВЕК ВЕДЁТ · ОФЛАЙН ЖИВЁТ ЗДЕСЬ · КАЖДАЯ ЦИФРА ПРОВЕРЯЕМА" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-pid1.svg" width="100%" alt="ЧЕЛОВЕК=АККАУНТ=PID1: init-кольца и boot-лог дома, загрузка продолжается" />
+  <img src="assets/forge-pid1.svg" width="100%" alt="ЧЕЛОВЕК=АККАУНТ=PID1: init-кольца и boot-лог дома, загрузка продолжается" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-musa.svg" width="100%" alt="МУЗА ЖИВЁТ ЗДЕСЬ: созвездие из 9 звёзд, феникс, вертикальная типографика, СОВЕРШЕНСТВУ НЕТ ПРЕДЕЛА" />
+  <img src="assets/forge-musa.svg" width="100%" alt="МУЗА ЖИВЁТ ЗДЕСЬ: созвездие из 9 звёзд, феникс, вертикальная типографика, СОВЕРШЕНСТВУ НЕТ ПРЕДЕЛА" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-now.svg" width="100%" alt="СЕЙЧАС В КУЗНЕ: бегущий тикер живого среза дома, now-page" />
+  <img src="assets/forge-now.svg" width="100%" alt="СЕЙЧАС В КУЗНЕ: бегущий тикер живого среза дома, now-page" />
 </div>
 
-<div align="center"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-divider.svg" width="100%" alt="разделитель с бегущей искрой"></div>
+<div align="center"><img src="assets/forge-divider.svg" width="100%" alt="разделитель с бегущей искрой"></div>
 
 ## ЗАХОДИ С ПОТОЛКА
 
@@ -106,12 +106,12 @@
 
 <table>
 <tr>
-<td width="50%"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-cell-medallion.svg" width="100%" alt="Аватар кузни: феникс в круге, вписан без обреза"/></td>
-<td width="50%"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-cell-crucible.svg" width="100%" alt="Пульс кузни: жив"/></td>
+<td width="50%"><img src="assets/forge-cell-medallion.svg" width="100%" alt="Аватар кузни: феникс в круге, вписан без обреза"/></td>
+<td width="50%"><img src="assets/forge-cell-crucible.svg" width="100%" alt="Пульс кузни: жив"/></td>
 </tr>
 <tr>
-<td width="50%"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-cell-ledger.svg" width="100%" alt="Опись цифр кузни"/></td>
-<td width="50%"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-cell-seal.svg" width="100%" alt="Печать роя"/></td>
+<td width="50%"><img src="assets/forge-cell-ledger.svg" width="100%" alt="Опись цифр кузни"/></td>
+<td width="50%"><img src="assets/forge-cell-seal.svg" width="100%" alt="Печать роя"/></td>
 </tr>
 </table>
 
@@ -119,7 +119,7 @@
 > Каждый блок — один self-contained SVG, анимация встроена в файл и работает прямо в `<img>`.
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-emberline.svg" width="100%" alt="Дымная линия кузни: живой feTurbulence-дым золота и амбера, бегущая искра" />
+  <img src="assets/forge-emberline.svg" width="100%" alt="Дымная линия кузни: живой feTurbulence-дым золота и амбера, бегущая искра" />
 </div>
 
 ## FLAGSHIPS
@@ -127,13 +127,13 @@
 <table>
 <tr>
 <td colspan="2">
-  <a href="https://github.com/rtynbirf/polymath-multiagent"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-polymath-multiagent.png"" width="100%" alt="polymath-multiagent — четыре потока расплавленного золота сливаются в одного феникса"></a>
+  <a href="https://github.com/rtynbirf/polymath-multiagent"><img src="assets/banners/banner-polymath-multiagent.png" width="100%" alt="polymath-multiagent — четыре потока расплавленного золота сливаются в одного феникса"></a>
 
 <!--ФОРЖ:МУЗА:НАЧАЛО-->
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/repo-muse.svg" width="100%" alt="Муза rtynbirf: мастерская ФРИДРИХ · ПУТНИК, кузня ПОЛИМАТ, раунд 12 · REVE=РЕВО" />
+  <img src="repo-muse.svg" width="100%" alt="Муза rtynbirf: мастерская ФРИДРИХ · ПУТНИК, кузня ПОЛИМАТ, раунд 12 · REVE=РЕВО" />
   <br/>
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/forge-divider.svg" width="62%" alt="делитель мастерской ФРИДРИХ · ПУТНИК" />
+  <img src="forge-divider.svg" width="62%" alt="делитель мастерской ФРИДРИХ · ПУТНИК" />
 </div>
 <!--ФОРЖ:МУЗА:КОНЕЦ-->
 
@@ -153,31 +153,31 @@
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/polymath-gen"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-polymath-gen.png"" width="100%" alt="polymath-gen — картина"></a>
+  <a href="https://github.com/rtynbirf/polymath-gen"><img src="assets/banners/banner-polymath-gen.png" width="100%" alt="polymath-gen — картина"></a>
   <sub><b>polymath-gen</b> — autonomous media agent with self-critique loop · <code>Python</code> <code>GLM-4V</code> <code>ComfyUI</code></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/singulyar"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-singulyar.png"" width="100%" alt="singulyar — картина"></a>
+  <a href="https://github.com/rtynbirf/singulyar"><img src="assets/banners/banner-singulyar.png" width="100%" alt="singulyar — картина"></a>
   <sub><b>singulyar</b> — offline karaoke universe RUVSON · <code>PWA</code> <code>Offline-first</code> <code>64 songs</code></sub>
 </td>
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/polymath-tools-atlas"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-polymath-tools-atlas.png"" width="100%" alt="polymath-tools-atlas — картина"></a>
+  <a href="https://github.com/rtynbirf/polymath-tools-atlas"><img src="assets/banners/banner-polymath-tools-atlas.png" width="100%" alt="polymath-tools-atlas — картина"></a>
   <sub><b>polymath-tools-atlas</b> — 665 AI tools, evidence-ranked · <code>Research</code> <code>Proof-chains</code></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/cell-swarm"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-cell-swarm.png"" width="100%" alt="cell-swarm — картина"></a>
+  <a href="https://github.com/rtynbirf/cell-swarm"><img src="assets/banners/banner-cell-swarm.png" width="100%" alt="cell-swarm — картина"></a>
   <sub><b>cell-swarm</b> — emergent repo organism · <code>Swarm</code> <code>stdlib-only</code></sub>
 </td>
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/voice-atlas-llm"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-voice-atlas-llm.png"" width="100%" alt="voice-atlas-llm — картина"></a>
+  <a href="https://github.com/rtynbirf/voice-atlas-llm"><img src="assets/banners/banner-voice-atlas-llm.png" width="100%" alt="voice-atlas-llm — картина"></a>
   <sub><b>voice-atlas-llm</b> — voice cloning expert LLM · <code>TTS/VC/SVC/SVS</code> <code>LoRA</code></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/neutral-browser"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-neutral-browser.png"" width="100%" alt="neutral-browser — картина"></a>
+  <a href="https://github.com/rtynbirf/neutral-browser"><img src="assets/banners/banner-neutral-browser.png" width="100%" alt="neutral-browser — картина"></a>
   <sub><b>neutral-browser</b> — browser engine from scratch in Rust · <code>Rust</code> <code>0 deps</code></sub>
 </td>
 </tr>
@@ -186,7 +186,7 @@
 ## РОЙ В СТРОЮ · живая шахматка
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-city.svg" width="100%" alt="Живой строй: шахматка 64 публичных флотов, 1714 MiB кода, тяжеловес в янтарной раме, бегущая искра обходит строй" />
+  <img src="assets/forge-city.svg" width="100%" alt="Живой строй: шахматка 64 публичных флотов, 1714 MiB кода, тяжеловес в янтарной раме, бегущая искра обходит строй" />
 </div>
 
 > 64 публичных флота из живого среза GitHub API · 2026-11-13 · свод открыт настежь — приватных 0 · счёт и дата — живой такт 2026-11-13, шахматка рядов — срез ковки · каждый блок — репозиторий с языком и весом · сумма, печать и кузня — в золотых ячейках.
@@ -194,11 +194,11 @@
 ## КАРТА СВЯЗЕЙ РОЯ · импульсы
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-swarm.svg" width="100%" alt="Карта связей роя: семь флагманов-узлов с реальным весом, импульсы бегут по рёбрам к ядру ПОЛИМАТ" />
+  <img src="assets/forge-swarm.svg" width="100%" alt="Карта связей роя: семь флагманов-узлов с реальным весом, импульсы бегут по рёбрам к ядру ПОЛИМАТ" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-spawn.svg" width="100%" alt="Дерево процессов дома: PID1 порождает шесть кластеров вселенной, импульсы бегут по ветвям" />
+  <img src="assets/forge-spawn.svg" width="100%" alt="Дерево процессов дома: PID1 порождает шесть кластеров вселенной, импульсы бегут по ветвям" />
 </div>
 
 ## ШТАНДАРТЫ ФЛОТОВ · OBSIDIAN & MOLTEN GOLD
@@ -211,27 +211,27 @@
 <table>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/polymath-os"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-polymath-os.png"" width="100%" alt="OS — штандарт"></a>
+  <a href="https://github.com/rtynbirf/polymath-os"><img src="assets/banners/banner-polymath-os.png" width="100%" alt="OS — штандарт"></a>
   <sub><b>OS</b> · sovereign machines — <a href="https://github.com/rtynbirf/polymath-os">polymath-os</a></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/release-vault"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-release-vault.png"" width="100%" alt="VAULT — штандарт"></a>
+  <a href="https://github.com/rtynbirf/release-vault"><img src="assets/banners/banner-release-vault.png" width="100%" alt="VAULT — штандарт"></a>
   <sub><b>VAULT</b> · encrypted off-site archive — <a href="https://github.com/rtynbirf/release-vault">release-vault</a></sub>
 </td>
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/revo"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-revo.png"" width="100%" alt="МЕТОД — штандарт"></a>
+  <a href="https://github.com/rtynbirf/revo"><img src="assets/banners/banner-revo.png" width="100%" alt="МЕТОД — штандарт"></a>
   <sub><b>МЕТОД</b> · runnable-прототип метода — <a href="https://github.com/rtynbirf/revo">revo</a></sub>
 </td>
 <td width="50%">
-  <a href="https://github.com/rtynbirf/rtynbirf.github.io"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/banners/banner-vitrrina.png"" width="100%" alt="ВИТРИНА — штандарт"></a>
+  <a href="https://github.com/rtynbirf/rtynbirf.github.io"><img src="assets/banners/banner-vitrrina.png" width="100%" alt="ВИТРИНА — штандарт"></a>
   <sub><b>ВИТРИНА</b> · universal player — <a href="https://rtynbirf.github.io">rtynbirf.github.io</a></sub>
 </td>
 </tr>
 </table>
 
-<sub>Полная галерея серии: <a href="https://github.com/rtynbirf/polimat-hub/blob/main/reports/banners-gallery-2026-11-10.png">Галерея первых 42 полотен — сводный лист · актуальная картина аккаунта — паспорт выше</a></sub>
+<sub>Полная галерея серии: <a href="https://github.com/rtynbirf/polimat-hub/blob/main/reports/banners-gallery-2026-11-10.png">Галерея первых 42 полотен — сводный лист</a> · актуальная картина аккаунта — <a href="https://github.com/rtynbirf/rtynbirf/blob/main/revo-account.svg">паспорт выше</a></sub>
 
 ---
 
@@ -257,7 +257,7 @@
 ## КАРТА ВСЕЛЕННОЙ
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/swarm-orbit.svg" width="100%" alt="6 кластеров вокруг СИНГУЛЯРА: РОЙ · ПОЛИМАТ · РУВСОН · АТЛАСЫ · ОС · ВЕБ">
+  <img src="assets/swarm-orbit.svg" width="100%" alt="6 кластеров вокруг СИНГУЛЯРА: РОЙ · ПОЛИМАТ · РУВСОН · АТЛАСЫ · ОС · ВЕБ">
 </div>
 
 ## THE UNIVERSE · 6 кластеров · живой счёт в SWARM-SYNC ниже
@@ -276,41 +276,41 @@
 > Живая сверка чисел — в **SWARM-SYNC** ниже: суточная автогенерация по GitHub API, ни одного ручного числа. Языки, коммиты, топ-репо — там же.
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-cell-flame.svg" width="49%" alt="Серия кузни: огонь не гаснет, суточный прогон" />
+  <img src="assets/forge-cell-flame.svg" width="49%" alt="Серия кузни: огонь не гаснет, суточный прогон" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 64 флота · 16 ран по канону описи (15 — архив-осадок, 1 активная: polymath-core) · 44 PR · 1 тяжеловес" />
+  <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 64 флота · 16 ран по канону описи (15 — архив-осадок, 1 активная: polymath-core) · 44 PR · 1 тяжеловес" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-cell-boot.svg" width="49%" alt="BOOT LOG: dmesg кузни, инициализация ЧЕЛОВЕК=АККАУНТ=PID1" />
+  <img src="assets/forge-cell-boot.svg" width="49%" alt="BOOT LOG: dmesg кузни, инициализация ЧЕЛОВЕК=АККАУНТ=PID1" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-qr.svg" width="49%" alt="QR-КАПСУЛА ДОМА: код выкован собственным энкодером, модули-ромбы, ведёт на витрину" />
+  <img src="assets/forge-qr.svg" width="49%" alt="QR-КАПСУЛА ДОМА: код выкован собственным энкодером, модули-ромбы, ведёт на витрину" />
 </div>
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 64 репо, GitHub API" />
+  <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 64 репо, GitHub API" />
 </div>
 
 ## ХРОНИКА КУЗНИ · ГОД ПЛАВКИ
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-grid.svg" width="100%" alt="Хроника кузни: годовая шахматка из живого GitHub GraphQL — 3746 дел за год, пик 581 в день, сканирующий луч и золотые вспышки" />
+  <img src="assets/forge-grid.svg" width="100%" alt="Хроника кузни: годовая шахматка из живого GitHub GraphQL — 3746 дел за год, пик 581 в день, сканирующий луч и золотые вспышки" />
 </div>
 
 > Последний сторонний виджет-график (vercel-генератор) заменён ручной ковкой: 53 недели из живого GraphQL, сканирующий луч, вспышки на горячих днях. Ни одного сервиса-генератора.
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/trophy-shelf.svg" width="100%" alt="Полка вечных медалей: Старт 2022 · Офлайн-первый · Рой 6 кластеров · Доказательства" />
+  <img src="assets/trophy-shelf.svg" width="100%" alt="Полка вечных медалей: Старт 2022 · Офлайн-первый · Рой 6 кластеров · Доказательства" />
 </div>
 
 ## ТЕРМИНАЛ РОЯ · живая neofetch-карта
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/neofetch.svg" width="100%" alt="neofetch-карта: живые цифры вселенной, суточная автогенерация по методике SWARM-SYNC" />
+  <img src="assets/neofetch.svg" width="100%" alt="neofetch-карта: живые цифры вселенной, суточная автогенерация по методике SWARM-SYNC" />
 </div>
 
 > Карта собирается собственным Action суточно по живому GitHub API — методика сверки та же, что у SWARM-SYNC, числа сходятся до единицы. Палитра — обсидиан и расплавленное золото ЖИВОЙ КУЗНИ.
@@ -319,20 +319,20 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rtynbirf/rtynbirf/output/github-contribution-grid-snake-dark.svg">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/github-contribution-grid-snake.svg" alt="contribution snake" width="100%">
+  <img src="assets/github-contribution-grid-snake.svg" alt="contribution snake" width="100%">
 </picture>
 
 ## СВЕТ ВСЕЛЕННОЙ · 3D
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rtynbirf/rtynbirf/main/profile-3d-contrib/profile-night-rainbow.svg">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/profile-3d-contrib/profile-green-animate.svg" alt="3d contributions" width="100%">
+  <img src="profile-3d-contrib/profile-green-animate.svg" alt="3d contributions" width="100%">
 </picture>
 
 ---
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/footer.svg" width="100%" alt="офлайн живёт здесь">
+  <img src="assets/footer.svg" width="100%" alt="офлайн живёт здесь">
 </div>
 
 <div align="center">
@@ -389,7 +389,7 @@
 ## КАРТА ДОМА
 
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/assets/forge-map.svg" width="100%" alt="Карта дома: 64 комнаты — все одеты музой; 22 живая светится, 42 спят под сводом с золотыми кольцами" />
+  <img src="assets/forge-map.svg" width="100%" alt="Карта дома: 64 комнаты — все одеты музой; 22 живая светится, 42 спят под сводом с золотыми кольцами" />
 </div>
 
 Все 64 комнаты дома несут свою написанную картину-музу. Раунд 11: каждая муза переписана заново — 64 полотна в 64 собственных мастерских великих школ (швейцарская точность, Хокусай, Климт, Малевич, Лисицкий, Калдер, Пиранези, Клее, оп-арт и другие законы), двух похожих рядом нет. 22 живая светится, 42 под сводом архива одеты и заперты — красота без нарушения дислокации; на карте спящие звёзды носят золотые кольца. Угольная звезда rumu спит одетой — проснулась по слову Хозяина и легла обратно.
