@@ -13,7 +13,7 @@ except Exception:
 MONO = "'Cascadia Mono', ui-monospace, Consolas, monospace"
 SERIF = "Georgia, 'Times New Roman', serif"
 REVO = "#D5281B"
-NEUTRAL = dict(bg="#EDE9E0", bg2="#F4F1EA", ink="#17150F", gold="#8A6D2F", gold2="#B08D3E", dim="#6E675B")
+NEUTRAL = dict(bg="#10243E", bg2="#1B3B5F", ink="#F3ECD9", gold="#D4AF37", gold2="#E8C868", dim="#8FA3BF")
 
 
 def esc(s):
