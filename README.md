@@ -23,7 +23,7 @@
 > Главный проект — [polymath-os](https://github.com/rtynbirf/polymath-os): каждая строчка репо воспроизводима одной командой [`make verify`](https://github.com/rtynbirf/polymath-os/blob/main/Makefile) → 33/33 PASS · 295 тестов · 35 ADR · 5 слоёв.
 > Живой дом — [СИНГУЛЯР](https://rtynbirf.github.io/singulyar/): офлайн-караоке-вселенная «Одна песня. 157 голосов. Одна правда.»
 
-## ГЕНОМ РОЯ · 14 КЛЕТОК — канон пинов профиля
+## ГЕНОМ РОЯ · 20 КЛЕТОК — канон пинов профиля
 
 | # | Клетка | Роль из тела генома |
 |---|---|---|
@@ -41,8 +41,14 @@
 | 12 | [`lex-naturae`](https://github.com/rtynbirf/lex-naturae) | законник дома: claim/evidence ledger — отделяет наблюдения от гипотез · 70/70 тестов · аудит v0.7 Z.ai |
 | 13 | [`singulyar-a0-audit`](https://github.com/rtynbirf/singulyar-a0-audit) | независимый аудитор роя: A0-аудит СИНГУЛЯРА PACKAGE VALID + BRIDGE VALID · свидетель, не автор |
 | 14 | [`fond-host`](https://github.com/rtynbirf/fond-host) | CORS-хост минус-фонда (Н-10 · ADR-0007): Pages отдаёт ACAO:* для лестницы WebAudio-плееров |
+| 15 | [`code`](https://github.com/rtynbirf/code) | код дома: скрипты и снипеты — место по канону §4 |
+| 16 | [`invariant-manifest`](https://github.com/rtynbirf/invariant-manifest) | механический судья инвариантов: hash-chain + mutation-testing, вердикт CONDITIONAL PASS |
+| 17 | [`karta`](https://github.com/rtynbirf/karta) | карта вселенной роя: генерируется из живого API, ssot — ни одного выдуманного числа |
+| 18 | [`kb`](https://github.com/rtynbirf/kb) | знания дома: канон-тексты, гайды, досье — база знаний роя |
+| 19 | [`lfs-core`](https://github.com/rtynbirf/lfs-core) | испытательный стенд автономного агента: цель/обязательство/пересмотр измеряются, а не декларируются |
+| 20 | [`repo-seed`](https://github.com/rtynbirf/repo-seed) | зерно дома: шаблон новорождённого — мембрана+CI+закон рождения (принцип №7 канона 27) |
 
-> Роли — из тела генома (swarm.json, храповик пинов, 0.2.7 · 14 клеток, канон f3cf0312). Пины профиля API не выставляет
+> Роли — из тела генома (swarm.json, храповик пинов, 0.2.14 · 20 клеток, канон 81ecd392; пины от живого HEAD, integrity sha256(utf8(pin)) пересчитана 20/20 (заноза make pins закрыта) — волна-13б). Пины профиля API не выставляет
 > (GraphQL: 269 мутаций без профильных; REST: все каналы 404 — проба 2026-11-16) — канон держит лицо.
 
 
