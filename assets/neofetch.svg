@@ -40,22 +40,22 @@
   <text x="448" y="158" class="val">6 кластеров · 1 организм</text>
   <text x="448" y="173" class="sub">клетки · сверка · эмерджентность</text>
   <text x="330" y="198" class="lbl">РЕПО</text>
-  <text x="448" y="198" class="val">73 мира</text>
-  <text x="448" y="213" class="sub">73 публичных · 0 приватных</text>
+  <text x="448" y="198" class="val">76 миров</text>
+  <text x="448" y="213" class="sub">76 публичных · 0 приватных</text>
   <text x="330" y="238" class="lbl">КОММИТЫ</text>
-  <text x="448" y="238" class="val">7192</text>
+  <text x="448" y="238" class="val">8305</text>
   <text x="448" y="253" class="sub">с 2022 · методика SWARM-SYNC</text>
   <text x="330" y="278" class="lbl">ЯЗЫКИ</text>
-  <text x="448" y="278" class="val">HTML 34.7 · JS 21.7 · Python 17.7 МБ</text>
+  <text x="448" y="278" class="val">HTML 34.7 · JS 21.7 · Python 18.6 МБ</text>
   <text x="448" y="293" class="sub">по объёму кода</text>
   <text x="330" y="318" class="lbl">ЗВЁЗДЫ</text>
   <text x="448" y="318" class="val">4</text>
   <text x="448" y="333" class="sub">каждая — благодарность</text>
   <text x="330" y="358" class="lbl">UPTIME</text>
-  <text x="448" y="358" class="val">с 2022-12 · 1448 дней</text>
+  <text x="448" y="358" class="val">с 2022-12 · 1449 дней</text>
   <text x="448" y="373" class="sub">непрерывная сборка</text>
   <text x="330" y="398" class="lbl">СТАТУС</text>
   <text x="448" y="398" class="val">рой сверен</text>
   <text x="448" y="413" class="sub">офлайн живёт · заходи с потолка</text>
-  <text x="740" y="446" text-anchor="end" class="mono sub">выковано роем · 2026-11-18 13:29 UTC</text>
+  <text x="740" y="446" text-anchor="end" class="mono sub">выковано роем · 2026-11-19 15:35 UTC</text>
 </svg>
