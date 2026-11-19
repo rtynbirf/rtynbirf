@@ -1,0 +1,19 @@
+name: РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ
+# Конечный автомат над всем флотом (75 тел): ежедневный пролёт СВЕРКА,
+# ДРЕЙФ→КУЗНЯ (лечение паспорта движком канона), доказательство в automaton-state.json.
+# Лекарство требует PAT с write на свои репы в секретах REVO_PAT; без него — только СВЕРКА.
+on:
+  schedule:
+    - cron: "9 4 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  central:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: ПРОЛЁТ ФЛОТА → СВЕРКА/КУЗНЯ
+        run: python3 revomat-central.py
