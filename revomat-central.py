@@ -44,6 +44,49 @@ SCHEMES = [
 ]
 PNG_MAGIC = b"\x89PNG\r\n\x1a\n"
 
+CENTRAL_YML = """name: РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ
+# Конечный автомат над всем флотом. Два режима одного исходника:
+#  БЫСТРЫЙ ОБХОД (каждые 15 минут): динамическая опись через API + мгновенное зачисление
+#   сирот полным каноном (лицо-баннер blob-API, паспорт, README-лицо, движок, автоматы,
+#   закон) — новое тело ждёт лица максимум 15 минут, не сутки.
+#  ПОЛНЫЙ ПРОЛЁТ (ежедневно 04:09 + вручную): СВЕРКА гейтов (G2 = PNG-магия по blob-API),
+#   ДРЕЙФ→КУЗНЯ (паспорт движком канона), доказательство в automaton-state.json.
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+    - cron: "9 4 * * *"
+  workflow_dispatch:
+concurrency:
+  group: revomat-central
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  fast-obhod:
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '*/15 * * * *')
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
+      REVOMAT_FAST: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: инструменты ковки лиц
+        run: pip install cairosvg --quiet
+      - name: ОПИСЬ + ЗАЧИСЛЕНИЕ СИРОТ
+        run: python3 revomat-central.py
+  full-prolet:
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '9 4 * * *')
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: инструменты ковки лиц
+        run: pip install cairosvg --quiet
+      - name: ПОЛНЫЙ ПРОЛЁТ → СВЕРКА/КУЗНЯ/ЗАЧИСЛЕНИЕ
+        run: python3 revomat-central.py
+"""
+
 
 def api(method, url, payload=None):
     cmd = ["curl", "-sS", "--max-time", "60", "-X", method, url, "-H", "Accept: application/vnd.github+json"]
@@ -389,7 +432,6 @@ for n in new_names:
 if FAST:
     # БЫСТРЫЙ ОБХОД: опись + зачисление сирот, без СВЕРКИ/КУЗНИ (полный пролёт — раз в сутки)
     own = open(os.path.realpath(__file__), encoding="utf-8").read()
-    yml_src = own.split('CENTRAL_YML = """')[1].split('"""')[0]
     doc = {"автомат": "РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ v2 · БЫСТРЫЙ ОБХОД", "канон": CANON, "издание": EDITION,
            "опись": "динамическая (API, пагинация) — правило 21 закона AGENTS.md",
            "флот": len(fleet), "зачислено_сирот": len(enrolled), "зачислены": [e["репа"] for e in enrolled],
@@ -399,7 +441,7 @@ if FAST:
     items = [{"path": "automaton-state.json", "mode": "100644", "type": "blob", "content": fleet_json},
              {"path": DESK_FILE, "mode": "100644", "type": "blob", "content": desk_json},
              {"path": "revomat-central.py", "mode": "100644", "type": "blob", "content": own},
-             {"path": ".github/workflows/revomat-central.yml", "mode": "100644", "type": "blob", "content": yml_src}]
+             {"path": ".github/workflows/revomat-central.yml", "mode": "100644", "type": "blob", "content": CENTRAL_YML}]
     mes = (f"РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ v2 · БЫСТРЫЙ ОБХОД: опись {len(fleet)}"
            + (f", зачислено сирот {len(enrolled)}: " + ", ".join(e["репа"] for e in enrolled) if enrolled else ", сирот нет")
            + " · правило 21-22 · REVE=РЕВО")
@@ -448,48 +490,6 @@ if "<!--ФОРЖ:АВТОМАТ:НАЧАЛО-->" in md:
     md = re.sub(r"<!--ФОРЖ:АВТОМАТ:НАЧАЛО-->.*?<!--ФОРЖ:АВТОМАТ:КОНЕЦ-->", block.replace("\\", "\\\\"), md, flags=re.S)
 else:
     md = md.rstrip() + "\n\n" + block + "\n"
-CENTRAL_YML = """name: РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ
-# Конечный автомат над всем флотом. Два режима одного исходника:
-#  БЫСТРЫЙ ОБХОД (каждые 15 минут): динамическая опись через API + мгновенное зачисление
-#   сирот полным каноном (лицо-баннер blob-API, паспорт, README-лицо, движок, автоматы,
-#   закон) — новое тело ждёт лица максимум 15 минут, не сутки.
-#  ПОЛНЫЙ ПРОЛЁТ (ежедневно 04:09 + вручную): СВЕРКА гейтов (G2 = PNG-магия по blob-API),
-#   ДРЕЙФ→КУЗНЯ (паспорт движком канона), доказательство в automaton-state.json.
-on:
-  schedule:
-    - cron: "*/15 * * * *"
-    - cron: "9 4 * * *"
-  workflow_dispatch:
-concurrency:
-  group: revomat-central
-  cancel-in-progress: false
-permissions:
-  contents: write
-jobs:
-  fast-obhod:
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '*/15 * * * *')
-    runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
-      REVOMAT_FAST: "1"
-    steps:
-      - uses: actions/checkout@v4
-      - name: инструменты ковки лиц
-        run: pip install cairosvg --quiet
-      - name: ОПИСЬ + ЗАЧИСЛЕНИЕ СИРОТ
-        run: python3 revomat-central.py
-  full-prolet:
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '9 4 * * *')
-    runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
-    steps:
-      - uses: actions/checkout@v4
-      - name: инструменты ковки лиц
-        run: pip install cairosvg --quiet
-      - name: ПОЛНЫЙ ПРОЛЁТ → СВЕРКА/КУЗНЯ/ЗАЧИСЛЕНИЕ
-        run: python3 revomat-central.py
-"""
 own = open(os.path.realpath(__file__), encoding="utf-8").read()
 items = [{"path": "automaton-state.json", "mode": "100644", "type": "blob", "content": fleet_json},
          {"path": DESK_FILE, "mode": "100644", "type": "blob", "content": desk_json},
