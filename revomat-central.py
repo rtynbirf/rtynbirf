@@ -33,6 +33,7 @@ A = "https://api.github.com"
 OWNER = "rtynbirf"
 PROFILE = f"{OWNER}/{OWNER}"
 DESK_FILE = "fleet-desk.json"
+FAST = os.environ.get("REVOMAT_FAST", "") == "1"  # быстрый обход: только опись+зачисление (без СВЕРКИ/лечения)
 SCHEMES = [
     dict(bg="#10243E", bg2="#1B3B5F", ink="#F3ECD9", gold="#D4AF37", gold2="#E8C868", dim="#8FA3BF", accent="#D5281B"),
     dict(bg="#38100A", bg2="#4E1A10", ink="#F4E9D6", gold="#D4AF37", gold2="#E8C868", dim="#C39272", accent="#2C5F9E"),
@@ -379,6 +380,22 @@ for n in new_names:
         enrolled.append({"репа": n, "номер": num, "зачисление": res["res"]})
         print(f"  ЗАЧИСЛЕНО {n} · полотно №{num} · {res['res']}")
 
+if FAST:
+    # БЫСТРЫЙ ОБХОД: опись + зачисление сирот, без СВЕРКИ/КУЗНИ (полный пролёт — раз в сутки)
+    doc = {"автомат": "РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ v2 · БЫСТРЫЙ ОБХОД", "канон": CANON, "издание": EDITION,
+           "опись": "динамическая (API, пагинация) — правило 21 закона AGENTS.md",
+           "флот": len(fleet), "зачислено_сирот": len(enrolled), "зачислены": [e["репа"] for e in enrolled],
+           "обновлено": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}
+    fleet_json = json.dumps(doc, ensure_ascii=False, indent=1)
+    desk_json = json.dumps(desk, ensure_ascii=False, indent=1)
+    items = [{"path": "automaton-state.json", "mode": "100644", "type": "blob", "content": fleet_json},
+             {"path": DESK_FILE, "mode": "100644", "type": "blob", "content": desk_json}]
+    mes = (f"РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ v2 · БЫСТРЫЙ ОБХОД: опись {len(fleet)}"
+           + (f", зачислено сирот {len(enrolled)}: " + ", ".join(e["репа"] for e in enrolled) if enrolled else ", сирот нет")
+           + " · правило 21 · REVE=РЕВО")
+    print("самозапись (быстрый обход):", push_tree(OWNER, "main", items, mes))
+    raise SystemExit(0)
+
 NUM_OF = {n: (desk["тела"].get(n, {}).get("num") or 0) for n in fleet}
 with ThreadPoolExecutor(6) as ex:
     reports = list(ex.map(lambda t: check_repo(t[0], t[1], NUM_OF[t[0]]), sorted(fleet.items())))
@@ -422,17 +439,37 @@ if "<!--ФОРЖ:АВТОМАТ:НАЧАЛО-->" in md:
 else:
     md = md.rstrip() + "\n\n" + block + "\n"
 CENTRAL_YML = """name: РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ
-# Конечный автомат над всем флотом: опись ДИНАМИЧЕСКАЯ (API, пагинация),
-# зачисление сирот полным каноном, СВЕРКА гейтов (G2 = PNG-магия),
-# ДРЕЙФ→КУЗНЯ (паспорт движком канона), доказательство в automaton-state.json.
+# Конечный автомат над всем флотом. Два режима одного исходника:
+#  БЫСТРЫЙ ОБХОД (каждые 15 минут): динамическая опись через API + мгновенное зачисление
+#   сирот полным каноном (лицо-баннер blob-API, паспорт, README-лицо, движок, автоматы,
+#   закон) — новое тело ждёт лица максимум 15 минут, не сутки.
+#  ПОЛНЫЙ ПРОЛЁТ (ежедневно 04:09 + вручную): СВЕРКА гейтов (G2 = PNG-магия по blob-API),
+#   ДРЕЙФ→КУЗНЯ (паспорт движком канона), доказательство в automaton-state.json.
 on:
   schedule:
+    - cron: "*/15 * * * *"
     - cron: "9 4 * * *"
   workflow_dispatch:
+concurrency:
+  group: revomat-central
+  cancel-in-progress: false
 permissions:
   contents: write
 jobs:
-  central:
+  fast-obhod:
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '*/15 * * * *')
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
+      REVOMAT_FAST: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: инструменты ковки лиц
+        run: pip install cairosvg --quiet
+      - name: ОПИСЬ + ЗАЧИСЛЕНИЕ СИРОТ
+        run: python3 revomat-central.py
+  full-prolet:
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '9 4 * * *')
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
@@ -440,7 +477,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: инструменты ковки лиц
         run: pip install cairosvg --quiet
-      - name: ПРОЛЁТ ФЛОТА → СВЕРКА/КУЗНЯ/ЗАЧИСЛЕНИЕ
+      - name: ПОЛНЫЙ ПРОЛЁТ → СВЕРКА/КУЗНЯ/ЗАЧИСЛЕНИЕ
         run: python3 revomat-central.py
 """
 own = open(os.path.realpath(__file__), encoding="utf-8").read()
