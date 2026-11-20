@@ -269,8 +269,12 @@ def enroll(name, info, eng_src, num):
               "content": self_text(".github/workflows/revo-obhod.yml")},
              {"path": "AGENTS.md", "mode": "100644", "type": "blob", "content": self_text("AGENTS.md")}]
     if png_bytes:
-        items.append({"path": "banner.png", "mode": "100644", "type": "blob",
-                      "content": base64.b64encode(png_bytes).decode()})
+        # ПРАВИЛО 22: лицо пишется ТОЛЬКО blob-API (encoding:base64) — tree-API content
+        # кладёт base64-текст вместо байтов (дважды доказанный класс косяков).
+        bl = api("POST", f"{A}/repos/{OWNER}/{name}/git/blobs",
+                 {"content": base64.b64encode(png_bytes).decode(), "encoding": "base64"})
+        if "sha" in bl:
+            items.append({"path": "banner.png", "mode": "100644", "type": "blob", "sha": bl["sha"]})
     res = push_tree(name, br, items,
                     f"РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ: ЗАЧИСЛЕНИЕ СИРОТЫ {name} — полный канон: лицо-баннер, "
                     f"паспорт, README-лицо, движок, автоматы, закон · {EDITION} · {CANON} · REVE=РЕВО")
@@ -366,7 +370,9 @@ enrolled = []
 today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 print(f"== ОПИСЬ ДИНАМИЧЕСКАЯ: тел {len(fleet)} · в описи {len(desk['тела'])} · вне описи {len(new_names)} ==")
 for n in new_names:
-    num = max([v.get("num", 0) for v in desk["тела"].values()] or [0]) + 1
+    # нумерация — продолжение СЕРИИ МАНИФЕСТА (№1-68); фолбэки 100+ не считаются
+    series = [v.get("num", 0) for v in desk["тела"].values() if 0 < v.get("num", 0) < 100]
+    num = max(series or [66]) + 1
     cfg, res = enroll(n, fleet[n], eng_src, num)
     if cfg is None:  # гвардия: канон уже стоит — регистрируем с его собственным номером
         num2 = res.get("num") or num
@@ -382,6 +388,8 @@ for n in new_names:
 
 if FAST:
     # БЫСТРЫЙ ОБХОД: опись + зачисление сирот, без СВЕРКИ/КУЗНИ (полный пролёт — раз в сутки)
+    own = open(os.path.realpath(__file__), encoding="utf-8").read()
+    yml_src = own.split('CENTRAL_YML = """')[1].split('"""')[0]
     doc = {"автомат": "РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ v2 · БЫСТРЫЙ ОБХОД", "канон": CANON, "издание": EDITION,
            "опись": "динамическая (API, пагинация) — правило 21 закона AGENTS.md",
            "флот": len(fleet), "зачислено_сирот": len(enrolled), "зачислены": [e["репа"] for e in enrolled],
@@ -389,10 +397,12 @@ if FAST:
     fleet_json = json.dumps(doc, ensure_ascii=False, indent=1)
     desk_json = json.dumps(desk, ensure_ascii=False, indent=1)
     items = [{"path": "automaton-state.json", "mode": "100644", "type": "blob", "content": fleet_json},
-             {"path": DESK_FILE, "mode": "100644", "type": "blob", "content": desk_json}]
+             {"path": DESK_FILE, "mode": "100644", "type": "blob", "content": desk_json},
+             {"path": "revomat-central.py", "mode": "100644", "type": "blob", "content": own},
+             {"path": ".github/workflows/revomat-central.yml", "mode": "100644", "type": "blob", "content": yml_src}]
     mes = (f"РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ v2 · БЫСТРЫЙ ОБХОД: опись {len(fleet)}"
            + (f", зачислено сирот {len(enrolled)}: " + ", ".join(e["репа"] for e in enrolled) if enrolled else ", сирот нет")
-           + " · правило 21 · REVE=РЕВО")
+           + " · правило 21-22 · REVE=РЕВО")
     print("самозапись (быстрый обход):", push_tree(OWNER, "main", items, mes))
     raise SystemExit(0)
 
