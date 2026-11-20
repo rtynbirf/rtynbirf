@@ -27,7 +27,7 @@ for p in live:
             cls[c] += 1
             cls_m.setdefault(c, Counter())[code] += 1
             break
-VERSION = D.get("version", "v1.5")
+VERSION = D.get("version", "—")
 DATE = max((p.get("verified_on", "—") for p in P if p.get("verified_on", "—") != "—"), default="2026-11-20")
 
 M_COLOR = {"M1": "#d4a24e", "M2": "#4e9fb8", "M3": "#8b6cc8", "M4": "#c25b5b"}
