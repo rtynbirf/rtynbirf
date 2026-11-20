@@ -1,7 +1,7 @@
-name: INV-ЛОБНОЕ-МЕСТО (живой блок автомата)
+name: INV-ЛОБНОЕ-МЕСТО (лицо блока автомата)
 on:
   schedule:
-    - cron: '47 3 * * *'   # после SWARM-SYNC (03:17) — лобное место перечитывает живой инвентарь
+    - cron: '47 3 * * *'   # после SWARM-SYNC (03:17) — лицо перечитывает живой инвентарь
   workflow_dispatch: {}
 concurrency:
   group: inv-lobnoe-${{ github.repository }}
@@ -14,19 +14,21 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон роя)
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон роя)
         with:
           python-version: '3.12'
-      - name: Перерисовать лобное место из живого инвентаря
+      - name: Перековать лицо блока из живого инвентаря
         run: python scripts/lobnoe_mesto.py README.md
       - name: Коммит только при реальных изменениях (bot + skip ci)
         run: |
-          if git diff --quiet -- README.md; then
-            echo "лобное место без изменений — коммит не нужен"
+          if git diff --quiet -- README.md assets/inv-forehead.svg; then
+            echo "лицо без изменений — коммит не нужен"
           else
             git config user.name "lobnoe-mesto[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md
-            git commit -m "inv-lobnoe-mesto: лобное место из живого инвентаря [skip ci]"
-            git push
+            git add README.md assets/inv-forehead.svg
+            git commit -m "inv-lobnoe-mesto: лицо блока из живого инвентаря REVE=РЕВО [skip ci]"
+            git push || { git fetch origin main && git pull --rebase=merges origin main && git push; }
           fi
