@@ -20,21 +20,10 @@
 <!--АТЛАС:КАРТА:КОНЕЦ-->
 
 <!--INV:АВТОМАТ:НАЧАЛО-->
-## 🧬 INV-AUTOMAT — конечный автомат инвентаризации: живой замер роя
-
-| факт | значение | источник |
-|---|---|---|
-| Прогон FSM | `R20261120T183418Z` · 2026-11-20 18:34 UTC · отчёт собран | [ledger переходов](https://github.com/rtynbirf/inv-automat/blob/main/automat/ledger/runs.jsonl) · append-only |
-| Клеток в рое | 80 | core `/user/repos` — живой API |
-| Коммитов в клетках | 9789 | clone --bare --filter=blob:none + rev-list |
-| Claims сверено | 196 · PASS 13 · FAIL 20 · противоречий 30 | механизм inv-automat |
-| Клеток замерено git'ом | 79 | точные счётчики, ноль бинарников |
-
-**Периферийные свидетели** — в каждой живой клетке, cron-такт разнесён по хэшу имени. Последние живые свидетельства (INV_LEDGER.jsonl): [singulyar](https://github.com/rtynbirf/singulyar) **265** коммитов / **2634** файлов · [cell-swarm](https://github.com/rtynbirf/cell-swarm) **459** коммитов / **150** файлов · [polymath-tools-atlas](https://github.com/rtynbirf/polymath-tools-atlas) **66** коммитов / **64** файлов
-
-📄 Живой отчёт: [rtynbirf.github.io/inv-automat](https://rtynbirf.github.io/inv-automat/) · 🤖 Клетка-автомат: [rtynbirf/inv-automat](https://github.com/rtynbirf/inv-automat)
-
-*Ни одна цифра блока не взята из README: core/search/git/raw — и каждый переход автомата дописан в ledger. Блок перерисовывается на автомате из живого инвентаря.*
+<div align="center">
+  <a href="https://github.com/rtynbirf/inv-automat"><img src="assets/inv-forehead.svg" width="100%" alt="INV-AUTOMAT — конечный автомат инвентаризации: живой замер роя (Ornamental Mytho-Realism): прогон FSM, клеток, коммитов, claims PASS/FAIL, FSM-цепь IDLE→DONE, свидетели; числа — только живой инвентарь" /></a>
+  <p><sub>🧬 КОНЕЧНЫЙ АВТОМАТ: <a href="https://github.com/rtynbirf/inv-automat">rtynbirf/inv-automat</a> — таблица переходов <code>IDLE→BOOT→INVENTORY→CLAIMS→VERIFY→LEDGER→REPORT→PUBLISH→DONE</code> · 📄 живой отчёт: <a href="https://rtynbirf.github.io/inv-automat/">Pages</a> · 📜 <a href="https://github.com/rtynbirf/inv-automat/blob/main/automat/ledger/runs.jsonl">ledger переходов</a> (append-only) · свидетель в каждой живой клетке — SVG перерисовывается автоматом из живого инвентаря, ни одной цифры из README</sub></p>
+</div>
 <!--INV:АВТОМАТ:КОНЕЦ-->
 
 
