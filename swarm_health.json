@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-11-19T15:35:00Z",
-  "generated_date": "2026-11-19",
+  "generated_at": "2026-11-20T15:14:21Z",
+  "generated_date": "2026-11-20",
   "heavyweights": {
     "badge_color": "orange",
     "count": 1,
     "repos": [
       {
         "repo": "singulyar",
-        "size_mib": 627.2
+        "size_mib": 635.4
       }
     ]
   },
   "open_prs": {
     "badge_color": "orange",
-    "count": 34,
+    "count": 46,
     "query": "is:pr is:open user:rtynbirf"
   },
   "schema": "swarm_health/1",
   "source": {
     "api": "https://api.github.com/users/rtynbirf/repos",
     "coverage": "public",
-    "repos_scanned": 76,
-    "repos_total": 76,
+    "repos_scanned": 79,
+    "repos_total": 79,
     "rules": {
       "fresh_days_max": 8,
       "heavyweights_mib": 512,
@@ -30,75 +30,8 @@
     "unscanned": []
   },
   "wounds": {
-    "badge_color": "red",
-    "count": 11,
-    "repos": [
-      {
-        "conclusion": "failure",
-        "repo": "domovenok",
-        "url": "https://github.com/rtynbirf/domovenok/actions/runs/44404781797",
-        "workflow": "Push on main"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "github-runbook",
-        "url": "https://github.com/rtynbirf/github-runbook/actions/runs/44404854910",
-        "workflow": "Push on main"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "global-video-platforms-registry",
-        "url": "https://github.com/rtynbirf/global-video-platforms-registry/actions/runs/44404849553",
-        "workflow": "Push on main"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "hologram",
-        "url": "https://github.com/rtynbirf/hologram/actions/runs/44556319732",
-        "workflow": ".github/workflows/ci.yml"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "language-through-the-ages",
-        "url": "https://github.com/rtynbirf/language-through-the-ages/actions/runs/44404128963",
-        "workflow": "github_actions in /. - Update #1715197637"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "polimat-hub",
-        "url": "https://github.com/rtynbirf/polimat-hub/actions/runs/44404949511",
-        "workflow": "github_actions in /. - Update #1715207923"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "polymath-atlas",
-        "url": "https://github.com/rtynbirf/polymath-atlas/actions/runs/44404977150",
-        "workflow": "Push on main"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "polymath-multiagent",
-        "url": "https://github.com/rtynbirf/polymath-multiagent/actions/runs/44405001220",
-        "workflow": "Push on main"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "red-thread-debt-audit",
-        "url": "https://github.com/rtynbirf/red-thread-debt-audit/actions/runs/44405030477",
-        "workflow": "Push on main"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "uace-pml",
-        "url": "https://github.com/rtynbirf/uace-pml/actions/runs/44405127389",
-        "workflow": "Push on main"
-      },
-      {
-        "conclusion": "failure",
-        "repo": "web-evolution-1991-2026",
-        "url": "https://github.com/rtynbirf/web-evolution-1991-2026/actions/runs/44405153081",
-        "workflow": "github_actions in /. - Update #1715209094"
-      }
-    ]
+    "badge_color": "brightgreen",
+    "count": 0,
+    "repos": []
   }
 }
