@@ -12,6 +12,14 @@
 | 76 | 46 | 73 | 2026-11-19 |
 <!--ФОРЖ:АККАУНТ:КОНЕЦ-->
 
+<!--АТЛАС:КАРТА:НАЧАЛО-->
+<div align="center">
+  <img src="assets/atlas-territory.svg" width="100%" alt="КАРТА=ТЕРРИТОРИИ · МОДЕЛЬ=РЕАЛЬНОСТЬ: атлас практик v1.5 — 12 классов как регионы, площадь пропорциональна живым позициям, цвет — доминирующая ступень M-шкалы; верификация РЕЛОМАТ 43/43 и 11/11, глобальный скан 660 675 пар" />
+  <p><sub>КАРТА=ТЕРРИТОРИИ · МОДЕЛЬ=РЕАЛЬНОСТЬ — <a href="https://github.com/rtynbirf/global-practice-atlas">global-practice-atlas</a> · <a href="https://github.com/rtynbirf/relomat">relomat</a> · SVG перерисовывается на автомате из данных атласа</sub></p>
+</div>
+<!--АТЛАС:КАРТА:КОНЕЦ-->
+
+
 
 
 # rtynbirf · AUTONOMOUS SYSTEMS LAB

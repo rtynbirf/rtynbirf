@@ -1,0 +1,23 @@
+name: atlas-widget
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # еженедельно, понедельник 06:00 UTC
+  workflow_dispatch:
+jobs:
+  widget:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: данные атласа — из global-practice-atlas
+        run: curl -fsSL "https://raw.githubusercontent.com/rtynbirf/global-practice-atlas/main/data/passports.json" -o /tmp/passports.json
+      - name: КАРТА=ТЕРРИТОРИИ — перерисовка из данных
+        run: python3 tools/render_widget.py /tmp/passports.json assets/atlas-territory.svg
+      - name: коммит, если карта изменилась
+        run: |
+          git config user.name "atlas-map-bot"
+          git config user.email "rtynbirf@users.noreply.github.com"
+          git add assets/atlas-territory.svg
+          git diff --cached --quiet || git commit -m "КАРТА=ТЕРРИТОРИИ: перерисовка из данных атласа $(date -u +%Y-%m-%d)"
+          git push

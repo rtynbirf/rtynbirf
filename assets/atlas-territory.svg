@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Georgia, 'Times New Roman', serif">
+<rect width="1200" height="630" fill="#0d0b08"/>
+<rect x="8" y="8" width="1184" height="614" fill="none" stroke="#d4a24e" stroke-width="1.4" opacity="0.75"/>
+<rect x="14" y="14" width="1172" height="602" fill="none" stroke="#d4a24e" stroke-width="0.5" opacity="0.35"/>
+<text x="36" y="56" fill="#d4a24e" font-size="30" font-weight="bold" letter-spacing="2">КАРТА = ТЕРРИТОРИИ</text>
+<text x="36" y="80" fill="#9c8f78" font-size="14" letter-spacing="4">МОДЕЛЬ = РЕАЛЬНОСТЬ</text>
+<text x="1164" y="52" fill="#c8b98f" font-size="13" text-anchor="end">GLOBAL PRACTICE ATLAS · v1.5 · 2026-11-20</text>
+<text x="1164" y="70" fill="#77694f" font-size="11" text-anchor="end">данные: global-practice-atlas · автомат: relomat</text>
+<circle cx="400" cy="330" r="76.0" fill="#4e9fb8" fill-opacity="0.58" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="400" y="333" fill="#f2e8d5" font-size="13" text-anchor="middle" font-weight="bold">P</text>
+<text x="400" y="347" fill="#c8b98f" font-size="10" text-anchor="middle">273</text>
+<circle cx="321" cy="464" r="69.9" fill="#4e9fb8" fill-opacity="0.52" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="321" y="467" fill="#f2e8d5" font-size="13" text-anchor="middle" font-weight="bold">M</text>
+<text x="321" y="481" fill="#c8b98f" font-size="10" text-anchor="middle">231</text>
+<circle cx="368" cy="180" r="67.4" fill="#4e9fb8" fill-opacity="0.58" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="368" y="183" fill="#f2e8d5" font-size="13" text-anchor="middle" font-weight="bold">TECH</text>
+<text x="368" y="197" fill="#c8b98f" font-size="10" text-anchor="middle">215</text>
+<circle cx="507" cy="406" r="44.8" fill="#4e9fb8" fill-opacity="0.67" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="507" y="409" fill="#f2e8d5" font-size="13" text-anchor="middle" font-weight="bold">A</text>
+<text x="507" y="423" fill="#c8b98f" font-size="10" text-anchor="middle">95</text>
+<circle cx="276" cy="345" r="38.8" fill="#4e9fb8" fill-opacity="0.61" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="276" y="348" fill="#f2e8d5" font-size="11" text-anchor="middle" font-weight="bold">T</text>
+<text x="276" y="362" fill="#c8b98f" font-size="10" text-anchor="middle">71</text>
+<circle cx="480" cy="236" r="37.9" fill="#4e9fb8" fill-opacity="0.66" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="480" y="239" fill="#f2e8d5" font-size="11" text-anchor="middle" font-weight="bold">ORG</text>
+<text x="480" y="253" fill="#c8b98f" font-size="10" text-anchor="middle">68</text>
+<circle cx="431" cy="450" r="33.8" fill="#4e9fb8" fill-opacity="0.54" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="431" y="453" fill="#f2e8d5" font-size="11" text-anchor="middle" font-weight="bold">PR</text>
+<text x="431" y="467" fill="#c8b98f" font-size="10" text-anchor="middle">54</text>
+<circle cx="300" cy="265" r="29.5" fill="#8b6cc8" fill-opacity="0.56" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="300" y="268" fill="#f2e8d5" font-size="9" text-anchor="middle" font-weight="bold">H</text>
+<text x="300" y="282" fill="#c8b98f" font-size="10" text-anchor="middle">41</text>
+<circle cx="516" cy="311" r="27.2" fill="#4e9fb8" fill-opacity="0.65" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="516" y="314" fill="#f2e8d5" font-size="9" text-anchor="middle" font-weight="bold">INF</text>
+<text x="516" y="328" fill="#c8b98f" font-size="10" text-anchor="middle">35</text>
+<circle cx="576" cy="352" r="23.0" fill="#8b6cc8" fill-opacity="0.60" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="576" y="355" fill="#f2e8d5" font-size="9" text-anchor="middle" font-weight="bold">EXP</text>
+<circle cx="489" cy="482" r="22.5" fill="#4e9fb8" fill-opacity="0.66" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="489" y="485" fill="#f2e8d5" font-size="9" text-anchor="middle" font-weight="bold">ST</text>
+<circle cx="237" cy="280" r="16.6" fill="#4e9fb8" fill-opacity="0.59" stroke="#d4a24e" stroke-width="0.9"/>
+<text x="237" y="283" fill="#f2e8d5" font-size="9" text-anchor="middle" font-weight="bold">PROT</text>
+<circle cx="756" cy="330" r="6.5" fill="none" stroke="#77694f" stroke-width="1.2" stroke-dasharray="3 2"/>
+<circle cx="695" cy="529" r="6.5" fill="none" stroke="#77694f" stroke-width="1.2" stroke-dasharray="3 2"/>
+<circle cx="533" cy="660" r="6.5" fill="none" stroke="#77694f" stroke-width="1.2" stroke-dasharray="3 2"/>
+<circle cx="326" cy="678" r="6.5" fill="none" stroke="#77694f" stroke-width="1.2" stroke-dasharray="3 2"/>
+<circle cx="144" cy="577" r="6.5" fill="none" stroke="#77694f" stroke-width="1.2" stroke-dasharray="3 2"/>
+<circle cx="49" cy="392" r="6.5" fill="none" stroke="#77694f" stroke-width="1.2" stroke-dasharray="3 2"/>
+<circle cx="75" cy="185" r="6.5" fill="none" stroke="#77694f" stroke-width="1.2" stroke-dasharray="3 2"/>
+<circle cx="211" cy="28" r="6.5" fill="none" stroke="#77694f" stroke-width="1.2" stroke-dasharray="3 2"/>
+<circle cx="412" cy="-26" r="6.5" fill="none" stroke="#77694f" stroke-width="1.2" stroke-dasharray="3 2"/>
+<text x="400" y="616" fill="#5f5643" font-size="10" text-anchor="middle">— — полые кольца: 9 поглощённых позиций, строки сохранены</text>
+<text x="830" y="120" fill="#d4a24e" font-size="16" font-weight="bold" letter-spacing="1">M-ШКАЛА · ЖИВЫХ 1145</text>
+<rect x="830" y="139" width="101" height="13" fill="#d4a24e" opacity="0.75"/>
+<text x="1054" y="150" fill="#e8dcc0" font-size="13">M1 Mainstream</text>
+<text x="830" y="135" fill="#9c8f78" font-size="11">324</text>
+<rect x="830" y="183" width="210" height="13" fill="#4e9fb8" opacity="0.75"/>
+<text x="1054" y="194" fill="#e8dcc0" font-size="13">M2 Deployed</text>
+<text x="830" y="179" fill="#9c8f78" font-size="11">674</text>
+<rect x="830" y="227" width="42" height="13" fill="#8b6cc8" opacity="0.75"/>
+<text x="1054" y="238" fill="#e8dcc0" font-size="13">M3 Experimental</text>
+<text x="830" y="223" fill="#9c8f78" font-size="11">134</text>
+<rect x="830" y="271" width="4" height="13" fill="#c25b5b" opacity="0.75"/>
+<text x="1054" y="282" fill="#e8dcc0" font-size="13">M4 Research</text>
+<text x="830" y="267" fill="#9c8f78" font-size="11">13</text>
+<text x="830" y="334" fill="#d4a24e" font-size="15" font-weight="bold" letter-spacing="1">ВЕРИФИКАЦИЯ</text>
+<text x="830" y="356" fill="#c8b98f" font-size="12.5">РЕЛОМАТ · строки атласа: 43/43</text>
+<text x="830" y="378" fill="#c8b98f" font-size="12.5">РЕЛОМАТ · эмерджентные: 11/11</text>
+<text x="830" y="400" fill="#c8b98f" font-size="12.5">глобальный скан: 660 675 пар · 5 SAME найдены</text>
+<text x="830" y="422" fill="#c8b98f" font-size="12.5">QA: 15 проверок · CI независим</text>
+<text x="830" y="458" fill="#77694f" font-size="11">неполнота помечена честно: open_fields · Гёдель одобрил бы</text>
+<text x="36" y="600" fill="#5f5643" font-size="10.5">перерисовывается автоматически из данных репозитория · классы — коды 12-классной типологии · площадь ∝ числу живых позиций</text>
+</svg>
