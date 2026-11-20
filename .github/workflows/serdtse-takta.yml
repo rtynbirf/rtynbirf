@@ -1,0 +1,38 @@
+name: СЕРДЦЕ ТАКТА · СТРАЖ СПЯЩИХ (правило 26)
+
+on:
+  schedule:
+    - cron: '*/23 * * * *'   # смещение от пиков нагрузки (best practice дома)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write            # ledger СТРАЖ-СПЯЩИХ.jsonl (образец: inv-witness)
+  actions: write             # enable болезни + kick тихой смерти
+
+concurrency:
+  group: serdtse-takta
+  cancel-in-progress: true
+
+jobs:
+  strazh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон)
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон)
+        with:
+          python-version: "3.12"
+      - name: СТРАЖ СПЯЩИХ — приказ и болезнь различаются
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/strazh_spyashchih.py || true
+      - name: Клейм в ledger (append-only, образец inv-witness)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "strazh[bot]"
+          git config user.email "strazh@users.noreply.github.com"
+          git add СТРАЖ-СПЯЩИХ.jsonl
+          git commit -m "⟳ СТРАЖ СПЯЩИХ: heartbeat-клейм флота (правила 23 и 26) — REVE=РЕВО" || echo "нет новых клеймов"
+          git pull --rebase=merges origin main || git fetch origin main
+          git push
