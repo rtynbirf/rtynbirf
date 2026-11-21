@@ -389,7 +389,7 @@ def svg_showcase_patch(rel, ctx):
             pos.append(i)
             i += 1
     view = ''.join(view)
-    cell_rx = re.compile(r"([A-Za-z][\w.+-]*)([\s·]+[A-Za-z+#0-9]+)?\s+(\d+(?:\.\d+)?)\s*MIB")
+    cell_rx = re.compile(r"([A-Za-z.][\w.+-]*)([\s·]+[A-Za-z+#0-9]+)?\s+(\d+(?:\.\d+)?)\s*MIB")
     edits = []
     for m in cell_rx.finditer(view):
         nm = fleet_lookup(m.group(1))
@@ -573,9 +573,12 @@ def forge_live(fleet, items, md, map_d):
 
 
 def fleet_lookup(nm):
-    """Имя из forge-SVG может быть обрезано (H-PE11-PHOEN) — матчим префиксом."""
+    """Имя из forge-SVG может быть обрезано (H-PE11-PHOEN) или без точки (.github) —
+    матчим префиксом и омонимом с ведущей точкой."""
     if nm in fleet_holder:
         return nm
+    if ("." + nm) in fleet_holder:
+        return "." + nm
     if len(nm) >= 6:
         for f in fleet_holder:
             if f.startswith(nm) or nm.startswith(f[:len(nm)]):
