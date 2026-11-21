@@ -26,6 +26,8 @@ PROFILE = f"{OWNER}/{OWNER}"
 PNG_MAGIC = b"\x89PNG\r\n\x1a\n"
 STATE_FILE = "live-state.json"
 DRY = os.environ.get("LIVE_DRY", "") == "1"
+FORGE_ONLY = os.environ.get("FORGE_ONLY", "") == "1"
+MON_RU = ["ЯНВ", "ФЕВ", "МАР", "АПР", "МАЙ", "ИЮН", "ИЮЛ", "АВГ", "СЕН", "ОКТ", "НОЯ", "ДЕК"]
 
 SCHEMES = [
     dict(bg="#10243E", bg2="#1B3B5F", ink="#F3ECD9", gold="#D4AF37", gold2="#E8C868", dim="#8FA3BF", accent="#D5281B"),
@@ -93,6 +95,7 @@ def discover_fleet():
                                 "звёзды": int(r.get("stargazers_count") or 0),
                                 "форки": int(r.get("forks_count") or 0),
                                 "issues": int(r.get("open_issues_count") or 0),
+                                "язык": r.get("language") or "—",
                                 "size": int(r.get("size") or 0)}
     return fleet
 
@@ -343,9 +346,214 @@ def repaint(name, info, cfg, mod):
     return d, res, bsha
 
 
-# ================= ПРОЛЁТ ЖИВОГО МОДУЛЯ =================
+def rewrite(rel, pairs):
+    """Хирургия чисел в текстовом файле профиля. Все паттерны обязаны найтись —
+    иначе файл не тронут (нельзя записать полуправду). Возвращает (item|None, лог)."""
+    src = self_text(rel)
+    if not src:
+        return None, f"{rel}: файл пуст/не читался"
+    orig = src
+    misses = []
+    for rx, rep in pairs:
+        src2, n = re.subn(rx, rep, src)
+        if n == 0:
+            misses.append(rx[:48])
+        src = src2
+    if src == orig:
+        return None, f"{rel}: числа уже верны"
+    if misses:
+        return None, f"{rel}: ПАТТЕРНЫ НЕ НАЙДЕНЫ {misses} — не тронут"
+    return {"path": rel, "mode": "100644", "type": "blob", "content": src}, f"{rel}: числа переписаны"
+
+
+def forge_live(fleet, items, md, map_d):
+    """КУЗНЯ-ЖИВАЯ r21: ни одного мёртвого числа на витрине профиля.
+    Каждый обход переписывает forge-SVG, SWARM-SYNC, swarm_health.json и строки
+    README реальными данными GitHub API — только при изменении."""
+    now = datetime.now(timezone.utc)
+    date_iso = now.strftime("%Y-%m-%d")
+    date_ru = f"{now.day:02d} {MON_RU[now.month-1]} {now.year}"
+    stamp = now.strftime("%Y-%m-%d %H:%M")
+    N = len(fleet)
+    per = [{"name": n, "mib": v["size"] / 1024, "lang": v["язык"], "kb": v["size"]}
+           for n, v in fleet.items()]
+    per_by_mib = sorted(per, key=lambda p: -p["mib"])
+    sum_mib = sum(p["mib"] for p in per)
+    top7 = per_by_mib[:7]
+    heavy = [p for p in per if p["mib"] >= 512]
+    com_by = sorted(items, key=lambda i: -i["коммиты"])
+    sum_com = map_d["коммиты_Σ"]
+    prs = api("GET", f"{A}/search/issues?q=is%3Apr+is%3Aopen+author%3A{OWNER}&per_page=1")
+    pr_count = int(prs.get("total_count") or 0)
+    try:
+        states = (json.loads(self_text("automaton-state.json") or "{}").get("состояния") or {})
+    except Exception:
+        states = {}
+    try:
+        old_health = json.loads(self_text("swarm_health.json") or "{}")
+    except Exception:
+        old_health = {}
+    wounds = int(states.get("ДРЕЙФ") or old_health.get("wounds", {}).get("count") or 0)
+    last_push = max((v["pushed"] for v in fleet.values()), default=date_iso)
+    top = per_by_mib[0] if per_by_mib else {"name": "—", "mib": 0, "lang": "—"}
+    print(f"КУЗНЯ-ЖИВАЯ: флот {N} · Σ {sum_mib:.0f} MiB · тяжеловес {top['name']} {top['mib']:.1f} MiB · "
+          f"PR открытых {pr_count} · раны {wounds} · Σ коммитов {sum_com}")
+    files, logs = [], []
+
+    def mib_repl_num(name_, real):
+        return f"{real:.1f}"
+
+    # --- forge-city.svg ---
+    def city_mib(m):
+        nm, lang, num = m.group(1), m.group(2), m.group(3)
+        real = fleet_lookup(nm)
+        if real:
+            return f"{nm}  {lang}  {fleet[real]['size']/1024:.1f} MIB"
+        return m.group(0)
+    it, lg = rewrite("assets/forge-city.svg", [
+        (r"ЖИВОЙ СТРОЙ · \d+ ПУБЛИЧНЫХ ФЛОТОВ", f"ЖИВОЙ СТРОЙ · {N} ПУБЛИЧНЫХ ФЛОТОВ"),
+        (r"живой срез GitHub API · \d{4}-\d{2}-\d{2}", f"живой срез GitHub API · {date_iso}"),
+        (r"[\w-]+\s+ТЯЖЕЛОВЕС\s+\d+(?:\.\d+)?\s*MIB", f"{top['name']}  ТЯЖЕЛОВЕС  {top['mib']:.1f} MIB"),
+        (r"\d+ ПУБЛИЧНЫХ ФЛОТОВ · \d+(?:\.\d+)? MIB КОДА · РАН \d+",
+         f"{N} ПУБЛИЧНЫХ ФЛОТОВ · {sum_mib:.0f} MIB КОДА · РАН {wounds}"),
+        (r"([\w-]+)\s+([A-Za-z+#0-9]+)\s+(\d+(?:\.\d+)?)\s*MIB", city_mib),
+    ])
+    if it:
+        files.append(it)
+    logs.append(lg)
+
+    # --- forge-swarm.svg ---
+    def swarm_mib(m):
+        nm, num = m.group(1), m.group(2)
+        real = fleet_lookup(nm)
+        if real:
+            return f"{nm}  {fleet[real]['size']/1024:.1f} MIB"
+        return m.group(0)
+    it, lg = rewrite("assets/forge-swarm.svg", [
+        (r"свежий срез GitHub API · \d{4}-\d{2}-\d{2}", f"свежий срез GitHub API · {date_iso}"),
+        (r"[\w-]+\s+\d+(?:\.\d+)?\s*MIB\s*·\s*ТЯЖЕЛОВЕС", f"{top['name']}  {top['mib']:.1f} MIB · ТЯЖЕЛОВЕС"),
+        (r"ТОП-7 ФЛАГМАНОВ: \d+(?:\.\d+)? MIB · ВСЕГО \d+ ФЛОТОВ · \d+(?:\.\d+)? MIB",
+         f"ТОП-7 ФЛАГМАНОВ: {sum(p['mib'] for p in top7):.1f} MIB · ВСЕГО {N} ФЛОТОВ · {sum_mib:.1f} MIB"),
+        (r"([\w-]+)\s+(\d+(?:\.\d+)?)\s*MIB", swarm_mib),
+    ])
+    if it:
+        files.append(it)
+    logs.append(lg)
+
+    # --- forge-grid / forge-now / forge-pulse ---
+    it, lg = rewrite("assets/forge-grid.svg",
+                     [(r"СРЕЗ GITHUB GRAPHQL · \d{1,2} \S+ \d{4}", f"СРЕЗ GITHUB GRAPHQL · {date_ru}")])
+    if it:
+        files.append(it)
+    logs.append(lg)
+    it, lg = rewrite("assets/forge-now.svg", [
+        (r"срез: \d{4}-\d{2}-\d{2}", f"срез: {date_iso}"),
+        (r"(\d+) публичных флотов", f"{N} публичных флотов"),
+        (r"(\d+) штандартов", f"{N} штандартов"),
+    ])
+    if it:
+        files.append(it)
+    logs.append(lg)
+    it, lg = rewrite("assets/forge-pulse.svg", [(r"\d+ ФЛОТОВ ОТКРЫТЫ", f"{N} ФЛОТОВ ОТКРЫТЫ")])
+    if it:
+        files.append(it)
+    logs.append(lg)
+
+    # --- swarm_health.json (бейджи РАНЫ/PR/ТЯЖЕЛОВЕС) ---
+    h = dict(old_health) if old_health else {"schema": "swarm_health/1"}
+    h["generated_at"] = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+    h["generated_date"] = date_iso
+    h["heavyweights"] = {"badge_color": "orange" if heavy else "brightgreen", "count": len(heavy),
+                         "repos": [{"repo": p["name"], "size_mib": round(p["mib"], 1)} for p in heavy]}
+    op = dict(h.get("open_prs") or {"query": "is:pr is:open user:rtynbirf"})
+    op["count"] = pr_count
+    op["badge_color"] = "orange" if pr_count else "brightgreen"
+    h["open_prs"] = op
+    w = dict(h.get("wounds") or {})
+    w["count"] = wounds
+    w["badge_color"] = "orange" if wounds else "brightgreen"
+    if not wounds:
+        w["repos"] = []
+    h["wounds"] = w
+    so = dict(h.get("source") or {})
+    so["repos_scanned"] = N
+    so["repos_total"] = N
+    h["source"] = so
+    if json.dumps(h, sort_keys=True, ensure_ascii=False) != json.dumps(old_health, sort_keys=True, ensure_ascii=False):
+        files.append({"path": "swarm_health.json", "mode": "100644", "type": "blob",
+                      "content": json.dumps(h, ensure_ascii=False, indent=2)})
+        logs.append("swarm_health.json: бейджи переписаны")
+    else:
+        logs.append("swarm_health.json: уже верен")
+
+    # --- README: SWARM-SYNC блок, строка среза, карта дома ---
+    langs = {}
+    for p in per:
+        if p["lang"] and p["lang"] != "—":
+            langs[p["lang"]] = langs.get(p["lang"], 0) + p["kb"]
+    lang_top = sorted(langs.items(), key=lambda kv: -kv[1])[:5]
+    max_lang = lang_top[0][1] if lang_top else 1
+    lang_lines = "\n".join(f"- `{ln}` {'█' * max(1, round(10 * kb / max_lang))} {kb/1024:.1f} МБ"
+                           for ln, kb in lang_top)
+    top5_lines = "\n".join(f"- **{i['имя']}** — {i['коммиты']} коммитов · {fleet.get(i['имя'], {}).get('язык', '—')}"
+                           for i in com_by[:5])
+    sync_block = (
+        f"## 🛰 SWARM-SYNC · сверка со средой\n"
+        f"> Автогенерация {stamp} UTC · источник: живой GitHub API · ни одного выдуманного числа\n\n"
+        f"| Метрика | Значение |\n|---|---|\n"
+        f"| Репозиториев | **{N}** ({N} публичных · 0 приватных) |\n"
+        f"| Коммитов всего | **{sum_com}** |\n"
+        f"| Последний push | {last_push} |\n\n"
+        f"**Языки по объёму кода:**\n{lang_lines}\n\n"
+        f"**Топ-5 репо по коммитам (видимая работа):**\n{top5_lines}\n"
+    )
+    alive = N - sum(1 for i in items if i["архив"])
+    asleep = N - alive
+    im_start = md.find("## 🛰 SWARM-SYNC")
+    im_end = md.find("<!-- SWARM:END -->")
+    if im_start != -1 and im_end != -1 and im_end > im_start:
+        cstart = md.rfind("<!--", 0, im_start)
+        if cstart != -1:
+            md = md[:cstart] + "<!-- SWARM:BEGIN · живая автогенерация живого модуля -->\n" + sync_block + md[im_end:]
+            logs.append(f"README: SWARM-SYNC переписан ({N} тел, Σ {sum_com})")
+    else:
+        logs.append("README: SWARM-SYNC маркеры не найдены — блок не тронут")
+    def cut_line(m):
+        ln = m.group(0)
+        ln = re.sub(r"\d{4}-\d{2}-\d{2}", date_iso, ln)
+        ln = re.sub(r"\b\d+\b(?= публичных флота)", str(N), ln, count=1)
+        return ln
+    md2, n1 = re.subn(r"(?m)^> \d+ публичных флота[^\n]*$", cut_line, md)
+    if n1:
+        md = md2
+        logs.append("README: строка живого среза переписана")
+    md2, n2 = re.subn(r'alt="Карта дома:[^"]*"',
+                      f'alt="Карта дома: {N} комнат — все одеты музой; {alive} живых светятся, '
+                      f'{asleep} спит под сводом с золотыми кольцами"', md)
+    if n2:
+        md = md2
+    md2, n3 = re.subn(r"Все \d+ комнат[аы]? дома", f"Все {N} комнат дома", md)
+    if n3:
+        md = md2
+        logs.append(f"README: карта дома переписана ({N} комнат, {alive} живы, {asleep} спит)")
+    return files, md, logs
+
+
+
+def fleet_lookup(nm):
+    """Имя из forge-SVG может быть обрезано (H-PE11-PHOEN) — матчим префиксом."""
+    if nm in fleet_holder:
+        return nm
+    if len(nm) >= 6:
+        for f in fleet_holder:
+            if f.startswith(nm) or nm.startswith(f[:len(nm)]):
+                return f
+    return None
+
+
 t0 = time.time()
 fleet = discover_fleet()
+fleet_holder = fleet  # для fleet_lookup (кузня-живая)
 eng_src = self_text("revo-engine-template.py")
 assert "@@CFG@@" in eng_src, "нет слота @@CFG@@ в шаблоне"
 desk = json.loads(self_text("fleet-desk.json") or '{"тела": {}}') if self_text("fleet-desk.json").strip() else {"тела": {}}
@@ -379,8 +587,11 @@ def job(item):
     d, res, bsha = repaint(name, info, cfg, mod)
     return name, (json.dumps(live_fp, sort_keys=True), d, res, bsha), d, res
 
-with ThreadPoolExecutor(6) as ex:
-    out = list(ex.map(job, sorted(fleet.items())))
+if FORGE_ONLY:
+    out = [(n, None, {}, "форж-режим: лица не тронуты") for n in sorted(fleet)]
+else:
+    with ThreadPoolExecutor(6) as ex:
+        out = list(ex.map(job, sorted(fleet.items())))
 repainted, skipped, failed = [], [], []
 new_state = dict(state)
 for name, fpd, d, res in out:
@@ -411,17 +622,19 @@ for i, (name, info) in enumerate(sorted(fleet.items())):
     dd = new_state.get(name, {}).get("данные") or {}
     items.append({"num": (desk.get("тела", {}).get(name, {}) or {}).get("num") or i + 1,
                   "имя": name, "архив": info["архив"], "звёзды": info["звёзды"],
-                  "коммиты": dd.get("коммиты") or page_count(name, "commits"),
+                  "коммиты": page_count(name, "commits"),
                   "size": info["size"], "pushed": info["pushed"]})
 map_d = {"флот": len(fleet), "коммиты_Σ": sum(i["коммиты"] for i in items),
          "звёзды_Σ": sum(i["звёзды"] for i in items),
          "архивы": sum(1 for i in items if i["архив"]),
          "штамп": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")}
-map_svg = build_map_svg(items, map_d)
-map_png = png_of(map_svg, 1530)
-assert map_png[:8] == PNG_MAGIC, "карта без PNG-магии"
-print(f"ЖИВАЯ КАРТА: {len(items)} тел · Σ коммитов {map_d['коммиты_Σ']} · {len(map_png)} Б")
-if DRY:
+map_png = None
+if not FORGE_ONLY:
+    map_svg = build_map_svg(items, map_d)
+    map_png = png_of(map_svg, 1530)
+    assert map_png[:8] == PNG_MAGIC, "карта без PNG-магии"
+    print(f"ЖИВАЯ КАРТА: {len(items)} тел · Σ коммитов {map_d['коммиты_Σ']} · {len(map_png)} Б")
+if DRY and not FORGE_ONLY:
     open("/tmp/live-map-preview.png", "wb").write(map_png)
     print("дри-ран: карта не запушена; превью /tmp/live-map-preview.png")
     raise SystemExit(0)
@@ -429,6 +642,10 @@ if DRY:
 # README профиля: блок ЖИВОЙ КАРТЫ (idempotent)
 rd = api("GET", f"{A}/repos/{PROFILE}/readme")
 md = base64.b64decode(rd["content"]).decode("utf-8", "ignore")
+# КУЗНЯ-ЖИВАЯ: все витринные числа профиля = реальность
+forge_files, md, forge_logs = forge_live(fleet, items, md, map_d)
+for lg in forge_logs:
+    print("  КУЗНЯ-ЖИВАЯ:", lg)
 map_block = (
     "<!--ФОРЖ:КАРТА:НАЧАЛО-->\n"
     "<div align=\"center\">\n\n"
@@ -447,19 +664,25 @@ else:
     md_res = "блок добавлен"
 
 bl = api("POST", f"{A}/repos/{PROFILE}/git/blobs",
-         {"content": base64.b64encode(map_png).decode(), "encoding": "base64"})
+         {"content": base64.b64encode(map_png).decode(), "encoding": "base64"}) if map_png else None
 own = open(os.path.realpath(__file__), encoding="utf-8").read()
-items_push = [
-    {"path": "live-map.png", "mode": "100644", "type": "blob", "sha": bl["sha"]},
+items_push = []
+if bl and "sha" in bl:
+    items_push.append({"path": "live-map.png", "mode": "100644", "type": "blob", "sha": bl["sha"]})
+items_push += [
     {"path": STATE_FILE, "mode": "100644", "type": "blob",
      "content": json.dumps(new_state, ensure_ascii=False, indent=1)},
     {"path": "README.md", "mode": "100644", "type": "blob", "content": md},
     {"path": "revomat-live.py", "mode": "100644", "type": "blob", "content": own},
 ]
+items_push += forge_files
 res = push_tree(OWNER, "main", items_push,
-                f"ЖИВОЙ МОДУЛЬ: лица переписаны данными API ({len(repainted)} перекрашено, {len(skipped)} не ушли), "
-                f"ЖИВАЯ КАРТА переписана ({map_d['флот']} тел, Σ {map_d['коммиты_Σ']} коммитов) · {EDITION} · {CANON} · REVE=РЕВО")
-print(f"README: {md_res} · самозапись карты+state: {res}")
+                f"ЖИВОЙ МОДУЛЬ: лица ({len(repainted)} перекрашено, {len(skipped)} не ушли), "
+                f"ЖИВАЯ КАРТА ({map_d['флот']} тел, Σ {map_d['коммиты_Σ']} коммитов), "
+                f"КУЗНЯ-ЖИВАЯ переписала {len(forge_files)} витрин({', '.join(f['path'] for f in forge_files[:6])}"
+                + ("…" if len(forge_files) > 6 else "") + ") · реальность = числам · "
+                f"{EDITION} · {CANON} · REVE=РЕВО")
+print(f"README: блок карты обновлён · самозапись ({len(items_push)} файлов): {res}")
 json.dump({"перекрашено": len(repainted), "не_ушли": len(skipped), "карта": map_d},
           open("live-last.json", "w"), ensure_ascii=False, indent=1)
 print(f"пролёт живого модуля завершён за {time.time()-t0:.0f} с")
