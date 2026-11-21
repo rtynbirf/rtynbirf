@@ -327,6 +327,19 @@ def repaint(name, info, cfg, mod):
     res, bsha = push_png_blob(name, br, "banner.png", png,
                               f"ЖИВОЕ ЛИЦО: полотно переписано реальными данными API (коммиты {d['коммиты']}, звёзды "
                               f"{d['звёзды']}, пуш {d['pushed']}) · {EDITION} · {CANON} · REVE=РЕВО")
+    if bsha is None and "Not Found" in res:
+        # музей (archived): кузнечный паттерн центра — unarchive → ковка → archive
+        g = api("GET", f"{A}/repos/{OWNER}/{name}")
+        if g.get("archived"):
+            api("PATCH", f"{A}/repos/{OWNER}/{name}", {"archived": False})
+            time.sleep(2)
+            try:
+                res, bsha = push_png_blob(name, br, "banner.png", png,
+                                          f"ЖИВОЕ ЛИЦО (музей расконсервирован на время ковки): данные API · "
+                                          f"{EDITION} · {CANON} · REVE=РЕВО")
+            finally:
+                time.sleep(2)
+                api("PATCH", f"{A}/repos/{OWNER}/{name}", {"archived": True})
     return d, res, bsha
 
 

@@ -1183,5 +1183,20 @@
   },
   "штамп": "2026-11-21 11:32",
   "лицо_sha": "d1e478f9d3a6e944e80770d7ab1268b4ebec7a23"
+ },
+ "universal-agent": {
+  "fp": "{\"desc\": \"UniversalAgent (TsUA) - single-brain holistic agent: one LLM core, closed perception-action loop, four-layer memory, sandboxed tools. Pure stdlib.\", \"pushed\": \"2026-11-20\", \"size\": 3848, \"topics\": \"agent,ai-agent,architecture,autonomous-agents\", \"\\u0437\\u0432\\u0451\\u0437\\u0434\\u044b\": 1, \"\\u043a\\u043e\\u043c\\u043c\\u0438\\u0442\\u044b\": null, \"\\u0444\\u043e\\u0440\\u043a\\u0438\": 0}",
+  "канон": "ORNAMENTAL MYTHO-REALISM",
+  "издание": "ИЗДАНИЕ r20-ЖИВОЕ",
+  "данные": {
+   "коммиты": 67,
+   "звёзды": 1,
+   "форки": 0,
+   "ветви": 1,
+   "size": 3848,
+   "pushed": "2026-11-20"
+  },
+  "штамп": "2026-11-21 11:33",
+  "лицо_sha": "ee2be843dc1a70034af0675851c6abf77832cfe4"
  }
 }
