@@ -8,7 +8,8 @@ concurrency:
   group: 3d-contrib
   cancel-in-progress: true
 
-permissions: read-all
+permissions:
+  contents: write   # заход 6: пуш генерации — GITHUB_TOKEN (рука роя SWARM_TOKEN протухла: HTTP 401)
 
 jobs:
   generate:
@@ -20,12 +21,12 @@ jobs:
           persist-credentials: false  # волна 14: без extraheader — пуш рукой роя (SWARM_TOKEN)
       - uses: yoshi389111/github-profile-3d-contrib@7d95e7d4cdc028dd1e1cbd957d65f35efb12ae39 # v0.9.3
         env:
-          # волна 13: GITHUB_TOKEN в доме read-only; API-обзор — рукой роя
-          GITHUB_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          # заход 6: API-обзор — GITHUB_TOKEN (рука роя протухла)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: rtynbirf
       - name: Commit 3D
         env:
-          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -36,9 +37,9 @@ jobs:
             git commit -m "3D-contrib: автогенерация"
             # волна 12: пуш в main — общий ресурс роя; ребейз перед пушем — зуб против «fetch first»
             git pull --rebase origin main
-            # волна 13: пуш — рукой роя (SWARM_TOKEN)
+            # волна 13: пуш — рукой роя; заход 6: рука протухла — GITHUB_TOKEN с contents:write
             # волна 14: extraheader checkout перекрывает URL-креды → 403 github-actions[bot]
             git config --unset-all http.https://github.com/.extraheader || true
             git config --worktree --unset-all http.https://github.com/.extraheader 2>/dev/null || true
-            git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi

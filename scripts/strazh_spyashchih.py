@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""СТРАЖ СПЯЩИХ · правило 26 дома Полимат-Универсум (заход 3, 2026-11-20).
+"""СТРАЖ СПЯЩИХ · правило 26 дома Полимат-Универсум (заходы 3–6, 2026-11-20/21).
 
 Различает ПРИКАЗ и БОЛЕЗНЬ (живой урок инвентаризации: 216 disabled_manually —
 намеренные приказы; disabled_inactivity — болезнь 60-дневной заморозки).
 
 1. Флот: состояния воркфлоу. disabled_inactivity → enable (БОЛЕЗНЬ лечится).
    disabled_manually → только пересчёт (ПРИКАЗ не трогается).
+1a. Слепое пятно (заход 6, урок markitdown): Actions выключены на уровне репо —
+   воркфлоу для рана не существуют, болезни не видны. enabled=False → enable.
 2. Критические кроны: активный воркфлоу, молчащий сверх порога, — тихая смерть
-   → компенсация ручным диспатчем (kick).
+   → компенсация ручным диспатчем (kick). Включая СТРАЖА самого (self-watch).
 3. Один клейм в append-only ledger: СТРАЖ-СПЯЩИХ.jsonl (правило 25: каждая
    запись несёт источник и метку свежести).
 4. Красное — честно красное: exit 2 при найденной болезни/тихой смерти.
@@ -51,11 +53,21 @@ def dispatch_workflow(repo, wf_id):
         method="POST", body={"ref": "main"})
 
 repo_list = api(f"/users/{OWNER}/repos?per_page=100&type=owner")
-disease, orders, kicks, errors = [], [], [], []
+disease, orders, kicks, errors, blind = [], [], [], [], []
 now = datetime.now(timezone.utc)
 
 for r in repo_list:
     full = r["full_name"]
+    try:
+        # 1a: Actions выключены на уровне репо (урок markitdown, форк) —
+        # воркфлоу не существуют для рана; включаем и идём дальше честно.
+        perm = api(f"/repos/{full}/actions/permissions")
+        if perm.get("enabled") is False:
+            api(f"/repos/{full}/actions/permissions", method="PUT", body={"enabled": True})
+            blind.append({"repo": full, "cured": "actions-permissions: enabled"})
+            continue
+    except Exception as e:
+        errors.append({"repo": full, "error": str(e)[:80]})
     try:
         wfs = api(f"/repos/{full}/actions/workflows").get("workflows", [])
     except Exception as e:
@@ -112,6 +124,7 @@ record = {
     "mode": "actions" if os.environ.get("GITHUB_ACTIONS") else "local-run",
     "fleet": len(repo_list),
     "болезнь": disease,
+    "выключено_целиком": blind,
     "приказы_не_тронуты": len(set(orders)),
     "kick_тихой_смерти": kicks,
     "ошибки": errors,
@@ -121,4 +134,4 @@ os.makedirs(os.path.dirname(os.path.abspath(LEDGER)), exist_ok=True)
 with open(LEDGER, "a", encoding="utf-8") as f:
     f.write(json.dumps(record, ensure_ascii=False) + "\n")
 print(json.dumps(record, ensure_ascii=False, indent=1))
-sys.exit(2 if (disease or kicks) else 0)
+sys.exit(2 if (disease or kicks or blind) else 0)

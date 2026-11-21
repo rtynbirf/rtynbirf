@@ -15,7 +15,8 @@ concurrency:
   group: swarm-health
   cancel-in-progress: false
 
-permissions: read-all
+permissions:
+  contents: write   # заход 6: бейджи+retention пишут в main/output — GITHUB_TOKEN (рука роя протухла: HTTP 401)
 
 jobs:
   health:
@@ -31,13 +32,12 @@ jobs:
       - name: Живой API-забор → опись + бейджи в README
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
         run: python3 scripts/health_badges.py --live --write
       - name: "Приёмка: свежесть описи ≤ 8 дней"
         run: python3 scripts/health_badges.py --assert-fresh
       - name: Коммит только при реальных изменениях
         env:
-          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if git diff --quiet -- swarm_health.json README.md; then
             echo "опись без изменений — ритм без шума"
@@ -50,15 +50,15 @@ jobs:
             # (08.11 20:16-20:24 так легли ×5 red: «fetch first»). Rebase перед
             # пушем делает бот-коммит устойчивым к соседним волнам.
             git pull --rebase origin main
-            # волна 13: GITHUB_TOKEN read-only (read-all); пуш — рукой роя (SWARM_TOKEN)
+            # волна 13: пуш — рукой роя; заход 6: рука протухла — GITHUB_TOKEN с contents:write
             # волна 12/16: checkout (SHA-канон) кладёт extraheader в ОТДЕЛЬНЫЙ файл-конверт
             # (_temp/git-credentials-*.config) и подцепляет его includeIf.gitdir:*.path —
             # unset локального extraheader снимал пустоту, GITHUB_TOKEN ехал через include
             # (пуш уходил как github-actions[bot] → 403 read-all; прогон 43874621221).
-            # Снимаем ВСЕ includeIf-конверты — рука роя (SWARM_TOKEN из URL) доходит честно.
+            # Снимаем ВСЕ includeIf-конверты — GITHUB_TOKEN (из URL) доходит честно.
             git config --local --name-only --get-regexp '^includeIf\.gitdir:' | tr '\n' '\0' | xargs -0 -r -n1 git config --local --unset-all || true
             git config --local --unset-all http.https://github.com/.extraheader || true
-            git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi
       - name: "Приёмка: raw-JSON 200 и бейджи резолвятся 200"
         run: python3 scripts/health_badges.py --check
@@ -81,7 +81,7 @@ jobs:
         run: python3 _main/scripts/retention_output.py --selftest
       - name: Подрезка змейки-коммитов старше 90 дней
         env:
-          # волна 13: подрезка требует write в git-data API — рука роя (SWARM_TOKEN)
-          GITHUB_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          # волна 13: подрезка требует write в git-data API; заход 6: GITHUB_TOKEN с contents:write
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RETENTION_ALLOW_PRUNE: '1'
         run: python3 _main/scripts/retention_output.py --max-age-days 90 --apply

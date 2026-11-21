@@ -8,7 +8,8 @@ concurrency:
   group: numbers-canon
   cancel-in-progress: false
 
-permissions: read-all
+permissions:
+  contents: write   # заход 6: пуш канона — GITHUB_TOKEN (рука роя SWARM_TOKEN протухла: HTTP 401)
 
 jobs:
   canon:
@@ -21,14 +22,13 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон)
         with:
           python-version: "3.12"
-      - name: измерение канона (полный обзор через SWARM_TOKEN)
+      - name: измерение канона (полный обзор)
         env:
-          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/numbers_canon.py
       - name: толчок канона (bot + rebase + skip ci)
         env:
-          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "numbers-canon[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -40,9 +40,9 @@ jobs:
           else
             git commit -m "⟳ канон цифр: сверка пяти приведена к реальности (автомат) [skip ci]"
             git pull --rebase origin main
-            # волна 13: GITHUB_TOKEN read-only (read-all); пуш — рукой роя (SWARM_TOKEN)
+            # волна 13: пуш — рукой роя; заход 6: рука протухла — GITHUB_TOKEN с contents:write
             # волна 14: extraheader checkout перекрывает URL-креды → 403 github-actions[bot]
             git config --unset-all http.https://github.com/.extraheader || true
             git config --worktree --unset-all http.https://github.com/.extraheader 2>/dev/null || true
-            git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi

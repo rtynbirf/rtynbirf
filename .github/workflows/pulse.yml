@@ -3,7 +3,8 @@ on:
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch:
-permissions: read-all
+permissions:
+  contents: write   # заход 6: пульс пишет правду в main — GITHUB_TOKEN (рука роя протухла: HTTP 401)
 concurrency:
   group: pulse-truth
   cancel-in-progress: false
@@ -23,7 +24,7 @@ jobs:
         run: python .forge/gen_pulse.py
       - name: толчок правды
         env:
-          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -34,9 +35,9 @@ jobs:
             git commit -m "⟳ пульс правды: цифры дома приведены к реальности (автомат)"
             # волна 12: пуш каждые 30 минут = самый частый источник гонки; ребейз — зуб
             git pull --rebase origin main
-            # волна 13: GITHUB_TOKEN read-only (read-all); пуш — рукой роя (SWARM_TOKEN)
+            # волна 13: пуш — рукой роя; заход 6: рука протухла — GITHUB_TOKEN с contents:write
             # волна 14: extraheader от checkout перекрывает URL-креды → 403 github-actions[bot]; снимаем в обоих скоупах
             git config --unset-all http.https://github.com/.extraheader || true
             git config --worktree --unset-all http.https://github.com/.extraheader 2>/dev/null || true
-            git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi
