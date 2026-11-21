@@ -1185,18 +1185,18 @@
   "лицо_sha": "b7f8ca20b7d163a74215b9e1cccebde76ba25ab7"
  },
  "universal-agent": {
-  "fp": "{\"desc\": \"UniversalAgent (TsUA) - single-brain holistic agent: one LLM core, closed perception-action loop, four-layer memory, sandboxed tools. Pure stdlib.\", \"pushed\": \"2026-11-21\", \"size\": 3848, \"topics\": \"agent,ai-agent,architecture,autonomous-agents\", \"\\u0437\\u0432\\u0451\\u0437\\u0434\\u044b\": 1, \"\\u043a\\u043e\\u043c\\u043c\\u0438\\u0442\\u044b\": null, \"\\u0444\\u043e\\u0440\\u043a\\u0438\": 0}",
+  "fp": "{\"desc\": \"UniversalAgent (TsUA) - single-brain holistic agent: one LLM core, closed perception-action loop, four-layer memory, sandboxed tools. Pure stdlib.\", \"pushed\": \"2026-11-21\", \"size\": 4367, \"topics\": \"agent,ai-agent,architecture,autonomous-agents\", \"\\u0437\\u0432\\u0451\\u0437\\u0434\\u044b\": 1, \"\\u043a\\u043e\\u043c\\u043c\\u0438\\u0442\\u044b\": null, \"\\u0444\\u043e\\u0440\\u043a\\u0438\": 0}",
   "канон": "ORNAMENTAL MYTHO-REALISM",
   "издание": "ИЗДАНИЕ r20-ЖИВОЕ",
   "данные": {
-   "коммиты": 69,
+   "коммиты": 70,
    "звёзды": 1,
    "форки": 0,
    "ветви": 1,
-   "size": 3848,
+   "size": 4367,
    "pushed": "2026-11-21"
   },
-  "штамп": "2026-11-21 11:52",
-  "лицо_sha": "025bb4f29b56ef3c2f4766f565dcf707494e55b9"
+  "штамп": "2026-11-21 12:44",
+  "лицо_sha": "c80996dc7456a1efe655a8e15cdfed73d7dea182"
  }
 }
