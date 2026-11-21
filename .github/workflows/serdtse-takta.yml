@@ -2,7 +2,7 @@ name: СЕРДЦЕ ТАКТА · СТРАЖ СПЯЩИХ (правило 26)
 
 on:
   schedule:
-    - cron: '*/23 * * * *'   # смещение от пиков нагрузки (best practice дома)
+    - cron: '23 * * * *'   # раз в час: */23 под нагрузкой тикает best-effort (~3 ночных тика вместо ~38)
   workflow_dispatch: {}
 
 permissions:

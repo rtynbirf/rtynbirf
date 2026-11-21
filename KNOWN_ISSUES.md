@@ -11,3 +11,8 @@
 | зелёный предок серии | ✅ живой прогон | диспатч на 06d71d0 прошёл после снятия гонки | [42519995571](https://github.com/rtynbirf/rtynbirf/actions/runs/42519995571) |
 | патч: pull --rebase перед бот-пушем | ✅ в main | Волна ×5, commit 46c4fe2 — бот-коммит больше не падает от «fetch first» | .github/workflows/swarm-health.yml |
 | Квирк: GITHUB_TOKEN квоты API | ℹ️ внешний сервис | при исчерпании API-квоты ран краснеет честно — это не баг скрипта | scripts/health_badges.py |
+| kick-прогон РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ 23:55 (диспатч СТРАЖА, заход 3) | 🟢 вылечено | kickнул молчащий крон: fast-obhod зелёный, ПОЛНЫЙ ПРОЛЁТ упал на СВЕРКА/КУЗНЯ/ЗАЧИСЛЕНИЕ — гонка с волной зачисления закона (79 AGENTS.md) / давление API; последующие прогоны зелёные | [44840253496](https://github.com/rtynbirf/rtynbirf/actions/runs/44840253496) |
+| ЗАВОДНОЙ КЛЮЧ 23:56 (push 071a0b0) | 🔴 открыт | failure на push-волне закона — диагноз не установлен | [44840365171](https://github.com/rtynbirf/rtynbirf/actions/runs/44840365171) |
+| generate snake 23:56 (push 071a0b0) | 🔴 открыт | failure на push-волне закона — диагноз не установлен | [44840365195](https://github.com/rtynbirf/rtynbirf/actions/runs/44840365195) |
+| ТЕРМИНАЛ РОЯ 13:02 (schedule) | 🔴 открыт | neofetch-карта падает по расписанию — диагноз не установлен | [44906888136](https://github.com/rtynbirf/rtynbirf/actions/runs/44906888136) |
+| патч: СТРАЖ сторожит себя + крон → раз в час | ✅ в main | заход 4: self-watch — за ночь */23 тикнул ~3 раза вместо ~38 (schedule GitHub best-effort под нагрузкой); крон 23 * * * *, СЕРДЦЕ ТАКТА в CRITICAL | scripts/strazh_spyashchih.py |

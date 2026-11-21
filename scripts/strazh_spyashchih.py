@@ -33,6 +33,8 @@ CRITICAL = [
     (OWNER + "/rtynbirf", "SWARM-SYNC (сверка со средой)", 26 * 3600),
     (OWNER + "/khozyain", "Пульс дома (self-check слоя)", 26 * 3600),
     (OWNER + "/cell-swarm", "wave3-genome-pulse", 26 * 3600),
+    # self-watch (заход 4): страж сторожит сам себя — за ночь */23 тикнул ~3 раза вместо ~38
+    (OWNER + "/rtynbirf", "СЕРДЦЕ ТАКТА · СТРАЖ СПЯЩИХ (правило 26)", 26 * 3600),
 ]
 
 def api(path, method="GET", body=None):
