@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T16:18:41Z",
+  "generated_at": "2026-11-21T17:13:00Z",
   "generated_date": "2026-11-21",
   "heavyweights": {
     "badge_color": "orange",
@@ -12,8 +12,8 @@
     ]
   },
   "open_prs": {
-    "badge_color": "orange",
-    "count": 58,
+    "badge_color": "brightgreen",
+    "count": 0,
     "query": "is:pr is:open user:rtynbirf"
   },
   "schema": "swarm_health/1",
@@ -30,7 +30,7 @@
     "unscanned": []
   },
   "wounds": {
-    "badge_color": "red",
+    "badge_color": "orange",
     "count": 2,
     "repos": [
       {
