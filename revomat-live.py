@@ -366,6 +366,52 @@ def rewrite(rel, pairs):
     return {"path": rel, "mode": "100644", "type": "blob", "content": src}, f"{rel}: числа переписаны"
 
 
+def svg_showcase_patch(rel, ctx):
+    """Построчная хирургия чисел в forge-SVG: теги режут текст, поэтому смотрим
+    де-тегированный вид строки, матчим имя тела (префикс) и меняем число в сырой
+    строке тег-толерантно (\d+ ... MIB через теги). Аггрегаты — регексами по сыру."""
+    fleet = ctx["fleet"]
+    src = self_text(rel)
+    if not src:
+        return None, f"{rel}: файл пуст/не читался"
+    lines = src.splitlines(True)
+    changed = 0
+    for i, ln in enumerate(lines):
+        view = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", ln)).strip()
+        m = re.match(r"([A-Za-z][\w.+-]*)\s+(.*?)\s*MIB\b", view)
+        if not m:
+            continue
+        nm = fleet_lookup(m.group(1))
+        if not nm:
+            continue
+        real = f"{fleet[nm]['size']/1024:.1f}"
+        new = re.sub(r"\d+(?:\.\d+)?((?:\s|<[^>]+>)*MIB\b)", real + r"\1", ln, count=1)
+        if "ТЯЖЕЛОВЕС" in view and ctx["top"]["name"] != nm and ctx["top"]["mib"] > fleet[nm]["size"] / 1024:
+            new = re.sub(re.escape(m.group(1)), ctx["top"]["name"], new, count=1)
+            new = re.sub(r"\d+(?:\.\d+)?((?:\s|<[^>]+>)*MIB\b)", f"{ctx['top']['mib']:.1f}" + r"\1", new, count=1)
+        if new != ln:
+            lines[i] = new
+            changed += 1
+    src = "".join(lines)
+    src2, n1 = re.subn(r"\d+ ПУБЛИЧНЫХ ФЛОТОВ · \d+(?:\.\d+)? MIB КОДА · РАН \d+",
+                       f"{ctx['N']} ПУБЛИЧНЫХ ФЛОТОВ · {ctx['sum_mib']:.0f} MIB КОДА · РАН {ctx['wounds']}", src)
+    src, _ = (src2, n1) if n1 else (src, 0)
+    src2, n2 = re.subn(r"ТОП-7 ФЛАГМАНОВ: \d+(?:\.\d+)? MIB · ВСЕГО \d+ ФЛОТОВ · \d+(?:\.\d+)? MIB",
+                       f"ТОП-7 ФЛАГМАНОВ: {ctx['top7_sum']:.1f} MIB · ВСЕГО {ctx['N']} ФЛОТОВ · {ctx['sum_mib']:.1f} MIB", src)
+    src, _ = (src2, n2) if n2 else (src, 0)
+    src2, n3 = re.subn(r"ЖИВОЙ СТРОЙ · \d+ ПУБЛИЧНЫХ ФЛОТОВ", f"ЖИВОЙ СТРОЙ · {ctx['N']} ПУБЛИЧНЫХ ФЛОТОВ", src)
+    src, _ = (src2, n3) if n3 else (src, 0)
+    src2, n4 = re.subn(r"(живой|свежий) срез GitHub API · \d{4}-\d{2}-\d{2}",
+                       rf"\1 срез GitHub API · {ctx['date_iso']}", src)
+    src, _ = (src2, n4) if n4 else (src, 0)
+    if src == self_text(rel):
+        return None, f"{rel}: числа уже верны"
+    if changed == 0 and not any((n1, n2, n3, n4)):
+        return None, f"{rel}: имён флота в полотне не узнано — не тронут"
+    return {"path": rel, "mode": "100644", "type": "blob", "content": src}, \
+        f"{rel}: чисел переписано {changed}, аггрегатов {sum(1 for x in (n1, n2, n3, n4) if x)}"
+
+
 def forge_live(fleet, items, md, map_d):
     """КУЗНЯ-ЖИВАЯ r21: ни одного мёртвого числа на витрине профиля.
     Каждый обход переписывает forge-SVG, SWARM-SYNC, swarm_health.json и строки
@@ -403,39 +449,14 @@ def forge_live(fleet, items, md, map_d):
     def mib_repl_num(name_, real):
         return f"{real:.1f}"
 
-    # --- forge-city.svg ---
-    def city_mib(m):
-        nm, lang, num = m.group(1), m.group(2), m.group(3)
-        real = fleet_lookup(nm)
-        if real:
-            return f"{nm}  {lang}  {fleet[real]['size']/1024:.1f} MIB"
-        return m.group(0)
-    it, lg = rewrite("assets/forge-city.svg", [
-        (r"ЖИВОЙ СТРОЙ · \d+ ПУБЛИЧНЫХ ФЛОТОВ", f"ЖИВОЙ СТРОЙ · {N} ПУБЛИЧНЫХ ФЛОТОВ"),
-        (r"живой срез GitHub API · \d{4}-\d{2}-\d{2}", f"живой срез GitHub API · {date_iso}"),
-        (r"[\w-]+\s+ТЯЖЕЛОВЕС\s+\d+(?:\.\d+)?\s*MIB", f"{top['name']}  ТЯЖЕЛОВЕС  {top['mib']:.1f} MIB"),
-        (r"\d+ ПУБЛИЧНЫХ ФЛОТОВ · \d+(?:\.\d+)? MIB КОДА · РАН \d+",
-         f"{N} ПУБЛИЧНЫХ ФЛОТОВ · {sum_mib:.0f} MIB КОДА · РАН {wounds}"),
-        (r"([\w-]+)\s+([A-Za-z+#0-9]+)\s+(\d+(?:\.\d+)?)\s*MIB", city_mib),
-    ])
+    # --- forge-city.svg / forge-swarm.svg: построчная хирургия (теги режут текст) ---
+    ctx = {"fleet": fleet, "top": top, "top7_sum": sum(p["mib"] for p in top7),
+           "sum_mib": sum_mib, "wounds": wounds, "N": N, "date_iso": date_iso}
+    it, lg = svg_showcase_patch("assets/forge-city.svg", ctx)
     if it:
         files.append(it)
     logs.append(lg)
-
-    # --- forge-swarm.svg ---
-    def swarm_mib(m):
-        nm, num = m.group(1), m.group(2)
-        real = fleet_lookup(nm)
-        if real:
-            return f"{nm}  {fleet[real]['size']/1024:.1f} MIB"
-        return m.group(0)
-    it, lg = rewrite("assets/forge-swarm.svg", [
-        (r"свежий срез GitHub API · \d{4}-\d{2}-\d{2}", f"свежий срез GitHub API · {date_iso}"),
-        (r"[\w-]+\s+\d+(?:\.\d+)?\s*MIB\s*·\s*ТЯЖЕЛОВЕС", f"{top['name']}  {top['mib']:.1f} MIB · ТЯЖЕЛОВЕС"),
-        (r"ТОП-7 ФЛАГМАНОВ: \d+(?:\.\d+)? MIB · ВСЕГО \d+ ФЛОТОВ · \d+(?:\.\d+)? MIB",
-         f"ТОП-7 ФЛАГМАНОВ: {sum(p['mib'] for p in top7):.1f} MIB · ВСЕГО {N} ФЛОТОВ · {sum_mib:.1f} MIB"),
-        (r"([\w-]+)\s+(\d+(?:\.\d+)?)\s*MIB", swarm_mib),
-    ])
+    it, lg = svg_showcase_patch("assets/forge-swarm.svg", ctx)
     if it:
         files.append(it)
     logs.append(lg)
