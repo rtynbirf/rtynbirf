@@ -369,56 +369,43 @@ def rewrite(rel, pairs):
 def svg_showcase_patch(rel, ctx):
     """Построчная хирургия чисел в forge-SVG: теги режут текст, поэтому смотрим
     де-тегированный вид строки, матчим имя тела (префикс) и меняем число в сырой
-    строке тег-толерантно (\d+ ... MIB через теги). Аггрегаты — регексами по сыру."""
+    строке. Регекс числа-аггрегата: числа перед MIB берутся только реальные."""
     fleet = ctx["fleet"]
     src = self_text(rel)
     if not src:
         return None, f"{rel}: файл пуст/не читался"
-    lines = src.splitlines(True)
-    changed = 0
-    for i, ln in enumerate(lines):
-        if "MIB" not in ln.upper():
+    orig = src
+    # Карта координат де-тегирования: вью-текст + обратные позиции в сырец.
+    view, pos = [], []
+    i = 0
+    while i < len(src):
+        if src[i] == '<':
+            j = src.find('>', i)
+            i = (j + 1) if j != -1 else len(src)
+            view.append(' ')
+            pos.append(-1)
+        else:
+            view.append(src[i])
+            pos.append(i)
+            i += 1
+    view = ''.join(view)
+    cell_rx = re.compile(r"([A-Za-z][\w.+-]*)([\s·]+[A-Za-z+#0-9]+)?\s+(\d+(?:\.\d+)?)\s*MIB")
+    edits = []
+    for m in cell_rx.finditer(view):
+        nm = fleet_lookup(m.group(1))
+        if not nm:
             continue
-        toks = re.split(r"(<[^>]+>)", ln)
-        pending = None
-        seg_new = 0
-        for j, tk in enumerate(toks):
-            if tk.startswith("<"):
-                continue
-            words = tk.strip()
-            if not words:
-                continue
-            # целая ячейка в одном текстовом узле: «name Lang N MIB»
-            mcell = re.match(r"^([A-Za-z][\w.+-]*…?)\s+([A-Za-z+#0-9]+)\s+(\d+(?:\.\d+)?)\s*MIB", words)
-            if mcell:
-                nm = fleet_lookup(mcell.group(1).rstrip("….")) or fleet_lookup(mcell.group(1))
-                if nm:
-                    real = f"{fleet[nm]['size']/1024:.1f}"
-                    tk2 = re.sub(r"\d+(?:\.\d+)?(\s*MIB)", real + r"\1", tk, count=1)
-                    if tk2 != tk:
-                        toks[j] = tk2
-                        seg_new += 1
-                    pending = None
-                    continue
-            # одиночное имя в своём узле
-            first = re.split(r"[\s·]+", words)[0].rstrip("….")
-            if re.match(r"^[A-Za-z][\w.+-]*$", first) and (fleet_lookup(first) or fleet_lookup(words.rstrip("…."))):
-                pending = fleet_lookup(first) or fleet_lookup(words.rstrip("…."))
-                continue
-            if "ТЯЖЕЛОВЕС" in words or "КОДА" in words or "ФЛАГМАНОВ" in words:
-                pending = None  # аггрегатные слова — не имена
-                continue
-            mnum = re.search(r"\d+(?:\.\d+)?\s*MIB", tk)
-            if mnum and pending:
-                real = f"{fleet[pending]['size']/1024:.1f}"
-                toks[j] = re.sub(r"\d+(?:\.\d+)?(\s*MIB)", real + r"\1", tk, count=1)
-                pending = None
-                seg_new += 1
-        new = "".join(toks)
-        if new != ln:
-            lines[i] = new
-            changed += seg_new
-    src = "".join(lines)
+        real = f"{fleet[nm]['size']/1024:.1f}"
+        s, e = m.start(3), m.end(3)
+        rs, rend = pos[s], pos[e - 1]
+        if rs == -1 or rend == -1:
+            continue
+        seg = src[rs:rend + 1]
+        seg2, n = re.subn(r"\d+(?:\.\d+)?", real, seg, count=1)
+        if n and seg2 != seg:
+            edits.append((rs, rend + 1, seg2))
+    for rs, rend, seg2 in sorted(edits, key=lambda x: -x[0]):
+        src = src[:rs] + seg2 + src[rend:]
     src2, n1 = re.subn(r"\d+ ПУБЛИЧНЫХ ФЛОТОВ · \d+(?:\.\d+)? MIB КОДА · РАН \d+",
                        f"{ctx['N']} ПУБЛИЧНЫХ ФЛОТОВ · {ctx['sum_mib']:.0f} MIB КОДА · РАН {ctx['wounds']}", src)
     src, _ = (src2, n1) if n1 else (src, 0)
@@ -430,12 +417,10 @@ def svg_showcase_patch(rel, ctx):
     src2, n4 = re.subn(r"(живой|свежий) срез GitHub API · \d{4}-\d{2}-\d{2}",
                        rf"\1 срез GitHub API · {ctx['date_iso']}", src)
     src, _ = (src2, n4) if n4 else (src, 0)
-    if src == self_text(rel):
+    if src == orig:
         return None, f"{rel}: числа уже верны"
-    if changed == 0 and not any((n1, n2, n3, n4)):
-        return None, f"{rel}: имён флота в полотне не узнано — не тронут"
     return {"path": rel, "mode": "100644", "type": "blob", "content": src}, \
-        f"{rel}: чисел переписано {changed}, аггрегатов {sum(1 for x in (n1, n2, n3, n4) if x)}"
+        f"{rel}: чисел переписано {len(edits)} + аггрегаты"
 
 
 def forge_live(fleet, items, md, map_d):
