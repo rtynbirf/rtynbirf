@@ -23,7 +23,7 @@ jobs:
       GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
       REVOMAT_FAST: "1"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: инструменты ковки лиц
         run: pip install cairosvg --quiet
       - name: ОПИСЬ + ЗАЧИСЛЕНИЕ СИРОТ
@@ -36,7 +36,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: инструменты ковки лиц
         run: pip install cairosvg --quiet
       - name: ПОЛНЫЙ ПРОЛЁТ → СВЕРКА/КУЗНЯ/ЗАЧИСЛЕНИЕ
