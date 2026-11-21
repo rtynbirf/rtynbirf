@@ -377,21 +377,47 @@ def svg_showcase_patch(rel, ctx):
     lines = src.splitlines(True)
     changed = 0
     for i, ln in enumerate(lines):
-        view = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", ln)).strip()
-        m = re.match(r"([A-Za-z][\w.+-]*)\s+(.*?)\s*MIB\b", view)
-        if not m:
+        if "MIB" not in ln.upper():
             continue
-        nm = fleet_lookup(m.group(1))
-        if not nm:
-            continue
-        real = f"{fleet[nm]['size']/1024:.1f}"
-        new = re.sub(r"\d+(?:\.\d+)?((?:\s|<[^>]+>)*MIB\b)", real + r"\1", ln, count=1)
-        if "ТЯЖЕЛОВЕС" in view and ctx["top"]["name"] != nm and ctx["top"]["mib"] > fleet[nm]["size"] / 1024:
-            new = re.sub(re.escape(m.group(1)), ctx["top"]["name"], new, count=1)
-            new = re.sub(r"\d+(?:\.\d+)?((?:\s|<[^>]+>)*MIB\b)", f"{ctx['top']['mib']:.1f}" + r"\1", new, count=1)
+        toks = re.split(r"(<[^>]+>)", ln)
+        pending = None
+        seg_new = 0
+        for j, tk in enumerate(toks):
+            if tk.startswith("<"):
+                continue
+            words = tk.strip()
+            if not words:
+                continue
+            # целая ячейка в одном текстовом узле: «name Lang N MIB»
+            mcell = re.match(r"^([A-Za-z][\w.+-]*…?)\s+([A-Za-z+#0-9]+)\s+(\d+(?:\.\d+)?)\s*MIB", words)
+            if mcell:
+                nm = fleet_lookup(mcell.group(1).rstrip("….")) or fleet_lookup(mcell.group(1))
+                if nm:
+                    real = f"{fleet[nm]['size']/1024:.1f}"
+                    tk2 = re.sub(r"\d+(?:\.\d+)?(\s*MIB)", real + r"\1", tk, count=1)
+                    if tk2 != tk:
+                        toks[j] = tk2
+                        seg_new += 1
+                    pending = None
+                    continue
+            # одиночное имя в своём узле
+            first = re.split(r"[\s·]+", words)[0].rstrip("….")
+            if re.match(r"^[A-Za-z][\w.+-]*$", first) and (fleet_lookup(first) or fleet_lookup(words.rstrip("…."))):
+                pending = fleet_lookup(first) or fleet_lookup(words.rstrip("…."))
+                continue
+            if "ТЯЖЕЛОВЕС" in words or "КОДА" in words or "ФЛАГМАНОВ" in words:
+                pending = None  # аггрегатные слова — не имена
+                continue
+            mnum = re.search(r"\d+(?:\.\d+)?\s*MIB", tk)
+            if mnum and pending:
+                real = f"{fleet[pending]['size']/1024:.1f}"
+                toks[j] = re.sub(r"\d+(?:\.\d+)?(\s*MIB)", real + r"\1", tk, count=1)
+                pending = None
+                seg_new += 1
+        new = "".join(toks)
         if new != ln:
             lines[i] = new
-            changed += 1
+            changed += seg_new
     src = "".join(lines)
     src2, n1 = re.subn(r"\d+ ПУБЛИЧНЫХ ФЛОТОВ · \d+(?:\.\d+)? MIB КОДА · РАН \d+",
                        f"{ctx['N']} ПУБЛИЧНЫХ ФЛОТОВ · {ctx['sum_mib']:.0f} MIB КОДА · РАН {ctx['wounds']}", src)
