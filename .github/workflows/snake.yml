@@ -6,7 +6,8 @@ on:
   push:
     branches: [main]
 
-permissions: read-all
+permissions:
+  contents: write   # заход 5: пуш в output-ветку — GITHUB_TOKEN (SWARM_TOKEN протух: Authentication failed)
 concurrency:
   group: generate-snake
   cancel-in-progress: true
@@ -27,5 +28,5 @@ jobs:
           target_branch: output
           build_dir: dist
         env:
-          # волна 13: пуш в output — рукой роя (SWARM_TOKEN); GITHUB_TOKEN read-only
-          GITHUB_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          # заход 5: пуш в output — GITHUB_TOKEN с contents:write (рука роя протухла)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

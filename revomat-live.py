@@ -607,9 +607,10 @@ def job(item):
     # Лицо без записанного sha, перекрытое извне или отставшее по изданию — перекрашивается.
     cur_sha = banner_sha_of(name, br)
     need_by_sha = bool(cur_sha) and st.get("лицо_sha") != cur_sha
-    live_fp = {"коммиты": None, "звёзды": info["звёзды"], "форки": info["форки"],
-               "size": info["size"], "pushed": info["pushed"], "desc": info["desc"],
-               "topics": ",".join(info["topics"][:4])}
+    # ДЕЛЬТА (заход 5): отпечаток = только то, что лицо реально рисует (desc, topics).
+    # push/size/звёзды/форки на лице не нарисованы — их дрожь красила 79 лиц за
+    # одну волну пушей (ночь 2026-11-21: «0→79 перекрашено» туда-сюда).
+    live_fp = {"desc": info["desc"], "topics": ",".join(info["topics"][:4])}
     fp_equal = st.get("fp") == json.dumps(live_fp, sort_keys=True)
     if (not need_by_sha) and fp_equal and st.get("канон") == CANON and st.get("издание") == EDITION \
             and st.get("лицо_sha"):

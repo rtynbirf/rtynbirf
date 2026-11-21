@@ -8,7 +8,8 @@ concurrency:
   group: neofetch-card
   cancel-in-progress: true
 
-permissions: read-all
+permissions:
+  contents: write   # заход 5: пуш карты в main — GITHUB_TOKEN (рука роя SWARM_TOKEN протухла: HTTP 401)
 
 jobs:
   build:
@@ -21,11 +22,10 @@ jobs:
       - name: Генерация карты (методика SWARM-SYNC)
         run: python3 scripts/neofetch_card.py assets/neofetch.svg
         env:
-          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Коммит карты (только при изменениях)
         env:
-          SWARM_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -36,9 +36,9 @@ jobs:
             git commit -m "ТЕРМИНАЛ: суточная neofetch-карта [skip ci]"
             # волна 12: пуш в main — общий ресурс роя; ребейз перед пушем — зуб против «fetch first»
             git pull --rebase origin main
-            # волна 13: пуш — рукой роя (SWARM_TOKEN)
+            # волна 13: пуш — рукой роя; заход 5: рука протухла — GITHUB_TOKEN с contents:write
             # волна 14: extraheader checkout перекрывает URL-креды → 403 github-actions[bot]
             git config --unset-all http.https://github.com/.extraheader || true
             git config --worktree --unset-all http.https://github.com/.extraheader 2>/dev/null || true
-            git push "https://x-access-token:${SWARM_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi

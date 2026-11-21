@@ -8,7 +8,10 @@ concurrency:
   group: zavodnoy-klyuch
   cancel-in-progress: true
 
-permissions: read-all
+permissions:
+  contents: read
+  actions: write   # заход 5: рука роя SWARM_TOKEN протухла (HTTP 401) — законный GITHUB_TOKEN
+                   # с явным правом диспетчинга (прецедент: СЕРДЦЕ ТАКТА, зелёный)
 
 jobs:
   wind:
@@ -21,7 +24,7 @@ jobs:
           python-version: "3.12"
       - name: завод просроченных клеток
         env:
-          # волна 13: диспетчинг требует actions:write — рука роя (SWARM_TOKEN);
-          # GITHUB_TOKEN в доме read-only (permissions: read-all)
-          GITHUB_TOKEN: ${{ secrets.SWARM_TOKEN }}
+          # заход 5: SWARM_TOKEN протух (401 на GET workflows) — GITHUB_TOKEN с
+          # actions:write, объявленным в permissions (исключение точечно, волна 13→14)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/zavodnoy_klyuch.py
