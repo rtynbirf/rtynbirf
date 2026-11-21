@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T12:44:33Z",
+  "generated_at": "2026-11-21T16:18:41Z",
   "generated_date": "2026-11-21",
   "heavyweights": {
     "badge_color": "orange",
@@ -7,13 +7,13 @@
     "repos": [
       {
         "repo": "singulyar",
-        "size_mib": 631.2
+        "size_mib": 631.6
       }
     ]
   },
   "open_prs": {
-    "badge_color": "brightgreen",
-    "count": 0,
+    "badge_color": "orange",
+    "count": 58,
     "query": "is:pr is:open user:rtynbirf"
   },
   "schema": "swarm_health/1",
@@ -30,8 +30,21 @@
     "unscanned": []
   },
   "wounds": {
-    "badge_color": "brightgreen",
-    "count": 0,
-    "repos": []
+    "badge_color": "red",
+    "count": 2,
+    "repos": [
+      {
+        "conclusion": "failure",
+        "repo": "hologram",
+        "url": "https://github.com/rtynbirf/hologram/actions/runs/44909730327",
+        "workflow": "ГОЛОГРАММА · целое из репо"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "universal-agent",
+        "url": "https://github.com/rtynbirf/universal-agent/actions/runs/44901170973",
+        "workflow": "witness of the swarm"
+      }
+    ]
   }
 }
