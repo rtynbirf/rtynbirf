@@ -155,17 +155,19 @@ def data_band(pal, d, W, H):
     row1 = (f"ЖИВОЕ ЛИЦО · ДАННЫЕ API: КОММИТЫ {d['коммиты']} · ЗВЁЗДЫ {d['звёзды']} · ФОРКИ {d['форки']} · "
             f"ВЕТВИ {d['ветви']} · РАЗМЕР {d['size']} КБ · ПУШ {d['pushed']}")
     row2 = f"ПЕРЕПИСАНО АВТОМАТОМ {d['штамп']} UTC · ЖИВАЯ КАРТА: live-map.png В ПРОФИЛЕ РОЯ · {EDITION}"
-    e = [f'<line x1="26" y1="{H-46}" x2="{W-26}" y2="{H-46}" stroke="{gold}" stroke-width="0.9" opacity="0.85"/>',
-         f'<text x="{W/2}" y="{H-30}" text-anchor="middle" font-family="monospace" font-size="12" '
+    e = [f'<line x1="26" y1="{H-52}" x2="{W-26}" y2="{H-52}" stroke="{gold}" stroke-width="0.9" opacity="0.85"/>',
+         f'<text x="{W/2}" y="{H-36}" text-anchor="middle" font-family="monospace" font-size="12" '
          f'fill="{gold2}" letter-spacing="0.6">{row1}</text>',
-         f'<text x="{W/2}" y="{H-16}" text-anchor="middle" font-family="monospace" font-size="9.5" '
+         f'<text x="{W/2}" y="{H-22}" text-anchor="middle" font-family="monospace" font-size="9.5" '
          f'fill="{dim}" letter-spacing="1.1">{row2}</text>']
     return "".join(e)
 
 
 def build_live_svg(mod, cfg, d, W=1280, H=456):
-    """Канон 1280×400 + полоса живых данных (высота 456: канон не тронут, данные внизу)."""
-    svg = mod_build(mod, cfg, W, 400)
+    """Канон 1280×400 (все элементы канона на своих местах) + полоса живых данных
+    на расширенной канве 456: нижний меандр и девиз остаются на y≤388, полоса 404–436,
+    рамка и углы адаптируются к H. Полоса ВНУТРИ viewBox — видно в рендере."""
+    svg = mod_build(mod, cfg, W, H)
     svg = svg[:-6] + data_band(cfg["palette"], d, W, H) + "</svg>"
     return svg
 
@@ -276,9 +278,12 @@ def build_map_svg(items, d, COLS=8, CW=180, CH=100):
     return "".join(e)
 
 
-def png_of(svg, w):
+def png_of(svg, w, h=None):
     import cairosvg
-    return cairosvg.svg2png(bytestring=svg.encode(), output_width=w)
+    kw = {"output_width": w}
+    if h:
+        kw["output_height"] = h
+    return cairosvg.svg2png(bytestring=svg.encode(), **kw)
 
 
 def push_png_blob(name, br, path, png_bytes, message):
@@ -286,15 +291,22 @@ def push_png_blob(name, br, path, png_bytes, message):
     bl = api("POST", f"{A}/repos/{OWNER}/{name}/git/blobs",
              {"content": base64.b64encode(png_bytes).decode(), "encoding": "base64"})
     if "sha" not in bl:
-        return f"blob не создан: {str(bl)[:80]}"
+        return f"blob не создан: {str(bl)[:80]}", None
     res = push_tree(name, br, [{"path": path, "mode": "100644", "type": "blob", "sha": bl["sha"]}], message)
     if res == "записано ✓":
         vf = api("GET", f"{A}/repos/{OWNER}/{name}/contents/{path}?ref={br}")
         vb = base64.b64decode(vf.get("content") or "")
         if not vb.startswith(PNG_MAGIC) or hashlib.sha256(vb).hexdigest() != hashlib.sha256(png_bytes).hexdigest():
-            return "ВЕРИФИКАЦИЯ ПАЛА: байты не совпали"
-        return "записано ✓ (верифицировано байтами)"
-    return res
+            return "ВЕРИФИКАЦИЯ ПАЛА: байты не совпали", None
+        return "записано ✓ (верифицировано байтами)", bl["sha"]
+    if res == "без изменений":
+        return "уже такое лицо в репо (успех)", bl["sha"]
+    return res, None
+
+
+def banner_sha_of(name, br):
+    f = api("GET", f"{A}/repos/{OWNER}/{name}/contents/banner.png?ref={br}")
+    return f.get("sha") or ""
 
 
 def repaint(name, info, cfg, mod):
@@ -307,15 +319,15 @@ def repaint(name, info, cfg, mod):
     cfg2["desc"] = info["desc"] or cfg.get("desc") or name
     cfg2["topics"] = (info["topics"] or cfg.get("topics") or [])[:4]
     svg = build_live_svg(mod, cfg2, d, 1280, 456)
-    png = png_of(svg, 1280)
+    png = png_of(svg, 1280, 456)
     if png[:8] != PNG_MAGIC:
-        return d, "лицо без PNG-магии"
+        return d, "лицо без PNG-магии", None
     if DRY:
-        return d, "дри-ран: будет перекрашено"
-    res = push_png_blob(name, br, "banner.png", png,
-                        f"ЖИВОЕ ЛИЦО: полотно переписано реальными данными API (коммиты {d['коммиты']}, звёзды "
-                        f"{d['звёзды']}, пуш {d['pushed']}) · {EDITION} · {CANON} · REVE=РЕВО")
-    return d, res
+        return d, "дри-ран: будет перекрашено", None
+    res, bsha = push_png_blob(name, br, "banner.png", png,
+                              f"ЖИВОЕ ЛИЦО: полотно переписано реальными данными API (коммиты {d['коммиты']}, звёзды "
+                              f"{d['звёзды']}, пуш {d['pushed']}) · {EDITION} · {CANON} · REVE=РЕВО")
+    return d, res, bsha
 
 
 # ================= ПРОЛЁТ ЖИВОГО МОДУЛЯ =================
@@ -334,38 +346,51 @@ print(f"== ЖИВОЙ МОДУЛЬ: флот {len(fleet)} · в desk {len(desk.g
 def job(item):
     name, info = item
     br = info["ветка"]
+    st = state.get(name) or {}
+    # КОНТУР ПРИНУЖДЕНИЯ: запечатанный sha лица vs реальный sha в репо.
+    # Лицо без записанного sha, перекрытое извне или отставшее по изданию — перекрашивается.
+    cur_sha = banner_sha_of(name, br)
+    need_by_sha = bool(cur_sha) and st.get("лицо_sha") != cur_sha
+    live_fp = {"коммиты": None, "звёзды": info["звёзды"], "форки": info["форки"],
+               "size": info["size"], "pushed": info["pushed"], "desc": info["desc"],
+               "topics": ",".join(info["topics"][:4])}
+    fp_equal = st.get("fp") == json.dumps(live_fp, sort_keys=True)
+    if (not need_by_sha) and fp_equal and st.get("канон") == CANON and st.get("издание") == EDITION \
+            and st.get("лицо_sha"):
+        return name, None, st.get("данные", {}), "данные не ушли — не тронуто"
     cfg = own_cfg_of(name, br)
     if not cfg:
         cfg = {"name": name, "num": len(state) + 1, "school": "ШКОЛА РОЯ",
                "palette": SCHEMES[0]}
     cfg.setdefault("palette", SCHEMES[(cfg.get("num") or 1) % len(SCHEMES)])
-    live_fp = {"коммиты": None, "звёзды": info["звёзды"], "форки": info["форки"],
-               "size": info["size"], "pushed": info["pushed"], "desc": info["desc"],
-               "topics": ",".join(info["topics"][:4])}
-    st = state.get(name) or {}
-    if st.get("fp") == json.dumps(live_fp, sort_keys=True) and st.get("канон") == CANON:
-        return name, None, st.get("данные", {}), "данные не ушли — не тронуто"
-    d, res = repaint(name, info, cfg, mod)
-    return name, (json.dumps(live_fp, sort_keys=True), d), d, res
+    d, res, bsha = repaint(name, info, cfg, mod)
+    return name, (json.dumps(live_fp, sort_keys=True), d, res, bsha), d, res
 
 with ThreadPoolExecutor(6) as ex:
     out = list(ex.map(job, sorted(fleet.items())))
-repainted, skipped = [], []
+repainted, skipped, failed = [], [], []
 new_state = dict(state)
 for name, fpd, d, res in out:
     if fpd is None:
         skipped.append(name)
         continue
-    repainted.append((name, res))
-    fp, _ = fpd
-    new_state[name] = {"fp": fp, "канон": CANON, "издание": EDITION,
-                       "данные": {k: d.get(k) for k in ("коммиты", "звёзды", "форки", "ветви", "size", "pushed")},
-                       "штамп": d.get("штамп")}
-print(f"перекрашено: {len(repainted)} · не изменились: {len(skipped)}")
-for n, r in repainted[:12]:
+    fp, _, res2, bsha = fpd
+    ok = res2.startswith("записано") or res2 == "уже такое лицо в репо (успех)"
+    if ok:
+        repainted.append((name, res2))
+        new_state[name] = {"fp": fp, "канон": CANON, "издание": EDITION,
+                           "данные": {k: d.get(k) for k in ("коммиты", "звёзды", "форки", "ветви", "size", "pushed")},
+                           "штамп": d.get("штамп"), "лицо_sha": bsha}
+    else:
+        failed.append((name, res2))
+        new_state.pop(name, None)  # не отмечать свежим — следующий обход перекрасит
+print(f"перекрашено: {len(repainted)} · не изменились: {len(skipped)} · неудач: {len(failed)}")
+for n, r in repainted[:10]:
     print(f"  {n} → {r}")
-if len(repainted) > 12:
-    print(f"  … ещё {len(repainted)-12}")
+if len(repainted) > 10:
+    print(f"  … ещё {len(repainted)-10}")
+for n, r in failed[:8]:
+    print(f"  НЕУДАЧА {n} → {r}")
 
 # ЖИВАЯ КАРТА — переписывается КАЖДЫМ обходом
 items = []
