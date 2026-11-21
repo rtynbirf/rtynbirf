@@ -1,33 +1,33 @@
 {
   "schema": "swarm_numbers/1",
-  "generated_at": "2026-11-20T12:49:47Z",
+  "generated_at": "2026-11-21T16:21:54Z",
   "window": {
-    "from": "2025-11-21",
-    "to": "2026-11-20"
+    "from": "2025-11-22",
+    "to": "2026-11-21"
   },
   "graphql": {
     "five": {
-      "Commit": 7033,
+      "Commit": 8206,
       "Issue": 327,
       "PullReq": 72,
       "Review": 31,
-      "Repo": 79
+      "Repo": 80
     },
-    "sum_of_five": 7542,
-    "calendar_total": 7542,
+    "sum_of_five": 8716,
+    "calendar_total": 8716,
     "restricted": 0,
     "invariant_sum5_eq_calendar": true
   },
   "public_search": {
-    "Commit": 5707,
+    "Commit": 6882,
     "Issue": 327,
     "PullReq": 72,
-    "Repo": 78,
-    "window": "2025-11-21..2026-11-20"
+    "Repo": 79,
+    "window": "2025-11-22..2026-11-21"
   },
   "svg_panel": {
     "period": "2025-11-16 / 2026-11-20",
-    "age_days": 0,
+    "age_days": 1,
     "panel": {
       "Commit": 7021,
       "Issue": 327,
@@ -38,11 +38,11 @@
     "panel_total": 7530,
     "panel_sum_check": true,
     "delta_vs_canon": {
-      "Commit": 12,
+      "Commit": 1185,
       "Issue": 0,
       "PullReq": 0,
       "Review": 0,
-      "Repo": 0
+      "Repo": 1
     },
     "verdict": "свежий"
   }
