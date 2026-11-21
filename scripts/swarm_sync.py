@@ -18,16 +18,16 @@ def req(tok, url, method="GET", payload=None):
         raw = resp.read().decode()
         return (json.loads(raw) if raw.strip() else {}), resp.headers
 
-# --- выбор токенов: чтение данных (нужны приватные) ---
-READ_TOK = os.environ.get("SWARM_TOKEN") or os.environ.get("GITHUB_TOKEN")
+# --- выбор токенов: чтение публичной витрины (закон дома: приватные клетки
+# в витрину не попадают — GITHUB_TOKEN видит public-флот; заход 6) ---
+READ_TOK = os.environ.get("GITHUB_TOKEN") or os.environ.get("SWARM_TOKEN")
 if not READ_TOK:
-    sys.exit("нет токенов: SWARM_TOKEN/GITHUB_TOKEN")
+    sys.exit("нет токенов: GITHUB_TOKEN/SWARM_TOKEN")
 
-# --- сверка со средой: живые данные ---
-user, _ = req(READ_TOK, f"{API}/user")
+# --- сверка со средой: живые данные (публичная опись владельца) ---
 repos, page = [], 1
 while True:
-    data, h = req(READ_TOK, f"{API}/user/repos?visibility=all&affiliation=owner&per_page=100&sort=updated&page={page}")
+    data, h = req(READ_TOK, f"{API}/users/{OWNER}/repos?type=owner&per_page=100&sort=updated&page={page}")
     if not data: break
     repos += data
     if 'rel="next"' not in (h.get("Link") or ""): break
