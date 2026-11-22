@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T10:08:06Z",
+  "generated_at": "2026-11-22T12:30:17Z",
   "generated_date": "2026-11-22",
   "heavyweights": {
     "badge_color": "orange",
@@ -7,7 +7,7 @@
     "repos": [
       {
         "repo": "singulyar",
-        "size_mib": 671.1
+        "size_mib": 671.0
       }
     ]
   },
