@@ -1,12 +1,23 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """SWARM-SYNC — клетка роя: сверка со средой и регенерация секции README.
 Данные — только из живого GitHub API (антигаллюцинация). Запись — в рабочую копию,
-коммит делает workflow-шаг (идентичность bot, только при изменениях, [skip ci])."""
+коммит делает workflow-шаг (идентичность bot, только при изменениях, [skip ci]).
+
+Приказ ХОЗЯИНА 2026-11-24 (сверка 11/11, fallout): sentinel-маркеры и ЗАМЕНА между
+ними, не append. append умер вместе с блоком 12:41 (коммит bacc6bc): маркер в README
+не совпал с маркером скрипта — замена молча превратилась в приписку. Теперь:
+  1) канонические сентинели BEGIN_SWARM_SYNC / END_SWARM_SYNC;
+  2) легаси-маркеры SWARM:BEGIN/SWARM:END мигрируются на месте;
+  3) нет ни тех ни других = честный exit 1 (fail-closed), а не тихий append.
+README — витрина: replace. Ledger — append-only. Это разные носители."""
 import base64, json, os, re, sys, time, urllib.error, urllib.request
 
 API = "https://api.github.com"
 OWNER, REPO = "rtynbirf", "rtynbirf"
-BEGIN, END = "<!-- SWARM:BEGIN автогенерация -->", "<!-- SWARM:END -->"
+BEGIN, END = "<!--BEGIN_SWARM_SYNC-->", "<!--END_SWARM_SYNC-->"
+# легаси-маркеры эпохи 12:41 — распознаём и мигрируем (замена, не дубликат)
+LEGACY = re.compile(r"<!--\s*SWARM:BEGIN[^>]*-->.*?<!--\s*SWARM:END[^>]*-->", re.S)
+CANON = re.compile(re.escape(BEGIN) + r".*?" + re.escape(END), re.S)
 
 def hdr(tok):
     return {"Authorization": f"token {tok}", "Accept": "application/vnd.github+json", "User-Agent": "swarm-sync"}
@@ -63,7 +74,7 @@ now = time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime())
 lines = [
     BEGIN,
     "## 🛰 SWARM-SYNC · сверка со средой",
-    f"> Автогенерация {now} · источник: живой GitHub API · ни одного выдуманного числа",
+    f"> Автогенерация {now} · источник: живой GitHub API (public-флот: /users/rtynbirf/repos; языки — сумма байтов /repos/<repo>/languages, без истории git) · ни одного выдуманного числа · живой счёт роя для био — здесь, не в био",
     "",
     "| Метрика | Значение |",
     "|---|---|",
@@ -81,18 +92,26 @@ for n, p, l, c, pu in top_commits:
     lines.append(f"- **{n}**{vis} — {c} коммитов · {l}")
 lines.append(END)
 
-# --- запись в рабочую копию; коммит делает workflow-шаг ---
+# --- запись в рабочую копию: ЗАМЕНА между сентинелями, не append ---
 section = "\n".join(lines)
 ws = os.environ.get("GITHUB_WORKSPACE") or "."
 path = os.path.join(ws, "README.md")
 if not os.path.exists(path):
     sys.exit(f"README не найден: {path}")
 cur = open(path, encoding="utf-8").read()
-new = re.sub(re.escape(BEGIN) + r".*?" + re.escape(END), section.replace("\\", "\\\\"), cur, flags=re.S) \
-      if BEGIN in cur else (cur.rstrip() + "\n\n" + section + "\n")
+if CANON.search(cur):
+    new = CANON.sub(lambda _: section, cur, count=1)
+    how = "замена между каноническими сентинелями"
+elif LEGACY.search(cur):
+    new = LEGACY.sub(lambda _: section, cur, count=1)
+    how = "миграция легаси-блока SWARM:BEGIN/SWARM:END на канонические сентинели (замена, не append)"
+else:
+    # fail-closed: витрина без маркеров — не тихая приписка, а честный красный
+    sys.exit("SWARM-SYNC: в README нет ни сентинелей BEGIN/END_SWARM_SYNC, ни легаси-блока — "
+             "отказ вместо append (приказ 2026-11-24: замена, не приписка)")
 if new == cur:
     print("изменений нет — коммит не создаём (анти-шум)")
 else:
     open(path, "w", encoding="utf-8").write(new)
-    print("README перегенерирован в рабочей копии — коммит выполнит workflow-шаг")
+    print(f"README перегенерирован в рабочей копии ({how}) — коммит выполнит workflow-шаг")
 print(f"сверка: {len(repos)} репо, {total_commits} коммитов, {priv} приватных")
