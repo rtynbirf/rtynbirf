@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T14:29:56Z",
+  "generated_at": "2026-11-23T15:24:38Z",
   "generated_date": "2026-11-23",
   "heavyweights": {
     "badge_color": "orange",
@@ -12,8 +12,8 @@
     ]
   },
   "open_prs": {
-    "badge_color": "brightgreen",
-    "count": 0,
+    "badge_color": "orange",
+    "count": 68,
     "query": "is:pr is:open user:rtynbirf"
   },
   "schema": "swarm_health/1",
@@ -30,20 +30,26 @@
     "unscanned": []
   },
   "wounds": {
-    "badge_color": "orange",
-    "count": 2,
+    "badge_color": "red",
+    "count": 3,
     "repos": [
       {
         "conclusion": "failure",
-        "repo": "hologram",
-        "url": "https://github.com/rtynbirf/hologram/actions/runs/44909730327",
-        "workflow": "ГОЛОГРАММА · целое из репо"
+        "repo": "index",
+        "url": "https://github.com/rtynbirf/index/actions/runs/45203620838",
+        "workflow": "pasichnik-audit"
+      },
+      {
+        "conclusion": "failure",
+        "repo": "repo-doctrine",
+        "url": "https://github.com/rtynbirf/repo-doctrine/actions/runs/45203029718",
+        "workflow": "agentic-pilot — Markdown→Actions"
       },
       {
         "conclusion": "failure",
         "repo": "universal-agent",
-        "url": "https://github.com/rtynbirf/universal-agent/actions/runs/44901170973",
-        "workflow": "witness of the swarm"
+        "url": "https://github.com/rtynbirf/universal-agent/actions/runs/44928787947",
+        "workflow": "Graph Update: pip in /. #1720668023"
       }
     ]
   }
