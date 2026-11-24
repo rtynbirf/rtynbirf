@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-11-23T15:24:38Z",
-  "generated_date": "2026-11-23",
+  "generated_at": "2026-11-24T01:42:51Z",
+  "generated_date": "2026-11-24",
   "heavyweights": {
     "badge_color": "orange",
     "count": 1,
     "repos": [
       {
         "repo": "singulyar",
-        "size_mib": 708.3
+        "size_mib": 795.5
       }
     ]
   },
   "open_prs": {
-    "badge_color": "orange",
-    "count": 68,
+    "badge_color": "brightgreen",
+    "count": 0,
     "query": "is:pr is:open user:rtynbirf"
   },
   "schema": "swarm_health/1",
@@ -30,7 +30,7 @@
     "unscanned": []
   },
   "wounds": {
-    "badge_color": "red",
+    "badge_color": "orange",
     "count": 3,
     "repos": [
       {
