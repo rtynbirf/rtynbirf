@@ -20,7 +20,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '*/15 * * * *')
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
+      GH_TOKEN: ${{ github.token }}  # REVO_PAT протух молча (Bad credentials, шрам 45680030815); вернётся fine-grained REVO_PAT от хозяина (закон §5)
       REVOMAT_FAST: "1"
     steps:
       - uses: actions/checkout@v4
@@ -34,7 +34,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '9 4 * * *')
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.REVO_PAT || github.token }}
+      GH_TOKEN: ${{ github.token }}  # REVO_PAT протух молча (Bad credentials, шрам 45680030815); вернётся fine-grained REVO_PAT от хозяина (закон §5)
     steps:
       - uses: actions/checkout@v4
       - name: инструменты ковки лиц
