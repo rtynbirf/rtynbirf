@@ -152,8 +152,6 @@ English: *An interconnected lab for autonomous systems, generative media, and of
 
 
 
-## 🛰 SWARM-SYNC · сверка со средой
-
 <!--BEGIN_SWARM_SYNC-->
 ## 🛰 SWARM-SYNC · сверка со средой
 > Автогенерация 2026-11-25 19:23 UTC · источник: живой GitHub API (public-флот: /users/rtynbirf/repos; языки — сумма байтов /repos/<repo>/languages, без истории git) · ни одного выдуманного числа · живой счёт роя для био — здесь, не в био
