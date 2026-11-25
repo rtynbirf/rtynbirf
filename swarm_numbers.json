@@ -1,48 +1,48 @@
 {
   "schema": "swarm_numbers/1",
-  "generated_at": "2026-11-24T14:49:42Z",
+  "generated_at": "2026-11-25T14:16:35Z",
   "window": {
-    "from": "2025-11-25",
-    "to": "2026-11-24"
+    "from": "2025-11-26",
+    "to": "2026-11-25"
   },
   "graphql": {
     "five": {
-      "Commit": 8652,
+      "Commit": 8749,
       "Issue": 328,
       "PullReq": 72,
       "Review": 31,
-      "Repo": 81
+      "Repo": 83
     },
-    "sum_of_five": 9164,
-    "calendar_total": 9164,
+    "sum_of_five": 9263,
+    "calendar_total": 9263,
     "restricted": 0,
     "invariant_sum5_eq_calendar": true
   },
   "public_search": {
-    "Commit": 7104,
+    "Commit": 7201,
     "Issue": 328,
     "PullReq": 72,
-    "Repo": 80,
-    "window": "2025-11-25..2026-11-24"
+    "Repo": 82,
+    "window": "2025-11-26..2026-11-25"
   },
   "svg_panel": {
-    "period": "2025-11-23 / 2026-11-24",
+    "period": "2025-11-23 / 2026-11-25",
     "age_days": 0,
     "panel": {
-      "Commit": 8652,
+      "Commit": 8746,
       "Issue": 328,
       "PullReq": 72,
       "Review": 31,
-      "Repo": 81
+      "Repo": 82
     },
-    "panel_total": 9164,
+    "panel_total": 9259,
     "panel_sum_check": true,
     "delta_vs_canon": {
-      "Commit": 0,
+      "Commit": 3,
       "Issue": 0,
       "PullReq": 0,
       "Review": 0,
-      "Repo": 0
+      "Repo": 1
     },
     "verdict": "свежий"
   }
