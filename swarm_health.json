@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-24T01:42:51Z",
-  "generated_date": "2026-11-24",
+  "generated_at": "2026-11-25T19:11:28Z",
+  "generated_date": "2026-11-25",
   "heavyweights": {
     "badge_color": "orange",
     "count": 1,
     "repos": [
       {
         "repo": "singulyar",
-        "size_mib": 795.5
+        "size_mib": 801.4
       }
     ]
   },
@@ -20,8 +20,8 @@
   "source": {
     "api": "https://api.github.com/users/rtynbirf/repos",
     "coverage": "public",
-    "repos_scanned": 81,
-    "repos_total": 81,
+    "repos_scanned": 83,
+    "repos_total": 83,
     "rules": {
       "fresh_days_max": 8,
       "heavyweights_mib": 512,
