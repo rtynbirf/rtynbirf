@@ -403,6 +403,9 @@ def heal(name, report, eng_src):
 
 # ================== ПРОЛЁТ ==================
 fleet = discover_fleet()
+if not fleet:
+    print("ДЕГРАДАЦИЯ: API вернул пустой флот — пустоту не публикуем (правило 25), честный выход (шрам 45680030815)")
+    raise SystemExit(3)
 eng_src = load_engine()
 try:
     desk = json.loads(self_text(DESK_FILE) or '{"тела": {}}')
@@ -476,7 +479,11 @@ print("состояния флота:", counts, "· зачислено:", len(en
 fleet_json = json.dumps(json.loads(json.dumps(doc)), ensure_ascii=False, indent=1)
 desk_json = json.dumps(desk, ensure_ascii=False, indent=1)
 d = api("GET", f"{A}/repos/{PROFILE}/readme")
-md = base64.b64decode(d["content"]).decode("utf-8", "ignore")
+if d.get("content"):
+    md = base64.b64decode(d["content"]).decode("utf-8", "ignore")
+else:
+    print(f"README профиля недоступен ({str(d.get('message', d.get('_raw', 'пустой ответ'))[:80])}) — блок автомата не тронут, самозапись без README (шрам 45680030815)")
+    md = None
 lenta = " · ".join(f"{k}:{v}" for k, v in counts.items())
 block = (
     "<!--ФОРЖ:АВТОМАТ:НАЧАЛО-->\n"
@@ -490,17 +497,19 @@ block = (
     "</div>\n"
     "<!--ФОРЖ:АВТОМАТ:КОНЕЦ-->"
 )
-if "<!--ФОРЖ:АВТОМАТ:НАЧАЛО-->" in md:
+readme_ok = md is not None
+if readme_ok and "<!--ФОРЖ:АВТОМАТ:НАЧАЛО-->" in md:
     md = re.sub(r"<!--ФОРЖ:АВТОМАТ:НАЧАЛО-->.*?<!--ФОРЖ:АВТОМАТ:КОНЕЦ-->", block.replace("\\", "\\\\"), md, flags=re.S)
-else:
+elif readme_ok:
     md = md.rstrip() + "\n\n" + block + "\n"
 own = open(os.path.realpath(__file__), encoding="utf-8").read()
 items = [{"path": "automaton-state.json", "mode": "100644", "type": "blob", "content": fleet_json},
          {"path": DESK_FILE, "mode": "100644", "type": "blob", "content": desk_json},
-         {"path": "README.md", "mode": "100644", "type": "blob", "content": md},
          {"path": "revomat-central.py", "mode": "100644", "type": "blob", "content": own},
          {"path": ".github/workflows/revomat-central.yml", "mode": "100644", "type": "blob", "content": CENTRAL_YML},
          {"path": "revo-engine-template.py", "mode": "100644", "type": "blob", "content": eng_src}]
+if readme_ok:
+    items.insert(2, {"path": "README.md", "mode": "100644", "type": "blob", "content": md})
 mes = (f"РЁВО-АВТОМАТ ЦЕНТРАЛЬНЫЙ v2: опись динамическая — флот {len(fleet)}"
        + (f", зачислено сирот {len(enrolled)}: " + ", ".join(e["репа"] for e in enrolled) if enrolled else ", сирот нет")
        + f" · {lenta} · баннер=лицо аккаунта · {EDITION} · {CANON} · REVE=РЕВО")

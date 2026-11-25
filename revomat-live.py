@@ -643,6 +643,9 @@ def fleet_lookup(nm):
 
 t0 = time.time()
 fleet = discover_fleet()
+if not fleet:
+    print("ДЕГРАДАЦИЯ: API вернул пустой флот — пустоту не публикуем (правило 25), честный выход (шрам 45680030815)")
+    raise SystemExit(3)
 fleet_holder = fleet  # для fleet_lookup (кузня-живая)
 eng_src = self_text("revo-engine-template.py")
 assert "@@CFG@@" in eng_src, "нет слота @@CFG@@ в шаблоне"
@@ -740,11 +743,16 @@ if DRY and not FORGE_ONLY:
 
 # README профиля: блок ЖИВОЙ КАРТЫ (idempotent)
 rd = api("GET", f"{A}/repos/{PROFILE}/readme")
-md = base64.b64decode(rd["content"]).decode("utf-8", "ignore")
-# КУЗНЯ-ЖИВАЯ: все витринные числа профиля = реальность
-forge_files, md, forge_logs = forge_live(fleet, items, md, map_d)
-for lg in forge_logs:
-    print("  КУЗНЯ-ЖИВАЯ:", lg)
+readme_ok = bool(rd.get("content"))
+if readme_ok:
+    md = base64.b64decode(rd["content"]).decode("utf-8", "ignore")
+    # КУЗНЯ-ЖИВАЯ: все витринные числа профиля = реальность
+    forge_files, md, forge_logs = forge_live(fleet, items, md, map_d)
+    for lg in forge_logs:
+        print("  КУЗНЯ-ЖИВАЯ:", lg)
+else:
+    print(f"README профиля недоступен ({str(rd.get('message', rd.get('_raw', 'пустой ответ'))[:80])}) — ЖИВАЯ КАРТА/КУЗНЯ не тронуты, состояние пишем без README (шрам 45680030815)")
+    forge_files, md, forge_logs = [], "", []
 map_block = (
     "<!--ФОРЖ:КАРТА:НАЧАЛО-->\n"
     "<div align=\"center\">\n\n"
@@ -755,7 +763,7 @@ map_block = (
     "</div>\n"
     "<!--ФОРЖ:КАРТА:КОНЕЦ-->"
 )
-if "<!--ФОРЖ:КАРТА:НАЧАЛО-->" in md:
+if md and "<!--ФОРЖ:КАРТА:НАЧАЛО-->" in md:
     md = re.sub(r"<!--ФОРЖ:КАРТА:НАЧАЛО-->.*?<!--ФОРЖ:КАРТА:КОНЕЦ-->", map_block.replace("\\", "\\\\"), md, flags=re.S)
     md_res = "блок заменён"
 else:
@@ -771,9 +779,10 @@ if bl and "sha" in bl:
 items_push += [
     {"path": STATE_FILE, "mode": "100644", "type": "blob",
      "content": json.dumps(new_state, ensure_ascii=False, indent=1)},
-    {"path": "README.md", "mode": "100644", "type": "blob", "content": md},
     {"path": "revomat-live.py", "mode": "100644", "type": "blob", "content": own},
 ]
+if md:
+    items_push.insert(1, {"path": "README.md", "mode": "100644", "type": "blob", "content": md})
 items_push += forge_files
 res = push_tree(OWNER, "main", items_push,
                 f"ЖИВОЙ МОДУЛЬ: лица ({len(repainted)} перекрашено, {len(skipped)} не ушли), "
