@@ -2,6 +2,47 @@
   <img src="polimat-header.png" width="100%" alt="ПОЛИМАТ-УНИВЕРУМ — написанный хедер: обсидиан · золото · феникс-медальон">
 </div>
 
+# rtynbirf · POLYMATH-UNIVERSUM
+
+> Автономные системы, генеративные среды и офлайн-суверенитет. Человек остаётся источником цели и решения; система — расширяемой средой действия, которая меряет себя и чинит себя сама.
+
+**Полимат-Универсум** — связанная мастерская программных, исследовательских и медиа-проектов: автономные агенты, локальные инструменты, офлайн-приложения, архитектуры взаимодействия и средства проверки технических утверждений.
+
+English: *An interconnected lab for autonomous systems, generative media, and offline-first software — a self-measuring, self-repairing house of living documentation.*
+
+[Открыть витрину](https://rtynbirf.github.io/) · [Все репозитории](https://github.com/rtynbirf?tab=repositories) · [Документация профиля](docs/profile-frontpage/00_INDEX.md)
+
+## С чего начать
+
+| Если вы хотите… | Начните здесь |
+|---|---|
+| Понять архитектуру автономной среды | [Polymath OS](https://github.com/rtynbirf/polymath-os) |
+| Открыть офлайн-медиа-среду | [СИНГУЛЯР](https://github.com/rtynbirf/singulyar) · [витрина](https://rtynbirf.github.io/singulyar/) |
+| Изучить взаимодействие автономных компонентов | [cell-swarm](https://github.com/rtynbirf/cell-swarm) · [runtime-protocol](https://github.com/rtynbirf/runtime-protocol) |
+| Работать с атласами практик и отношений | [global-practice-atlas](https://github.com/rtynbirf/global-practice-atlas) · [relomat](https://github.com/rtynbirf/relomat) |
+| Увидеть дом как организм: рой, страж, свидетели | [Живой слой ниже](#живой-слой-дома--свидетельства-не-декларации) · [ТРЕБОВАНИЯ-ДЛЯ-АГЕНТОВ](ТРЕБОВАНИЯ-ДЛЯ-АГЕНТОВ.md) |
+| Найти другие проекты | [Полный каталог](https://github.com/rtynbirf?tab=repositories) |
+
+## Основные направления
+
+**Автономные системы и вычислительная среда** — локальные инструменты, системная архитектура, проверяемая автономность. Точка входа: [Polymath OS](https://github.com/rtynbirf/polymath-os).
+
+**Офлайн-медиа и пользовательские среды** — офлайн-доступные медиа-инструменты и интерфейсы. Точка входа: [СИНГУЛЯР](https://github.com/rtynbirf/singulyar).
+
+**Рой и взаимодействие компонентов** — эксперименты с автономными узлами, кооперацией и протоколами: [cell-swarm](https://github.com/rtynbirf/cell-swarm), [runtime-protocol](https://github.com/rtynbirf/runtime-protocol).
+
+**Атласы, знания и проверка утверждений** — систематизация практик, отношений, источников и свидетельств: [global-practice-atlas](https://github.com/rtynbirf/global-practice-atlas), [relomat](https://github.com/rtynbirf/relomat), [voice-atlas-llm](https://github.com/rtynbirf/voice-atlas-llm).
+
+## Живой слой дома · свидетельства, не декларации
+
+Ниже — не украшения, а исполнительная система доказательств. Боты дома перезаписывают
+каждый блок из живого GitHub API: каждое число несёт штамп времени и источник; бейджи
+читают committed JSON и «не могут соврать»; при недоступности источника видна честная
+метка STALE/UNKNOWN, а не ручная подстановка. Правила дома (23–28) требуют для каждого
+существенного утверждения цепочку «клейм → свидетельство → метод → область» —
+политика и её исполнители описаны в [12_LIVING-LAYER.md](docs/profile-frontpage/12_LIVING-LAYER.md).
+
+
 <!--ФОРЖ:АККАУНТ:НАЧАЛО-->
 <div align="center">
   <img src="revo-account.svg" width="100%" alt="РЕВО-паспорт аккаунта: мастераские, живые/архив, автопилот на каждой странице" />
@@ -11,6 +52,8 @@
 |---:|---:|---:|---|
 | 81 | 80 | 73 | 2026-11-23 |
 <!--ФОРЖ:АККАУНТ:КОНЕЦ-->
+
+
 
 <!--НОО:ПУЛЬТ:НАЧАЛО-->
 <div align="center">
@@ -35,6 +78,24 @@
 </div>
 <!--АТЛАС:КАРТА:КОНЕЦ-->
 
+
+
+
+### Витрины, которые рисует сам дом
+
+<div align="center">
+  <img src="assets/neofetch.svg" width="100%" alt="neofetch-карта: живые цифры вселенной, суточная автогенерация по методике SWARM-SYNC" />
+</div>
+
+<div align="center">
+  <img src="assets/github-contribution-grid-snake.svg" alt="contribution snake" width="100%">
+</div>
+
+<div align="center">
+  <img src="profile-3d-contrib/profile-green-animate.svg" alt="3d contributions" width="100%">
+</div>
+
+
 <!--КАРТЫ:НАЧАЛО-->
 <div align="center">
   <p><b>КАРТЫ НА СТОЛ · три захода (20.11.2026)</b> — отчёты в корне: <code>КАРТЫ-НА-СТОЛ/</code> ·
@@ -46,6 +107,7 @@
 <!--КАРТЫ:КОНЕЦ-->
 
 
+
 <!--INV:АВТОМАТ:НАЧАЛО-->
 <div align="center">
   <a href="https://github.com/rtynbirf/inv-automat"><img src="assets/inv-forehead.svg" width="100%" alt="INV-AUTOMAT — конечный автомат инвентаризации: живой замер роя (Ornamental Mytho-Realism): прогон FSM, клеток, коммитов, claims PASS/FAIL, FSM-цепь IDLE→DONE, свидетели; числа — только живой инвентарь" /></a>
@@ -55,132 +117,6 @@
 
 
 
-
-# rtynbirf · AUTONOMOUS SYSTEMS LAB
-
-**Autonomous agents · Generative media · Offline sovereignty.**
-«Строю то, что работает без интернета и без разрешений.»
-
-> **За 10 секунд.** Я — ЧЕЛОВЕК=АККАУНТ=PID1, живая кузня автономных систем.
-> Главный проект — [polymath-os](https://github.com/rtynbirf/polymath-os): каждая строчка репо воспроизводима одной командой [`make verify`](https://github.com/rtynbirf/polymath-os/blob/main/Makefile) → 33/33 PASS · 295 тестов · 35 ADR · 5 слоёв.
-> Живой дом — [СИНГУЛЯР](https://rtynbirf.github.io/singulyar/): офлайн-караоке-вселенная «Одна песня. 157 голосов. Одна правда.»
-
-## ГЕНОМ РОЯ · 20 КЛЕТОК + 2 НОВОРОЖДЁННЫЕ — канон пинов профиля
-
-| # | Клетка | Роль из тела генома |
-|---|---|---|
-| 1 | [`polymath-os`](https://github.com/rtynbirf/polymath-os) | substrate роя: ОС Человека — 5 слоёв + Decree Log (append-only, hash-chained, Ed25519) |
-| 2 | [`singulyar`](https://github.com/rtynbirf/singulyar) | память роя: корпус 64 песни × 200 языков офлайн |
-| 3 | [`singulyar-llm`](https://github.com/rtynbirf/singulyar-llm) | локальный инференс в браузере (Qwen) — кандидат в метаболизм роя |
-| 4 | [`cell65-host`](https://github.com/rtynbirf/cell65-host) | суверенный узел-хост «настроил и забыл» |
-| 5 | [`rumu`](https://github.com/rtynbirf/rumu) | держатель имени РУМУ — клетка-указатель, пин следит за телом |
-| 6 | [`voice-atlas-llm`](https://github.com/rtynbirf/voice-atlas-llm) | атлас голосов: свой голос — при себе, чужой — только по согласию (A21 дома) |
-| 7 | [`global-video-platforms-registry`](https://github.com/rtynbirf/global-video-platforms-registry) | реестр-указатель платформ: хаб хранит магниты, не контент |
-| 8 | [`commons`](https://github.com/rtynbirf/commons) | дом: организм из лучших открытых проектов, якорь моста (ADR-0006) |
-| 9 | [`runtime-protocol`](https://github.com/rtynbirf/runtime-protocol) | исполнимая модель динамики узла: уравнение ρ̇, фазовая машина GENESIS_EXEC |
-| 10 | [`cell-rs`](https://github.com/rtynbirf/cell-rs) | первая Rust-клетка: ядро контура сверки, байт-цепь на векторах NIST |
-| 11 | [`agryp`](https://github.com/rtynbirf/agryp) | процесс-супервизор агентов роя (PID 1): один файл C, только libc, ноль зависимостей |
-| 12 | [`lex-naturae`](https://github.com/rtynbirf/lex-naturae) | законник дома: claim/evidence ledger — отделяет наблюдения от гипотез · 70/70 тестов · аудит v0.7 Z.ai |
-| 13 | [`singulyar-a0-audit`](https://github.com/rtynbirf/singulyar-a0-audit) | независимый аудитор роя: A0-аудит СИНГУЛЯРА PACKAGE VALID + BRIDGE VALID · свидетель, не автор |
-| 14 | [`fond-host`](https://github.com/rtynbirf/fond-host) | CORS-хост минус-фонда (Н-10 · ADR-0007): Pages отдаёт ACAO:* для лестницы WebAudio-плееров |
-| 15 | [`code`](https://github.com/rtynbirf/code) | код дома: скрипты и снипеты — место по канону §4 |
-| 16 | [`invariant-manifest`](https://github.com/rtynbirf/invariant-manifest) | механический судья инвариантов: hash-chain + mutation-testing, вердикт CONDITIONAL PASS |
-| 17 | [`karta`](https://github.com/rtynbirf/karta) | карта вселенной роя: генерируется из живого API, ssot — ни одного выдуманного числа |
-| 18 | [`kb`](https://github.com/rtynbirf/kb) | знания дома: канон-тексты, гайды, досье — база знаний роя |
-| 19 | [`lfs-core`](https://github.com/rtynbirf/lfs-core) | испытательный стенд автономного агента: цель/обязательство/пересмотр измеряются, а не декларируются |
-| 20 | [`repo-seed`](https://github.com/rtynbirf/repo-seed) | зерно дома: шаблон новорождённого — мембрана+CI+закон рождения (принцип №7 канона 27) |
-| 21 · новорождённая | [`global-practice-atlas`](https://github.com/rtynbirf/global-practice-atlas) | карта=территория роя: глобальный атлас практик 2026 — 1154 строки / 1145 живых, РЕЛОМАТ 43/43 · 11/11, скан 660,675 пар, релизы v1.6; виджет профиля перерисовывается из его данных |
-| 22 · новорождённая | [`relomat`](https://github.com/rtynbirf/relomat) | канон как конечный детерминированный автомат: SAME/IS-A/TOOL-OF… вердикты; судья всех слияний атласа, CI исполняет его независимо |
-
-> **ПИН-РАСКЛАД · 6 клеток (руками в веб-интерфейсе — API пинов не существует):** `polymath-os` · `singulyar` · `global-practice-atlas` · `relomat` · `karta` · `voice-atlas-llm`. Клетки 21–22 зачислены в хеш-цепь: ратчет исполнен 2026-11-20 (пины от живого HEAD, integrity по формуле).
-
-> Роли — из тела генома (swarm.json, храповик пинов, 0.2.17 · 22 клетки, канон c24dfbc4b4e5bc1d; пины от живого HEAD, integrity sha256(hex(utf8(pin))) пересчитана 22/22 (заноза make pins закрыта) — волна-13б + ратчет и догон genome-drift 2026-11-20). Пины профиля API не выставляет
-> (GraphQL: 269 мутаций без профильных; REST: все каналы 404 — проба 2026-11-16) — канон держит лицо.
-
-
-<div align="center">
-  <img src="assets/forge-hero.svg" width="100%" alt="Живая эмблема кузни: восходящий феникс в кольце рун, орбитальный блеск, искры" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-pulse.svg" width="100%" alt="Кардиограмма кузни: ДОМ ЖИВЁТ — сердце роя бьётся, бегущая искра по живому пульсу" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-manifest.svg" width="100%" alt="Лента девизов: РОЙ СТРОИТ · ЧЕЛОВЕК ВЕДЁТ · ОФЛАЙН ЖИВЁТ ЗДЕСЬ · КАЖДАЯ ЦИФРА ПРОВЕРЯЕМА" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-pid1.svg" width="100%" alt="ЧЕЛОВЕК=АККАУНТ=PID1: init-кольца и boot-лог дома, загрузка продолжается" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-musa.svg" width="100%" alt="МУЗА ЖИВЁТ ЗДЕСЬ: созвездие из 9 звёзд, феникс, вертикальная типографика, СОВЕРШЕНСТВУ НЕТ ПРЕДЕЛА" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-now.svg" width="100%" alt="СЕЙЧАС В КУЗНЕ: бегущий тикер живого среза дома, now-page" />
-</div>
-
-<div align="center"><img src="assets/forge-divider.svg" width="100%" alt="разделитель с бегущей искрой"></div>
-
-## ЗАХОДИ С ПОТОЛКА
-
-> Ты здесь случайно — и это лучший способ зайти. Три двери:
-
-| 🎼 Послушать | 🤖 Изучить роя | 🗺 Открыть всё |
-|---|---|---|
-| [**СИНГУЛЯР**](https://rtynbirf.github.io) — офлайн-караоке прямо в браузере, ничего не нужно устанавливать | [**cell-swarm**](https://github.com/rtynbirf/cell-swarm) — эмерджентная архитектура роя клеток | [**ЕДИНЫЙ СВОД**](https://github.com/rtynbirf/edinyy-svod) — каталог всех миров вселенной |
-
-[![Public repos](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Frtynbirf&query=%24.public_repos&label=public%20repos&color=241D12&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf?tab=repositories)
-[![Commits](https://img.shields.io/badge/commits-7200%2B%20since%202022-2E2540?style=flat-square)](https://github.com/rtynbirf)
-[![Showcase](https://img.shields.io/badge/showcase-rtynbirf.github.io-D9A441?style=flat-square)](https://rtynbirf.github.io)
-[![Followers](https://img.shields.io/github/followers/rtynbirf?style=flat-square&color=2E2540&label=followers)](https://github.com/rtynbirf)
-[![Audit](https://img.shields.io/badge/audited-2026--11--25-2E2540?style=flat-square)](https://github.com/rtynbirf)
-[![Views](https://komarev.com/ghpvc/?username=rtynbirf&style=flat-square&color=2E2540&label=views)](https://github.com/rtynbirf)
-
-<!-- HIVE:BEGIN живой эксперимент · polymat-hive -->
-## 🧫 ЖИВОЙ ЭКСПЕРИМЕНТ
-
-**[ПОЛИМАТ-УЛЕЙ](https://github.com/rtynbirf/polymat-hive)** — репозиторий-организм: экипаж автономных AI-агентов живёт в GitHub Actions и думает **трёхэтажным мозгом**: Copilot CLI → локальный GGUF-нейромозг (Qwen2.5-0.5B прямо на раннере, без ключей и серверов) → инстинкты. Открой [issue](https://github.com/rtynbirf/polymat-hive/issues/new?template=hive-message.yml) — экипаж ответит: метка, резюме, план.
-
-[![Триаж-агент](https://github.com/rtynbirf/polymat-hive/actions/workflows/triage-agent.yml/badge.svg)](https://github.com/rtynbirf/polymat-hive/actions/workflows/triage-agent.yml) [![Дайджест-агент](https://github.com/rtynbirf/polymat-hive/actions/workflows/digest-agent.yml/badge.svg)](https://github.com/rtynbirf/polymat-hive/actions/workflows/digest-agent.yml) [![Мозг: 3 этажа](https://img.shields.io/badge/мозг-Copilot·GGUF·инстинкты-24292f?logo=github)](https://github.com/rtynbirf/polymat-hive/blob/main/agents/CREW.md)
-
-<!-- HIVE:END -->
-
-<!-- HEALTH:BEGIN автогенерация · swarm_health.json · scripts/health_badges.py -->
-[![РАНЫ](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Frtynbirf%2Frtynbirf%2Fmain%2Fswarm_health.json&query=%24.wounds.count&label=%D0%A0%D0%90%D0%9D%D0%AB&color=red&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf/rtynbirf/blob/main/swarm_health.json) [![PR](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Frtynbirf%2Frtynbirf%2Fmain%2Fswarm_health.json&query=%24.open_prs.count&label=PR&color=orange&style=flat-square&cacheSeconds=3600)](https://github.com/pulls?q=is%3Apr+is%3Aopen+user%3Artynbirf) [![ТЯЖЕЛОВЕСЫ](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Frtynbirf%2Frtynbirf%2Fmain%2Fswarm_health.json&query=%24.heavyweights.count&label=%D0%A2%D0%AF%D0%96%D0%95%D0%9B%D0%9E%D0%92%D0%95%D0%A1%D0%AB&color=orange&suffix=%D1%80%D0%B5%D0%BF%D0%BE&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf/rtynbirf/blob/main/swarm_health.json) [![ОПИСЬ](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Frtynbirf%2Frtynbirf%2Fmain%2Fswarm_health.json&query=%24.generated_date&label=%D0%9E%D0%9F%D0%98%D0%A1%D0%AC&color=2E2540&style=flat-square&cacheSeconds=3600)](https://github.com/rtynbirf/rtynbirf/blob/main/swarm_health.json)
-<!-- HEALTH:END -->
-
----
-
-## ЖИВАЯ КУЗНЯ · BENTO
-
-<table>
-<tr>
-<td width="50%"><img src="assets/forge-cell-medallion.svg" width="100%" alt="Аватар кузни: феникс в круге, вписан без обреза"/></td>
-<td width="50%"><img src="assets/forge-cell-crucible.svg" width="100%" alt="Пульс кузни: жив"/></td>
-</tr>
-<tr>
-<td width="50%"><img src="assets/forge-cell-ledger.svg" width="100%" alt="Опись цифр кузни"/></td>
-<td width="50%"><img src="assets/forge-cell-seal.svg" width="100%" alt="Печать роя"/></td>
-</tr>
-</table>
-
-> Ни одного стороннего виджета: эмблема, лента девизов и капсулы выкованы вручную.
-> Каждый блок — один self-contained SVG, анимация встроена в файл и работает прямо в `<img>`.
-
-<div align="center">
-  <img src="assets/forge-emberline.svg" width="100%" alt="Дымная линия кузни: живой feTurbulence-дым золота и амбера, бегущая искра" />
-</div>
-
-## FLAGSHIPS
-
-<table>
-<tr>
-<td colspan="2">
-  <a href="https://github.com/rtynbirf/polymath-multiagent"><img src="assets/banners/banner-polymath-multiagent.png" width="100%" alt="polymath-multiagent — четыре потока расплавленного золота сливаются в одного феникса"></a>
-
 <!--ФОРЖ:МУЗА:НАЧАЛО-->
 <div align="center">
   <img src="repo-muse.svg" width="100%" alt="Муза rtynbirf: мастерская ФРИДРИХ · ПУТНИК, кузня ПОЛИМАТ, раунд 12 · REVE=РЕВО" />
@@ -188,6 +124,8 @@
   <img src="forge-divider.svg" width="62%" alt="делитель мастерской ФРИДРИХ · ПУТНИК" />
 </div>
 <!--ФОРЖ:МУЗА:КОНЕЦ-->
+
+
 
 <!--ФОРЖ:ПАСПОРТ:НАЧАЛО-->
 <div align="center">
@@ -199,211 +137,6 @@
 | 159 | 13 | 652 | 2026-11-25 | 0 |
 <!--ФОРЖ:ПАСПОРТ:КОНЕЦ-->
 
-
-  <sub><b>polymath-multiagent</b> — parallel agent orchestration, «одно другое не исключает» · <code>MCP-server</code> <code>SSE-dashboard</code> <code>stdlib-only</code> <code>19 tests green</code></sub>
-</td>
-</tr>
-<tr>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/polymath-gen"><img src="assets/banners/banner-polymath-gen.png" width="100%" alt="polymath-gen — картина"></a>
-  <sub><b>polymath-gen</b> — autonomous media agent with self-critique loop · <code>Python</code> <code>GLM-4V</code> <code>ComfyUI</code></sub>
-</td>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/singulyar"><img src="assets/banners/banner-singulyar.png" width="100%" alt="singulyar — картина"></a>
-  <sub><b>singulyar</b> — offline karaoke universe RUVSON · <code>PWA</code> <code>Offline-first</code> <code>64 songs</code></sub>
-</td>
-</tr>
-<tr>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/polymath-tools-atlas"><img src="assets/banners/banner-polymath-tools-atlas.png" width="100%" alt="polymath-tools-atlas — картина"></a>
-  <sub><b>polymath-tools-atlas</b> — 665 AI tools, evidence-ranked · <code>Research</code> <code>Proof-chains</code></sub>
-</td>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/cell-swarm"><img src="assets/banners/banner-cell-swarm.png" width="100%" alt="cell-swarm — картина"></a>
-  <sub><b>cell-swarm</b> — emergent repo organism · <code>Swarm</code> <code>stdlib-only</code></sub>
-</td>
-</tr>
-<tr>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/voice-atlas-llm"><img src="assets/banners/banner-voice-atlas-llm.png" width="100%" alt="voice-atlas-llm — картина"></a>
-  <sub><b>voice-atlas-llm</b> — voice cloning expert LLM · <code>TTS/VC/SVC/SVS</code> <code>LoRA</code></sub>
-</td>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/neutral-browser"><img src="assets/banners/banner-neutral-browser.png" width="100%" alt="neutral-browser — картина"></a>
-  <sub><b>neutral-browser</b> — browser engine from scratch in Rust · <code>Rust</code> <code>0 deps</code></sub>
-</td>
-</tr>
-</table>
-
-## РОЙ В СТРОЮ · живая шахматка
-
-<div align="center">
-  <img src="assets/forge-city.svg" width="100%" alt="Живой строй: шахматка 64 публичных флотов, 1714 MiB кода, тяжеловес в янтарной раме, бегущая искра обходит строй" />
-</div>
-
-> 81 публичных флота из живого среза GitHub API · 2026-11-24 · свод открыт настежь — приватных 0 · счёт и дата — живой такт 2026-11-24, шахматка рядов — срез ковки · каждый блок — репозиторий с языком и весом · сумма, печать и кузня — в золотых ячейках.
-
-## КАРТА СВЯЗЕЙ РОЯ · импульсы
-
-<div align="center">
-  <img src="assets/forge-swarm.svg" width="100%" alt="Карта связей роя: семь флагманов-узлов с реальным весом, импульсы бегут по рёбрам к ядру ПОЛИМАТ" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-spawn.svg" width="100%" alt="Дерево процессов дома: PID1 порождает шесть кластеров вселенной, импульсы бегут по ветвям" />
-</div>
-
-## ШТАНДАРТЫ ФЛОТОВ · ORNAMENTAL MYTHO-REALISM
-
-> Каждая репа несёт написанную картину-штандарт в каноне ORNAMENTAL MYTHO-REALISM: решётка Сецессиона, гравюрный штрих, плоскость укиё-э, символистский миф · ЧЕЛОВЕК=МИФ, МИФ=ЧЕЛОВЕК.
-> Серия выросла до **66 полотен** (2026-11-10 → 2026-11-16); с 16 ноября на каждой из **68 страниц** стоит
-> **РЕВО-ПАСПОРТ** — изображение, выкованное из фактического контента страницы (файлы, папки, коммиты,
-> лексикон README, топики) — и перекуется сам: **автопилот РЕВО v2** · REVE=РЕВО.
-
-<table>
-<tr>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/polymath-os"><img src="assets/banners/banner-polymath-os.png" width="100%" alt="OS — штандарт"></a>
-  <sub><b>OS</b> · sovereign machines — <a href="https://github.com/rtynbirf/polymath-os">polymath-os</a></sub>
-</td>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/release-vault"><img src="assets/banners/banner-release-vault.png" width="100%" alt="VAULT — штандарт"></a>
-  <sub><b>VAULT</b> · encrypted off-site archive — <a href="https://github.com/rtynbirf/release-vault">release-vault</a></sub>
-</td>
-</tr>
-<tr>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/revo"><img src="assets/banners/banner-revo.png" width="100%" alt="МЕТОД — штандарт"></a>
-  <sub><b>МЕТОД</b> · runnable-прототип метода — <a href="https://github.com/rtynbirf/revo">revo</a></sub>
-</td>
-<td width="50%">
-  <a href="https://github.com/rtynbirf/rtynbirf.github.io"><img src="assets/banners/banner-vitrrina.png" width="100%" alt="ВИТРИНА — штандарт"></a>
-  <sub><b>ВИТРИНА</b> · universal player — <a href="https://rtynbirf.github.io">rtynbirf.github.io</a></sub>
-</td>
-</tr>
-</table>
-
-<sub>Полная галерея серии: <a href="https://github.com/rtynbirf/polimat-hub/blob/main/reports/banners-gallery-2026-11-10.png">Галерея первых 42 полотен — сводный лист</a> · актуальная картина аккаунта — <a href="https://github.com/rtynbirf/rtynbirf/blob/main/revo-account.svg">паспорт выше</a></sub>
-
----
-
-## DOCTRINE
-
-> **Autonomy** — сущность работает без облака, сети и надзора.
-> **Evidence** — каждое утверждение проверяется строкой, не смыслом.
-> **Memory** — каждый прогон остаётся артефактом: `state.json`, `PULSE.md`.
-> **Honesty** — недоделанное помечается недоделанным; фоллбек вместо вранья.
-
-## СТЕК ВСЕЛЕННОЙ · чем построено
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=py,js,html,css,rust,c,bash,md&theme=dark" alt="стек вселенной" />
-  <br>
-  <img src="https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white" alt="PowerShell" />
-  <img src="https://img.shields.io/badge/Lean-241D12?style=flat-square&logoColor=D9A441" alt="Lean" />
-  <img src="https://img.shields.io/badge/WebAudio-241D12?style=flat-square&logoColor=D9A441" alt="WebAudio" />
-  <img src="https://img.shields.io/badge/Service%20Worker-241D12?style=flat-square&logoColor=D9A441" alt="Service Worker" />
-  <img src="https://img.shields.io/badge/OPFS-241D12?style=flat-square&logoColor=D9A441" alt="OPFS" />
-</p>
-
-## КАРТА ВСЕЛЕННОЙ
-
-<div align="center">
-  <img src="assets/swarm-orbit.svg" width="100%" alt="6 кластеров вокруг СИНГУЛЯРА: РОЙ · ПОЛИМАТ · РУВСОН · АТЛАСЫ · ОС · ВЕБ">
-</div>
-
-## THE UNIVERSE · 6 кластеров · живой счёт в SWARM-SYNC ниже
-
-| Cluster | Repositories |
-|---|---|
-| **SINGULAR** · offline karaoke | [`singulyar`](https://github.com/rtynbirf/singulyar) · [`ruvson-rse2`](https://github.com/rtynbirf/ruvson-rse2) · [`singulyar-llm`](https://github.com/rtynbirf/singulyar-llm) · [`karaoke-dream`](https://github.com/rtynbirf/karaoke-dream) · [`rumu`](https://github.com/rtynbirf/rumu) |
-| **SWARM** · emergent organism | [`cell-swarm`](https://github.com/rtynbirf/cell-swarm) · [`cell-rs`](https://github.com/rtynbirf/cell-rs) · [`runtime-protocol`](https://github.com/rtynbirf/runtime-protocol) · [`commons`](https://github.com/rtynbirf/commons) |
-| **ATLASES** · evidence-based | [`polymath-tools-atlas`](https://github.com/rtynbirf/polymath-tools-atlas) · [`voice-atlas-llm`](https://github.com/rtynbirf/voice-atlas-llm) · [`global-video-platforms-registry`](https://github.com/rtynbirf/global-video-platforms-registry) · [`polymath-atlas-v107`](https://github.com/rtynbirf/polymath-atlas-v107) |
-| **OS** · sovereign machines | [`polymath-os`](https://github.com/rtynbirf/polymath-os) · [`os-forge`](https://github.com/rtynbirf/os-forge) · [`domovoy-tweaker`](https://github.com/rtynbirf/domovoy-tweaker) · [`neutral-browser`](https://github.com/rtynbirf/neutral-browser) · [`cell65-host`](https://github.com/rtynbirf/cell65-host) |
-| **AGENTS** · autonomous minds | [`polymath-gen`](https://github.com/rtynbirf/polymath-gen) · [`universal-agent`](https://github.com/rtynbirf/universal-agent) · [`agryp`](https://github.com/rtynbirf/agryp) |
-| **VAULT** · infra & archive | [`release-vault`](https://github.com/rtynbirf/release-vault) · [`markitdown`](https://github.com/rtynbirf/markitdown) |
-
-## STATS
-
-> Живая сверка чисел — в **SWARM-SYNC** ниже: суточная автогенерация по GitHub API, ни одного ручного числа. Языки, коммиты, топ-репо — там же.
-
-<div align="center">
-  <img src="assets/forge-cell-flame.svg" width="49%" alt="Серия кузни: огонь не гаснет, суточный прогон" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-cell-roy.svg" width="49%" alt="Здоровье роя: 64 флота · 16 ран по канону описи (15 — архив-осадок, 1 активная: polymath-core) · 44 PR · 1 тяжеловес" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-cell-boot.svg" width="49%" alt="BOOT LOG: dmesg кузни, инициализация ЧЕЛОВЕК=АККАУНТ=PID1" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-qr.svg" width="49%" alt="QR-КАПСУЛА ДОМА: код выкован собственным энкодером, модули-ромбы, ведёт на витрину" />
-</div>
-
-<div align="center">
-  <img src="assets/forge-cell-langs.svg" width="100%" alt="Языки кузни по сумме байтов, 64 репо, GitHub API" />
-</div>
-
-## ХРОНИКА КУЗНИ · ГОД ПЛАВКИ
-
-<div align="center">
-  <img src="assets/forge-grid.svg" width="100%" alt="Хроника кузни: годовая шахматка из живого GitHub GraphQL — 3746 дел за год, пик 581 в день, сканирующий луч и золотые вспышки" />
-</div>
-
-> Последний сторонний виджет-график (vercel-генератор) заменён ручной ковкой: 53 недели из живого GraphQL, сканирующий луч, вспышки на горячих днях. Ни одного сервиса-генератора.
-
-<div align="center">
-  <img src="assets/trophy-shelf.svg" width="100%" alt="Полка вечных медалей: Старт 2022 · Офлайн-первый · Рой 6 кластеров · Доказательства" />
-</div>
-
-## ТЕРМИНАЛ РОЯ · живая neofetch-карта
-
-<div align="center">
-  <img src="assets/neofetch.svg" width="100%" alt="neofetch-карта: живые цифры вселенной, суточная автогенерация по методике SWARM-SYNC" />
-</div>
-
-> Карта собирается собственным Action суточно по живому GitHub API — методика сверки та же, что у SWARM-SYNC, числа сходятся до единицы. Палитра — обсидиан и расплавленное золото ЖИВОЙ КУЗНИ.
-
-## THE SWARM CRAWLS
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rtynbirf/rtynbirf/output/github-contribution-grid-snake-dark.svg">
-  <img src="assets/github-contribution-grid-snake.svg" alt="contribution snake" width="100%">
-</picture>
-
-## СВЕТ ВСЕЛЕННОЙ · 3D
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rtynbirf/rtynbirf/main/profile-3d-contrib/profile-night-rainbow.svg">
-  <img src="profile-3d-contrib/profile-green-animate.svg" alt="3d contributions" width="100%">
-</picture>
-
----
-
-<div align="center">
-  <img src="assets/footer.svg" width="100%" alt="офлайн живёт здесь">
-</div>
-
-<div align="center">
-<sub><b><a href="https://rtynbirf.github.io">rtynbirf.github.io</a></b> — витрина вселенной · built by the swarm, for the swarm</sub>
-</div>
-
-<!--
-ПОЛИМАТ: два слоя обложек — флагманы и штандарты фотов, серия ORNAMENTAL MYTHO-REALISM
-(66 полотен по канону РЕВО: LAYOUT→RENDER→CRITIC, z-ai + PIL, 2026-11-10 · 2026-11-16: РЕВО-ПАСПОРТы на всех 68 страницах, автопилот v2, REVE=РЕВО).
-Хедер профиля — написанная картина polimat-header.png (лапис · золото · феникс-медальон); серия переведена на канон ORNAMENTAL MYTHO-REALISM.
-Обновляется автономно при крупных тактах.-->
-
-
-## ⚖ РИТУАЛ ДОМА
-
-Поработал → сделал → убрал за собой. Такт замкнулся — дом в покое: ни одного уведомления,
-ни одного хвоста. Формализовано как конечный автомат и исполняется машиной —
-[**domovoy-ritual**](https://github.com/rtynbirf/domovoy-ritual): устав `RITUAL-FSM.md`
-(7 состояний, guard-ы, 12 дефолтов «всё решаю сам») + `house_fsm.py` (stdlib-only).
 
 
 <!--ФОРЖ:КАНОН-СИНТЕЗ:НАЧАЛО-->
@@ -424,46 +157,8 @@ AGENTS.md» (2026-02-12, по аннотации): раздутые context-фа
 ФИКС · КАНОН-ПАТЧ. Свидетель захода — НИТЬ-АРИАДНЫ.jsonl (append-only хэш-цепочка);
 патчи канона — диф-артефактами (правило 37).
 <!--ФОРЖ:КАНОН-СИНТЕЗ:КОНЕЦ-->
-<!--BEGIN_SWARM_SYNC-->
-## 🛰 SWARM-SYNC · сверка со средой
-> Автогенерация 2026-11-25 13:11 UTC · источник: живой GitHub API (public-флот: /users/rtynbirf/repos; языки — сумма байтов /repos/<repo>/languages, без истории git) · ни одного выдуманного числа · живой счёт роя для био — здесь, не в био
 
-| Метрика | Значение |
-|---|---|
-| Репозиториев | **82** (82 публичных · 0 приватных) |
-| Коммитов всего | **12565** |
-| Последний push | 2026-11-25 |
 
-**Языки по объёму кода:**
-- `HTML` ██████████ 34.8 МБ
-- `Python` ███████ 23.8 МБ
-- `JavaScript` ███████ 22.7 МБ
-- `Lean` ██ 6.9 МБ
-- `PowerShell` █ 2.2 МБ
-
-**Топ-5 репо по коммитам (видимая работа):**
-- **rtynbirf** — 648 коммитов · Python
-- **.github** — 508 коммитов · Python
-- **markitdown** — 503 коммитов · Python
-- **cell-swarm** — 491 коммитов · Python
-- **H-PE11-PHOENIX** — 406 коммитов · PowerShell
-<!--END_SWARM_SYNC-->
-
-<!--ФОРЖ:ПОДВАЛ-->
----
-
-<div align="center">
-  <sub>◆ картина и штандарт — ручная ковка <a href="https://github.com/rtynbirf">КУЗНИ ПОЛИМАТ</a> · ЧЕЛОВЕК=АККАУНТ=PID1 ◆</sub>
-</div>
-
-<!--ФОРЖ:КАРТА-->
-## КАРТА ДОМА
-
-<div align="center">
-  <img src="assets/forge-map.svg" width="100%" alt="Карта дома: 81 комнат — все одеты музой; 80 живых светятся, 1 спит под сводом с золотыми кольцами" />
-</div>
-
-Все 81 комнат дома несут свою написанную картину-музу. Раунд 11: каждая муза переписана заново — 64 полотна в 64 собственных мастерских великих школ (швейцарская точность, Хокусай, Климт, Малевич, Лисицкий, Калдер, Пиранези, Клее, оп-арт и другие законы), двух похожих рядом нет. 22 живая светится, 42 под сводом архива одеты и заперты — красота без нарушения дислокации; на карте спящие звёзды носят золотые кольца. Угольная звезда rumu спит одетой — проснулась по слову Хозяина и легла обратно.
 
 <!--ФОРЖ:АВТОМАТ:НАЧАЛО-->
 <div align="center">
@@ -476,6 +171,8 @@ AGENTS.md» (2026-02-12, по аннотации): раздутые context-фа
 </div>
 <!--ФОРЖ:АВТОМАТ:КОНЕЦ-->
 
+
+
 <!--ФОРЖ:КАРТА:НАЧАЛО-->
 <div align="center">
 
@@ -487,3 +184,54 @@ AGENTS.md» (2026-02-12, по аннотации): раздутые context-фа
 
 </div>
 <!--ФОРЖ:КАРТА:КОНЕЦ-->
+
+
+
+## Принципы
+
+- **Человек задаёт цель; система подстраивается под человека.** Автоматизация не подменяет субъект принятия решений.
+- **Офлайн — полноценный режим.** Сеть не должна становиться необъявленной обязательной зависимостью.
+- **Утверждение не равно доказательству.** Реализация, эксперимент, предложение и неизвестное состояние различаются.
+- **Состояние выводится из свидетельств.** Метрики имеют источник, время измерения и область действия; сила формулировки не превышает силу свидетельства.
+- **Компоненты не объявляют себя целым.** Архитектура показывает границы и связи.
+
+## Проверка и достоверность
+
+Статус функции определяется в её репозитории, для конкретной версии и среды. Полная политика —
+[06_EVIDENCE.md](docs/profile-frontpage/06_EVIDENCE.md): раздельные оси «реализация» (IMPLEMENTED /
+EXPERIMENTAL / PROPOSED / PLANNED) и «проверка» (VERIFIED / NOT_TESTED / UNKNOWN / REFUTED),
+уровни свидетельств E0–E4. В проектах с воспроизводимыми проверками используйте документированные
+команды (например, `make verify` в [Polymath OS](https://github.com/rtynbirf/polymath-os)); результат
+относится только к версии и среде, где команда действительно выполнена. Непроверенные свойства
+не считаются подтверждёнными.
+
+## Карта и текущее состояние
+
+- [Витрина Полимат-Универсума](https://rtynbirf.github.io/)
+- [Живая карта состояния](https://github.com/rtynbirf/rtynbirf/blob/main/live-state.json) ·
+  [машинно-читаемый манифест](https://github.com/rtynbirf/rtynbirf/blob/main/noo-manifest.json) ·
+  [стол флота](https://github.com/rtynbirf/rtynbirf/blob/main/fleet-desk.json)
+- Дом чинит себя сам и ведёт честные шрамы: [KNOWN_ISSUES](KNOWN_ISSUES.md) ·
+  [ledger свидетелей](INV_LEDGER.jsonl) · [ledger стража](СТРАЖ-СПЯЩИХ.jsonl) — динамические показатели поступают из одного
+  генерируемого источника с временной меткой и методикой; при недоступности показывается
+  последнее значение с меткой `STALE` либо `UNKNOWN`, но не ручная подстановка.
+
+## Участие и обратная связь
+
+Правила участия, лицензия, поддержка и безопасность различаются между репозиториями —
+перед предложением изменений ознакомьтесь с документами конкретного проекта.
+
+## Документация профиля
+
+Аудит, техническое задание, политика доказательств и приёмка — в [`docs/profile-frontpage/`](docs/profile-frontpage/00_INDEX.md):
+
+| Док | Содержание |
+|---|---|
+| [01 Аудит](docs/profile-frontpage/01_AUDIT.md) | внешний аудит: сильное, дефекты, сохранить |
+| [03 ТЗ](docs/profile-frontpage/03_SPEC.md) | FR-01…12, нефункциональные требования |
+| [06 Политика свидетельств](docs/profile-frontpage/06_EVIDENCE.md) | claim→evidence→method→scope, E0–E4 |
+| [07 Модель данных](docs/profile-frontpage/07_DATA.md) | одна метрика — один источник, FRESH/STALE |
+| [12 Живой слой](docs/profile-frontpage/12_LIVING-LAYER.md) | якорная система ФОРЖ: как дом доказывает сам себя |
+| [Baseline README](docs/profile-frontpage/BASELINE-README-2026-11-25.md) | прежняя страница целиком (rollback) |
+
+*О проекте: орнаментальный мифо-ритмический язык — часть визуальной идентичности; технические определения, статусы и результаты при этом остаются буквальными и проверяемыми. REVE=РЕВО.*

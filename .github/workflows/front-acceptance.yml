@@ -1,0 +1,29 @@
+name: ПРИЁМКА ФРОНТА · валидатор главной страницы (заход 7)
+
+# W4 дорожной карты (docs/profile-frontpage/04_ROADMAP.md): автоматическая приёмка README.
+# Проверяет: заголовки, локальные ссылки, якорную целостность живого слоя (10 якорей ФОРЖ),
+# alt у каждой <img>. Красное — честное красное (гейт не подмазывается).
+
+on:
+  push:
+    branches: [main]
+    paths: [README.md, docs/profile-frontpage/**, scripts/check_readme.py]
+  workflow_dispatch: {}
+
+permissions: read-all
+
+concurrency:
+  group: front-acceptance
+  cancel-in-progress: true
+
+jobs:
+  accept:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (SHA-канон)
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7 (SHA-канон)
+        with:
+          python-version: "3.12"
+      - name: валидатор фронт-страницы
+        run: python scripts/check_readme.py
