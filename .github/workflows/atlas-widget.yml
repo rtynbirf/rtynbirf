@@ -9,7 +9,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: данные атласа — из global-practice-atlas
         run: curl -fsSL "https://raw.githubusercontent.com/rtynbirf/global-practice-atlas/main/data/passports.json" -o /tmp/passports.json
       - name: КАРТА=ТЕРРИТОРИИ — перерисовка из данных
