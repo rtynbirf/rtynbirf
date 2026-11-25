@@ -140,6 +140,7 @@ def discover_fleet():
     for page in (1, 2, 3, 4):
         batch = api("GET", f"{A}/users/{OWNER}/repos?per_page=100&page={page}&sort=pushed")
         if not isinstance(batch, list) or not batch:
+            print(f"ДИАГНОЗ флота: страница {page} ответила не списком → {str(batch)[:160]} (шрам 45680030815)")
             break
         for r in batch:
             fleet[r["name"]] = {"ветка": r.get("default_branch", "main"),
