@@ -12,6 +12,9 @@ Ornamental Mytho-Realism, для всего флота:
   2) ЖИВАЯ КАРТА РОЯ: live-map.png в профиле переписывается КАЖДЫМ обходом —
      решётка тел: №, имя, звёзды, коммиты, размер, АРХИВ/ЖИВ, штамп времени.
   3) README профиля: блок ЖИВАЯ КАРТА (idempotent по маркеру ФОРЖ:КАРТА).
+  4) П5 «Сердце в состояние дома»: фактум-pulse как внешний свидетель в
+     live-state.json (публичный raw, БЕЗ токена; правило 25 — источник и метка
+     свежести; правило 27 — ЭКГ остаётся в factum, здесь только чтение).
 Actions-безопасен: checkout → self_text, без путей песочницы."""
 import base64, hashlib, importlib.util, json, os, re, subprocess, tempfile, time
 from concurrent.futures import ThreadPoolExecutor
@@ -23,6 +26,8 @@ TOK = os.environ.get("GH_TOKEN", "")
 A = "https://api.github.com"
 OWNER = "rtynbirf"
 PROFILE = f"{OWNER}/{OWNER}"
+# П5: внешний свидетель — сердце factum. Публичный raw, без токена, без ключей.
+FACTUM_PULSE_URL = "https://raw.githubusercontent.com/rtynbirf/factum/main/pulse.json"
 PNG_MAGIC = b"\x89PNG\r\n\x1a\n"
 STATE_FILE = "live-state.json"
 DRY = os.environ.get("LIVE_DRY", "") == "1"
@@ -78,6 +83,56 @@ def self_text(path):
         return base64.b64decode(c["content"]).decode("utf-8", "ignore")
     t = raw_text(OWNER, path, "main")
     return "" if t.lstrip().startswith(("404", "403", "400")) else t
+
+
+def factum_heart(prev):
+    """П5: сердце factum в состоянии дома — внешний свидетель по публичному raw
+    БЕЗ токена. Правило 25: число несёт источник и метку свежести — возраст
+    пересчитывается по часам дома от last_beat_utc, self-статус pulse.json
+    сохраняется рядом (расхождение источников публикуется, не прячется).
+    Правило 27: ЭКГ живёт в самом factum, здесь только чтение-аудит. URL молчит
+    или отвечает мусором → честный SOURCE_UNAVAILABLE, не креш. Анти-шум (урок
+    ночи 2026-11-21): блок перезаписывается только при новом ударе, смене
+    статуса или смене характера недоступности — дрожь возраста и затянувшаяся
+    недоступность не создают коммит."""
+    now = datetime.now(timezone.utc)
+    src = "factum pulse.json (raw.githubusercontent.com/rtynbirf/factum/main/pulse.json)"
+    heart = {"источник": src, "штамп_чтения": now.strftime("%Y-%m-%d %H:%M")}
+    last_known = prev.get("последний_удар_utc") or prev.get("последний_известный_удар_utc") or ""
+    if last_known:
+        heart["последний_известный_удар_utc"] = last_known
+    try:
+        r = subprocess.run(["curl", "-sS", "-L", "--max-time", "45", FACTUM_PULSE_URL],
+                           capture_output=True, timeout=60)
+        pulse = json.loads(r.stdout.decode("utf-8", "ignore"))
+        if not isinstance(pulse, dict) or "status" not in pulse:
+            raise ValueError("ответ не похож на pulse.json")
+    except Exception as e:
+        err = str(e)[:120]
+        if prev.get("статус") == "SOURCE_UNAVAILABLE" and prev.get("ошибка") == err:
+            return prev  # анти-шум: недоступность длится — прежний блок не трогаем
+        heart.update({"статус": "SOURCE_UNAVAILABLE", "возраст_удара_ч": None,
+                      "последний_удар_utc": "", "ошибка": err})
+        return heart
+    thr = float(pulse.get("stale_threshold_hours") or 12)
+    beat = pulse.get("last_beat_utc") or ""
+    try:
+        b0 = datetime.fromisoformat(beat.replace("Z", "+00:00"))
+        age = round((now - b0).total_seconds() / 3600, 1)
+    except Exception:
+        age = None
+    self_status = pulse.get("status") or "UNKNOWN"
+    status = "LIVE" if (age is not None and age <= thr) else "STALE"
+    heart.update({"статус": status, "сам_о_себе": self_status,
+                  "возраст_удара_ч": age, "последний_удар_utc": beat,
+                  "интервал_удара_ч": pulse.get("beat_interval_hours"),
+                  "порог_stale_ч": thr})
+    if status != self_status:
+        heart["расхождение"] = f"pulse.json говорит {self_status}, аудит по часам дома — {status}"
+    # анти-шум: нет нового удара и статус не менялся — прежний блок не трогаем
+    same = (prev and prev.get("статус") == status
+            and prev.get("последний_удар_utc") == beat)
+    return prev if same else heart
 
 
 def discover_fleet():
@@ -670,6 +725,14 @@ if not FORGE_ONLY:
     map_png = png_of(map_svg, 1530)
     assert map_png[:8] == PNG_MAGIC, "карта без PNG-магии"
     print(f"ЖИВАЯ КАРТА: {len(items)} тел · Σ коммитов {map_d['коммиты_Σ']} · {len(map_png)} Б")
+
+# П5: сердце factum в состояние дома — внешний свидетель, без токена, честно
+# (правило 25: источник + метка свежести; правило 27: ЭКГ остаётся в factum).
+heart = factum_heart(new_state.get("factum-сердце") or {})
+new_state["factum-сердце"] = heart
+print(f"СЕРДЦЕ FACTUM: {heart['статус']} · возраст удара {heart['возраст_удара_ч']} ч · "
+      f"удар {heart.get('последний_удар_utc') or heart.get('последний_известный_удар_utc') or '—'} · "
+      f"источник {heart['источник']}")
 if DRY and not FORGE_ONLY:
     open("/tmp/live-map-preview.png", "wb").write(map_png)
     print("дри-ран: карта не запушена; превью /tmp/live-map-preview.png")

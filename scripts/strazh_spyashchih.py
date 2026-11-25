@@ -14,6 +14,11 @@
 3. Один клейм в append-only ledger: СТРАЖ-СПЯЩИХ.jsonl (правило 25: каждая
    запись несёт источник и метку свежести).
 4. Красное — честно красное: exit 2 при найденной болезни/тихой смерти.
+5. П4 «СТРАЖ смотрит сердце»: внешний свидетель — сердце factum (pulse.json,
+   публичный raw, БЕЗ токена). LIVE — ещё один живой сигнал; STALE/недоступен —
+   честная строка в ledger с пометкой factum. Правило 27: ЭКГ остаётся в самом
+   factum — СТРАЖ здесь только аудитор (чтение и клейм, никакого enable/kick
+   чужого сердца, дубликата стража нет).
 """
 import json
 import os
@@ -27,6 +32,9 @@ LEDGER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "СТР�
 HDRS = {"Authorization": f"Bearer {TOK}", "Accept": "application/vnd.github+json",
         "User-Agent": "strazh-spyashchih"}
 OWNER = "rtynbirf"
+
+# П4: внешний свидетель — сердце factum. Публичный raw, без токена, без ключей.
+FACTUM_PULSE_URL = "https://raw.githubusercontent.com/rtynbirf/factum/main/pulse.json"
 
 # критические кроны (правило 26): (repo, workflow_name, порог тишины в секундах)
 CRITICAL = [
@@ -51,6 +59,48 @@ def dispatch_workflow(repo, wf_id):
     """Ручной kick через actions:write."""
     api(f"/repos/{repo}/actions/workflows/{wf_id}/dispatches",
         method="POST", body={"ref": "main"})
+
+
+def factum_svidetel(now):
+    """П4: аудит сердца factum — pulse.json как ещё одного свидетеля дома.
+    Правило 25: число несёт источник и метку свежести — возраст пересчитывается
+    здесь по часам СТРАЖА от last_beat_utc, self-статус pulse.json сохраняется
+    рядом (расхождение источников публикуется, не прячется). Правило 23: STALE /
+    недоступен — это клейм «зелёное сердце не клеймится». URL молчит или отвечает
+    мусором — честный SOURCE_UNAVAILABLE, не креш."""
+    src = "factum pulse.json (raw.githubusercontent.com/rtynbirf/factum/main/pulse.json)"
+    svidetel = {"источник": src,
+                "свежесть": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "роль": "аудитор (правило 27: ЭКГ остаётся в factum, СТРАЖ не дублирует)"}
+    try:
+        req = urllib.request.Request(FACTUM_PULSE_URL, headers={"User-Agent": "strazh-spyashchih"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            pulse = json.loads(r.read().decode("utf-8"))
+    except Exception as e:
+        svidetel.update({"статус": "SOURCE_UNAVAILABLE", "сам_о_себе": "",
+                         "возраст_удара_ч": None, "последний_удар_utc": "",
+                         "ошибка": str(e)[:120]})
+        return svidetel
+    if not isinstance(pulse, dict) or "status" not in pulse:
+        svidetel.update({"статус": "SOURCE_UNAVAILABLE", "сам_о_себе": "",
+                         "возраст_удара_ч": None, "последний_удар_utc": "",
+                         "ошибка": "ответ не похож на pulse.json"})
+        return svidetel
+    thr = float(pulse.get("stale_threshold_hours") or 12)
+    beat = pulse.get("last_beat_utc") or ""
+    try:
+        b0 = datetime.fromisoformat(beat.replace("Z", "+00:00"))
+        age = round((now - b0).total_seconds() / 3600, 1)
+    except Exception:
+        age = None
+    self_status = pulse.get("status") or "UNKNOWN"
+    status = "LIVE" if (age is not None and age <= thr) else "STALE"
+    svidetel.update({"статус": status, "сам_о_себе": self_status,
+                     "возраст_удара_ч": age, "последний_удар_utc": beat,
+                     "порог_stale_ч": thr})
+    if status != self_status:
+        svidetel["расхождение"] = f"pulse.json говорит {self_status}, аудит по часам СТРАЖА — {status}"
+    return svidetel
 
 repo_list = api(f"/users/{OWNER}/repos?per_page=100&type=owner")
 disease, orders, kicks, errors, blind = [], [], [], [], []
@@ -119,6 +169,14 @@ for repo, wname, thr in CRITICAL:
     except Exception as e:
         errors.append({"repo": repo, "wf": wname, "error": str(e)[:80]})
 
+# П4: сердце factum — ещё один живой сигнал (LIVE) или честное клеймо с пометкой
+# factum (STALE/недоступен). СТРАЖ не лечит чужое сердце (правило 27) — только
+# пишет свидетеля в ledger и краснит клейм.
+factum = factum_svidetel(now)
+if factum["статус"] != "LIVE":
+    print(f"СВИДЕТЕЛЬ FACTUM: {factum['статус']} — "
+          f"{factum.get('ошибка') or factum.get('расхождение') or 'сердце молчит сверх порога'}")
+
 record = {
     "ts": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
     "mode": "actions" if os.environ.get("GITHUB_ACTIONS") else "local-run",
@@ -127,6 +185,7 @@ record = {
     "выключено_целиком": blind,
     "приказы_не_тронуты": len(set(orders)),
     "kick_тихой_смерти": kicks,
+    "свидетель_factum": factum,
     "ошибки": errors,
     "источник": "api.github.com, живой опрос",
 }
@@ -134,4 +193,5 @@ os.makedirs(os.path.dirname(os.path.abspath(LEDGER)), exist_ok=True)
 with open(LEDGER, "a", encoding="utf-8") as f:
     f.write(json.dumps(record, ensure_ascii=False) + "\n")
 print(json.dumps(record, ensure_ascii=False, indent=1))
-sys.exit(2 if (disease or kicks or blind) else 0)
+factum_bad = factum["статус"] in ("STALE", "SOURCE_UNAVAILABLE")
+sys.exit(2 if (disease or kicks or blind or factum_bad) else 0)

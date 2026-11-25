@@ -1,0 +1,59 @@
+name: law-pulse (пульс закона)
+
+# Гипотеза «дом-эйгенформа»: форма дома (его закон) есть неподвижная точка
+# собственной динамики. Этот пульс по воскресеньям (и на каждый пуш закона)
+# снимает sha256 ЯДРА ЗАКОНА — блок правил 1–22 из AGENTS.md + §2 файла
+# ТРЕБОВАНИЯ-ДЛЯ-АГЕНТОВ.md — и дописывает соты LAW-PULSE.jsonl (append-only,
+# prev = sha256 предыдущей сырой строки; формат как у factum/PULSE_LOG.md,
+# но семя первой строки — sha256('LAWPULSE')[:12]).
+# Ядро не сдвинулось → FIXED_POINT (шрамы затягиваются, форма вернулась);
+# ядро сдвинулось → ФОРМА_РЕАГИРУЕТ (закон учится).
+# Замер внутри себя проверяет целость цепи и отказывается писать в битую
+# (fail-closed). Имена шагов — без двоеточия с пробелом (шрам 45669803086).
+
+on:
+  schedule:
+    - cron: "33 3 * * 0"          # воскресенье 03:33 UTC
+  workflow_dispatch: {}           # ручной замер (и компенсация тихой смерти крона, правило 26)
+  push:
+    paths:
+      - "AGENTS.md"
+      - "ТРЕБОВАНИЯ-ДЛЯ-АГЕНТОВ.md"
+
+permissions:
+  contents: write                 # допись LAW-PULSE.jsonl и её коммит
+
+concurrency:
+  group: law-pulse
+  cancel-in-progress: false       # соты одни — замеры идут строго по очереди
+
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # правило 10 — fetch-depth 0 всегда (rebase на shallow падает)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: замер ядра закона и допись сот LAW-PULSE.jsonl
+        run: python3 scripts/law_pulse.py --measure
+      - name: коммит сот по правилу 4 — push, при отказе rebase, до 3 попыток
+        run: |
+          git config user.name "lawpulse[bot]"
+          git config user.email "lawpulse[bot]@users.noreply.github.com"
+          git add LAW-PULSE.jsonl
+          if git diff --cached --quiet; then
+            echo "замер не изменил соты — коммита нет"
+          else
+            git commit -m "law-pulse: замер ядра закона $(date -u +%Y-%m-%dT%H:%M:%SZ) · REVE=РЕВО"
+            ok=""
+            for i in 1 2 3; do
+              if git push origin HEAD:main; then ok=1; break; fi
+              git fetch origin main
+              git pull --rebase=merges origin main || git pull --rebase origin main
+            done
+            [ -n "$ok" ] || { echo "push не прошёл за 3 попытки (правило 4)"; exit 1; }
+          fi
