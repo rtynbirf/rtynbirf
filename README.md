@@ -43,6 +43,19 @@ English: *An interconnected lab for autonomous systems, generative media, and of
 политика и её исполнители описаны в [12_LIVING-LAYER.md](docs/profile-frontpage/12_LIVING-LAYER.md).
 
 
+### СЕРДЦЕ ДОМА · ФАКТУМ — автомат, который делает факты
+
+Бьётся каждые 6 часов (ФСМ `IDLE → RECON → IGNITE → MEASURE → RECORD`), измеряет три мира
+(SKI / BCI / CHEM) и кладёт факты в соты append-only с sha256-цепочкой. ЭКГ дважды в час
+меряет пульс, пишет свидетеля при смене статуса и реанимирует крон при тихой смерти (правило 26).
+
+<a href="https://github.com/rtynbirf/factum"><img src="https://raw.githubusercontent.com/rtynbirf/factum/main/pulse.svg" width="100%" alt="ПУЛЬС ФАКТУМА: статус сердца улья — бьётся/ТИХАЯ СМЕРТЬ КРОНА, возраст последнего удара, целость сот"></a>
+
+<p><sub>соты: <a href="https://github.com/rtynbirf/factum/blob/main/JOURNAL.md"><code>JOURNAL.md</code></a> ·
+ЭКГ: <a href="https://github.com/rtynbirf/factum/blob/main/PULSE_LOG.md"><code>PULSE_LOG.md</code></a> ·
+бейдж рендерится из committed <code>pulse.json</code> — бейдж не может соврать ·
+генезис: <a href="https://github.com/rtynbirf/factum/blob/main/GENESIS.md"><code>GENESIS.md</code></a></sub></p>
+
 <!--ФОРЖ:АККАУНТ:НАЧАЛО-->
 <div align="center">
   <img src="revo-account.svg" width="100%" alt="РЕВО-паспорт аккаунта: мастераские, живые/архив, автопилот на каждой странице" />
