@@ -152,6 +152,13 @@ English: *An interconnected lab for autonomous systems, generative media, and of
 
 
 
+## 🛰 SWARM-SYNC · сверка со средой
+
+<!--BEGIN_SWARM_SYNC-->
+> Секция перегенерируется автоматом SWARM-SYNC при каждом прогоне (замена, не append).
+> Живые числа сверки: репозитории, коммиты, языки — из публичного GitHub API, ни одного выдуманного.
+<!--END_SWARM_SYNC-->
+
 <!--ФОРЖ:КАНОН-СИНТЕЗ:НАЧАЛО-->
 ## 🧬 КАНОН × МИР · эмерджентный синтез (22.11.2026)
 
