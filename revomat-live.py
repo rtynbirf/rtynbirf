@@ -12,9 +12,6 @@ Ornamental Mytho-Realism, для всего флота:
   2) ЖИВАЯ КАРТА РОЯ: live-map.png в профиле переписывается КАЖДЫМ обходом —
      решётка тел: №, имя, звёзды, коммиты, размер, АРХИВ/ЖИВ, штамп времени.
   3) README профиля: блок ЖИВАЯ КАРТА (idempotent по маркеру ФОРЖ:КАРТА).
-  4) П5 «Сердце в состояние дома»: фактум-pulse как внешний свидетель в
-     live-state.json (публичный raw, БЕЗ токена; правило 25 — источник и метка
-     свежести; правило 27 — ЭКГ остаётся в factum, здесь только чтение).
 Actions-безопасен: checkout → self_text, без путей песочницы."""
 import base64, hashlib, importlib.util, json, os, re, subprocess, tempfile, time
 from concurrent.futures import ThreadPoolExecutor
@@ -26,8 +23,6 @@ TOK = os.environ.get("GH_TOKEN", "")
 A = "https://api.github.com"
 OWNER = "rtynbirf"
 PROFILE = f"{OWNER}/{OWNER}"
-# П5: внешний свидетель — сердце factum. Публичный raw, без токена, без ключей.
-FACTUM_PULSE_URL = "https://raw.githubusercontent.com/rtynbirf/factum/main/pulse.json"
 PNG_MAGIC = b"\x89PNG\r\n\x1a\n"
 STATE_FILE = "live-state.json"
 DRY = os.environ.get("LIVE_DRY", "") == "1"
@@ -85,62 +80,11 @@ def self_text(path):
     return "" if t.lstrip().startswith(("404", "403", "400")) else t
 
 
-def factum_heart(prev):
-    """П5: сердце factum в состоянии дома — внешний свидетель по публичному raw
-    БЕЗ токена. Правило 25: число несёт источник и метку свежести — возраст
-    пересчитывается по часам дома от last_beat_utc, self-статус pulse.json
-    сохраняется рядом (расхождение источников публикуется, не прячется).
-    Правило 27: ЭКГ живёт в самом factum, здесь только чтение-аудит. URL молчит
-    или отвечает мусором → честный SOURCE_UNAVAILABLE, не креш. Анти-шум (урок
-    ночи 2026-11-21): блок перезаписывается только при новом ударе, смене
-    статуса или смене характера недоступности — дрожь возраста и затянувшаяся
-    недоступность не создают коммит."""
-    now = datetime.now(timezone.utc)
-    src = "factum pulse.json (raw.githubusercontent.com/rtynbirf/factum/main/pulse.json)"
-    heart = {"источник": src, "штамп_чтения": now.strftime("%Y-%m-%d %H:%M")}
-    last_known = prev.get("последний_удар_utc") or prev.get("последний_известный_удар_utc") or ""
-    if last_known:
-        heart["последний_известный_удар_utc"] = last_known
-    try:
-        r = subprocess.run(["curl", "-sS", "-L", "--max-time", "45", FACTUM_PULSE_URL],
-                           capture_output=True, timeout=60)
-        pulse = json.loads(r.stdout.decode("utf-8", "ignore"))
-        if not isinstance(pulse, dict) or "status" not in pulse:
-            raise ValueError("ответ не похож на pulse.json")
-    except Exception as e:
-        err = str(e)[:120]
-        if prev.get("статус") == "SOURCE_UNAVAILABLE" and prev.get("ошибка") == err:
-            return prev  # анти-шум: недоступность длится — прежний блок не трогаем
-        heart.update({"статус": "SOURCE_UNAVAILABLE", "возраст_удара_ч": None,
-                      "последний_удар_utc": "", "ошибка": err})
-        return heart
-    thr = float(pulse.get("stale_threshold_hours") or 12)
-    beat = pulse.get("last_beat_utc") or ""
-    try:
-        b0 = datetime.fromisoformat(beat.replace("Z", "+00:00"))
-        age = round((now - b0).total_seconds() / 3600, 1)
-    except Exception:
-        age = None
-    self_status = pulse.get("status") or "UNKNOWN"
-    status = "LIVE" if (age is not None and age <= thr) else "STALE"
-    heart.update({"статус": status, "сам_о_себе": self_status,
-                  "возраст_удара_ч": age, "последний_удар_utc": beat,
-                  "интервал_удара_ч": pulse.get("beat_interval_hours"),
-                  "порог_stale_ч": thr})
-    if status != self_status:
-        heart["расхождение"] = f"pulse.json говорит {self_status}, аудит по часам дома — {status}"
-    # анти-шум: нет нового удара и статус не менялся — прежний блок не трогаем
-    same = (prev and prev.get("статус") == status
-            and prev.get("последний_удар_utc") == beat)
-    return prev if same else heart
-
-
 def discover_fleet():
     fleet = {}
     for page in (1, 2, 3, 4):
         batch = api("GET", f"{A}/users/{OWNER}/repos?per_page=100&page={page}&sort=pushed")
         if not isinstance(batch, list) or not batch:
-            print(f"ДИАГНОЗ флота: страница {page} ответила не списком → {str(batch)[:160]} (шрам 45680030815)")
             break
         for r in batch:
             fleet[r["name"]] = {"ветка": r.get("default_branch", "main"),
@@ -597,9 +541,16 @@ def forge_live(fleet, items, md, map_d):
     )
     alive = N - sum(1 for i in items if i["архив"])
     asleep = N - alive
+    # Их генератор использует BEGIN_SWARM_SYNC / END_SWARM_SYNC — пишем внутрь их маркеров;
+    # свои старые маркеры — фоллбэк. Ни один формат не ломается, числа всегда наши (свежее).
+    m_b = re.search(r"<!--\s*BEGIN_SWARM_SYNC\s*-->", md)
+    m_e = re.search(r"<!--\s*END_SWARM_SYNC\s*-->", md)
     im_start = md.find("## 🛰 SWARM-SYNC")
     im_end = md.find("<!-- SWARM:END -->")
-    if im_start != -1 and im_end != -1 and im_end > im_start:
+    if m_b and m_e and m_e.end() > m_b.start():
+        md = md[:m_b.start()] + "<!--BEGIN_SWARM_SYNC-->\n" + sync_block + md[m_e.start():]
+        logs.append(f"README: SWARM-SYNC переписан в их маркерах ({N} тел, Σ {sum_com})")
+    elif im_start != -1 and im_end != -1 and im_end > im_start:
         cstart = md.rfind("<!--", 0, im_start)
         if cstart != -1:
             md = md[:cstart] + "<!-- SWARM:BEGIN · живая автогенерация живого модуля -->\n" + sync_block + md[im_end:]
@@ -644,9 +595,6 @@ def fleet_lookup(nm):
 
 t0 = time.time()
 fleet = discover_fleet()
-if not fleet:
-    print("ДЕГРАДАЦИЯ: API вернул пустой флот — пустоту не публикуем (правило 25), честный выход (шрам 45680030815)")
-    raise SystemExit(3)
 fleet_holder = fleet  # для fleet_lookup (кузня-живая)
 eng_src = self_text("revo-engine-template.py")
 assert "@@CFG@@" in eng_src, "нет слота @@CFG@@ в шаблоне"
@@ -658,18 +606,35 @@ except Exception:
 mod = engine_module(eng_src)
 print(f"== ЖИВОЙ МОДУЛЬ: флот {len(fleet)} · в desk {len(desk.get('тела', {}))} · в state {len(state)} ==")
 
+def readme_min_push(name, br):
+    """Тело без README-паспорта: баннер-лицо не видно на главной. Даём минимум —
+    только если README (в любом регистре) действительно нет."""
+    tree = api("GET", f"{A}/repos/{OWNER}/{name}/contents?ref={br}")
+    if not isinstance(tree, list):
+        return "корень не читался"
+    if any(e["name"].lower() == "readme.md" for e in tree):
+        return "README есть"
+    rmd = (f'<div align="center">\n\n<a href="https://github.com/rtynbirf/{name}">'
+           f'<img src="banner.png" width="100%" alt="{name} — живое лицо, данные GitHub API, '
+           f'канон ORNAMENTAL MYTHO-REALISM"></a>\n\n</div>\n\n# {name}\n\n'
+           f'**ЖИВОЕ ЛИЦО** — banner.png перекрашивается живым модулем автомата по данным '
+           f'GitHub API · {CANON} · REVE=РЕВО\n')
+    return push_tree(name, br, [{"path": "README.md", "mode": "100644", "type": "blob", "content": rmd}],
+                     f"ЖИВОЕ ЛИЦО: README-минимум телу без паспорта · {EDITION} · {CANON} · REVE=РЕВО")
+
+
 def job(item):
     name, info = item
     br = info["ветка"]
     st = state.get(name) or {}
     # КОНТУР ПРИНУЖДЕНИЯ: запечатанный sha лица vs реальный sha в репо.
-    # Лицо без записанного sha, перекрытое извне или отставшее по изданию — перекрашивается.
+    # Баннер ОТКРЫТ ИЗВНЕ, отстал по изданию или ВООБЩЕ ОТСУТСТВУЕТ (404 — дыра
+    # «не тронуто» у тел без файла) — перекрашивается.
     cur_sha = banner_sha_of(name, br)
-    need_by_sha = bool(cur_sha) and st.get("лицо_sha") != cur_sha
-    # ДЕЛЬТА (заход 5): отпечаток = только то, что лицо реально рисует (desc, topics).
-    # push/size/звёзды/форки на лице не нарисованы — их дрожь красила 79 лиц за
-    # одну волну пушей (ночь 2026-11-21: «0→79 перекрашено» туда-сюда).
-    live_fp = {"desc": info["desc"], "topics": ",".join(info["topics"][:4])}
+    need_by_sha = (not cur_sha) or (st.get("лицо_sha") != cur_sha)
+    live_fp = {"коммиты": None, "звёзды": info["звёзды"], "форки": info["форки"],
+               "size": info["size"], "pushed": info["pushed"], "desc": info["desc"],
+               "topics": ",".join(info["topics"][:4])}
     fp_equal = st.get("fp") == json.dumps(live_fp, sort_keys=True)
     if (not need_by_sha) and fp_equal and st.get("канон") == CANON and st.get("издание") == EDITION \
             and st.get("лицо_sha"):
@@ -680,6 +645,10 @@ def job(item):
                "palette": SCHEMES[0]}
     cfg.setdefault("palette", SCHEMES[(cfg.get("num") or 1) % len(SCHEMES)])
     d, res, bsha = repaint(name, info, cfg, mod)
+    if bsha is not None and res.startswith("записано"):
+        rres = readme_min_push(name, br)
+        if rres not in ("записано ✓", "README есть", "без изменений"):
+            print(f"  README-минимум {name}: {rres}")
     return name, (json.dumps(live_fp, sort_keys=True), d, res, bsha), d, res
 
 if FORGE_ONLY:
@@ -688,7 +657,7 @@ else:
     with ThreadPoolExecutor(6) as ex:
         out = list(ex.map(job, sorted(fleet.items())))
 repainted, skipped, failed = [], [], []
-new_state = dict(state)
+new_state = {k: v for k, v in state.items() if k in fleet}  # мёртвые ключи (переименования) — прочь
 for name, fpd, d, res in out:
     if fpd is None:
         skipped.append(name)
@@ -729,14 +698,6 @@ if not FORGE_ONLY:
     map_png = png_of(map_svg, 1530)
     assert map_png[:8] == PNG_MAGIC, "карта без PNG-магии"
     print(f"ЖИВАЯ КАРТА: {len(items)} тел · Σ коммитов {map_d['коммиты_Σ']} · {len(map_png)} Б")
-
-# П5: сердце factum в состояние дома — внешний свидетель, без токена, честно
-# (правило 25: источник + метка свежести; правило 27: ЭКГ остаётся в factum).
-heart = factum_heart(new_state.get("factum-сердце") or {})
-new_state["factum-сердце"] = heart
-print(f"СЕРДЦЕ FACTUM: {heart['статус']} · возраст удара {heart['возраст_удара_ч']} ч · "
-      f"удар {heart.get('последний_удар_utc') or heart.get('последний_известный_удар_utc') or '—'} · "
-      f"источник {heart['источник']}")
 if DRY and not FORGE_ONLY:
     open("/tmp/live-map-preview.png", "wb").write(map_png)
     print("дри-ран: карта не запушена; превью /tmp/live-map-preview.png")
@@ -744,16 +705,11 @@ if DRY and not FORGE_ONLY:
 
 # README профиля: блок ЖИВОЙ КАРТЫ (idempotent)
 rd = api("GET", f"{A}/repos/{PROFILE}/readme")
-readme_ok = bool(rd.get("content"))
-if readme_ok:
-    md = base64.b64decode(rd["content"]).decode("utf-8", "ignore")
-    # КУЗНЯ-ЖИВАЯ: все витринные числа профиля = реальность
-    forge_files, md, forge_logs = forge_live(fleet, items, md, map_d)
-    for lg in forge_logs:
-        print("  КУЗНЯ-ЖИВАЯ:", lg)
-else:
-    print(f"README профиля недоступен ({str(rd.get('message', rd.get('_raw', 'пустой ответ'))[:80])}) — ЖИВАЯ КАРТА/КУЗНЯ не тронуты, состояние пишем без README (шрам 45680030815)")
-    forge_files, md, forge_logs = [], "", []
+md = base64.b64decode(rd["content"]).decode("utf-8", "ignore")
+# КУЗНЯ-ЖИВАЯ: все витринные числа профиля = реальность
+forge_files, md, forge_logs = forge_live(fleet, items, md, map_d)
+for lg in forge_logs:
+    print("  КУЗНЯ-ЖИВАЯ:", lg)
 map_block = (
     "<!--ФОРЖ:КАРТА:НАЧАЛО-->\n"
     "<div align=\"center\">\n\n"
@@ -764,7 +720,7 @@ map_block = (
     "</div>\n"
     "<!--ФОРЖ:КАРТА:КОНЕЦ-->"
 )
-if md and "<!--ФОРЖ:КАРТА:НАЧАЛО-->" in md:
+if "<!--ФОРЖ:КАРТА:НАЧАЛО-->" in md:
     md = re.sub(r"<!--ФОРЖ:КАРТА:НАЧАЛО-->.*?<!--ФОРЖ:КАРТА:КОНЕЦ-->", map_block.replace("\\", "\\\\"), md, flags=re.S)
     md_res = "блок заменён"
 else:
@@ -780,10 +736,9 @@ if bl and "sha" in bl:
 items_push += [
     {"path": STATE_FILE, "mode": "100644", "type": "blob",
      "content": json.dumps(new_state, ensure_ascii=False, indent=1)},
+    {"path": "README.md", "mode": "100644", "type": "blob", "content": md},
     {"path": "revomat-live.py", "mode": "100644", "type": "blob", "content": own},
 ]
-if md:
-    items_push.insert(1, {"path": "README.md", "mode": "100644", "type": "blob", "content": md})
 items_push += forge_files
 res = push_tree(OWNER, "main", items_push,
                 f"ЖИВОЙ МОДУЛЬ: лица ({len(repainted)} перекрашено, {len(skipped)} не ушли), "
