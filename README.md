@@ -154,12 +154,12 @@ English: *An interconnected lab for autonomous systems, generative media, and of
 
 <!--BEGIN_SWARM_SYNC-->
 ## 🛰 SWARM-SYNC · сверка со средой
-> Автогенерация 2026-11-27 19:47 UTC · источник: живой GitHub API · ни одного выдуманного числа
+> Автогенерация 2026-11-27 19:56 UTC · источник: живой GitHub API · ни одного выдуманного числа
 
 | Метрика | Значение |
 |---|---|
 | Репозиториев | **85** (85 публичных · 0 приватных) |
-| Коммитов всего | **13030** |
+| Коммитов всего | **13130** |
 | Последний push | 2026-11-27 |
 
 **Языки по объёму кода:**
@@ -170,10 +170,10 @@ English: *An interconnected lab for autonomous systems, generative media, and of
 - `Lean` █ 15.8 МБ
 
 **Топ-5 репо по коммитам (видимая работа):**
-- **rtynbirf** — 707 коммитов · Python
+- **rtynbirf** — 713 коммитов · Python
 - **.github** — 523 коммитов · Python
 - **cell-swarm** — 513 коммитов · Python
-- **markitdown** — 504 коммитов · Python
+- **markitdown** — 506 коммитов · Python
 - **H-PE11-PHOENIX** — 413 коммитов · PowerShell
 <!--END_SWARM_SYNC-->
 
