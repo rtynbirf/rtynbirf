@@ -12,6 +12,10 @@ Ornamental Mytho-Realism, для всего флота:
   2) ЖИВАЯ КАРТА РОЯ: live-map.png в профиле переписывается КАЖДЫМ обходом —
      решётка тел: №, имя, звёзды, коммиты, размер, АРХИВ/ЖИВ, штамп времени.
   3) README профиля: блок ЖИВАЯ КАРТА (idempotent по маркеру ФОРЖ:КАРТА).
+  4) СОЦ-ПРЕВЬЮ (правило 51, слово Хозяина 27.11.2026): каждый обход проверяет наличие
+     у каждого тела .github/social-preview.png (1280×640, ≤1 МБ: тематический AI-арт
+     канона БЕЗ текста + оверлей школа/RTYNBIRF/имя/слоган/url/рамка). Нет файла —
+     дефект «нет соц-превью» в логе. Обязательное оформление страниц.
 Actions-безопасен: checkout → self_text, без путей песочницы."""
 import base64, hashlib, importlib.util, json, os, re, subprocess, tempfile, time
 from concurrent.futures import ThreadPoolExecutor
@@ -309,6 +313,12 @@ def push_png_blob(name, br, path, png_bytes, message):
 
 def banner_sha_of(name, br):
     f = api("GET", f"{A}/repos/{OWNER}/{name}/contents/banner.png?ref={br}")
+    return f.get("sha") or ""
+
+
+def preview_sha_of(name, br):
+    """ПРАВИЛО 51: соц-превью — лицо страницы; пустой sha = файл отсутствует."""
+    f = api("GET", f"{A}/repos/{OWNER}/{name}/contents/.github/social-preview.png?ref={br}")
     return f.get("sha") or ""
 
 
@@ -632,6 +642,8 @@ def job(item):
     # «не тронуто» у тел без файла) — перекрашивается.
     cur_sha = banner_sha_of(name, br)
     need_by_sha = (not cur_sha) or (st.get("лицо_sha") != cur_sha)
+    if not preview_sha_of(name, br):
+        print(f"  ДЕФЕКТ 51: {name} без соц-превью (.github/social-preview.png) — кузнечный такт")
     live_fp = {"коммиты": None, "звёзды": info["звёзды"], "форки": info["форки"],
                "size": info["size"], "pushed": info["pushed"], "desc": info["desc"],
                "topics": ",".join(info["topics"][:4])}
