@@ -14,13 +14,25 @@
 
 <!--ФОРЖ:ПАСПОРТ:НАЧАЛО-->
 <div align="center">
-  <img src="revo-page.svg" width="100%" alt="РЕВО-паспорт страницы rtynbirf в каноне ORNAMENTAL MYTHO-REALISM: орнаментальная решётка, медальон-миф, строение файлов, лексикон — по фактическому контенту" />
+  <img src="revo-page.svg" width="100%" alt="РЕВО-паспорт страницы rtynbirf №11 в каноне ORNAMENTAL MYTHO-REALISM: орнаментальная решётка, медальон-миф, строение файлов, лексикон — по фактическому контенту" />
 </div>
 
 | ФАЙЛОВ | ПАПОК | КОММИТОВ | ОБНОВЛЕНО | РЕЛИЗОВ |
 |---:|---:|---:|---|---:|
-| 178 | 14 | 739 | 2026-11-28 | 0 |
+| 178 | 15 | 1 | 2026-11-28 | 1 |
 <!--ФОРЖ:ПАСПОРТ:КОНЕЦ-->
+
+# rtynbirf
+
+<div align="center">
+
+<a href="https://github.com/rtynbirf/rtynbirf"><img src="banner.png" width="100%" alt="rtynbirf — штандарт мастерской в каноне ORNAMENTAL MYTHO-REALISM"></a>
+
+</div>
+
+
+
+
 
 <div align="center">
   <img src="polimat-header.png" width="100%" alt="ПОЛИМАТ-УНИВЕРУМ — написанный хедер: обсидиан · золото · феникс-медальон">
