@@ -154,27 +154,27 @@ English: *An interconnected lab for autonomous systems, generative media, and of
 
 <!--BEGIN_SWARM_SYNC-->
 ## 🛰 SWARM-SYNC · сверка со средой
-> Автогенерация 2026-11-27 19:56 UTC · источник: живой GitHub API · ни одного выдуманного числа
+> Автогенерация 2026-11-28 01:38 UTC · источник: живой GitHub API · ни одного выдуманного числа
 
 | Метрика | Значение |
 |---|---|
 | Репозиториев | **85** (85 публичных · 0 приватных) |
-| Коммитов всего | **13131** |
-| Последний push | 2026-11-27 |
+| Коммитов всего | **13366** |
+| Последний push | 2026-11-28 |
 
 **Языки по объёму кода:**
-- `HTML` ██████████ 760.2 МБ
-- `Python` ██████ 493.8 МБ
-- `PowerShell` █ 40.7 МБ
-- `JavaScript` █ 34.2 МБ
-- `Lean` █ 15.8 МБ
+- `HTML` ██████████ 765.3 МБ
+- `Python` ███████ 541.7 МБ
+- `PowerShell` █ 42.9 МБ
+- `JavaScript` █ 38.4 МБ
+- `Lean` █ 18.3 МБ
 
 **Топ-5 репо по коммитам (видимая работа):**
-- **rtynbirf** — 714 коммитов · Python
-- **.github** — 523 коммитов · Python
-- **cell-swarm** — 513 коммитов · Python
-- **markitdown** — 506 коммитов · Python
-- **H-PE11-PHOENIX** — 413 коммитов · PowerShell
+- **rtynbirf** — 727 коммитов · Python
+- **.github** — 527 коммитов · Python
+- **cell-swarm** — 516 коммитов · Python
+- **markitdown** — 508 коммитов · Python
+- **H-PE11-PHOENIX** — 417 коммитов · PowerShell
 <!--END_SWARM_SYNC-->
 
 <!--ФОРЖ:КАНОН-СИНТЕЗ:НАЧАЛО-->
