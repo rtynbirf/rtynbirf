@@ -1,8 +1,34 @@
 <div align="center">
+
+<a href="https://github.com/rtynbirf/rtynbirf"><img src="banner.png" width="100%" alt="rtynbirf — штандарт мастерской в каноне ORNAMENTAL MYTHO-REALISM"></a>
+
+</div>
+
+<!--ФОРЖ:МУЗА:НАЧАЛО-->
+<div align="center">
+  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/repo-muse.svg" width="100%" alt="Муза rtynbirf: мастерская ФРИДРИХ · ПУТНИК, кузня ПОЛИМАТ, раунд 12 · REVE=РЕВО" />
+  <br/>
+  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/forge-divider.svg" width="62%" alt="делитель мастерской ФРИДРИХ · ПУТНИК" />
+</div>
+<!--ФОРЖ:МУЗА:КОНЕЦ-->
+
+<!--ФОРЖ:ПАСПОРТ:НАЧАЛО-->
+<div align="center">
+  <img src="revo-page.svg" width="100%" alt="РЕВО-паспорт страницы rtynbirf №11 в каноне ORNAMENTAL MYTHO-REALISM: орнаментальная решётка, медальон-миф, строение файлов, лексикон — по фактическому контенту" />
+</div>
+
+| ФАЙЛОВ | ПАПОК | КОММИТОВ | ОБНОВЛЕНО | РЕЛИЗОВ |
+|---:|---:|---:|---|---:|
+| 178 | 15 | 1 | 2026-11-28 | 1 |
+<!--ФОРЖ:ПАСПОРТ:КОНЕЦ-->
+
+<div align="center">
   <img src="polimat-header.png" width="100%" alt="ПОЛИМАТ-УНИВЕРУМ — написанный хедер: обсидиан · золото · феникс-медальон">
 </div>
 
 # rtynbirf · POLYMATH-UNIVERSUM
+
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/rtynbirf@main/.github/social-preview.png" alt="rtynbirf" width="100%"></p>
 
 > Автономные системы, генеративные среды и офлайн-суверенитет. Человек остаётся источником цели и решения; система — расширяемой средой действия, которая меряет себя и чинит себя сама.
 
@@ -130,25 +156,11 @@ English: *An interconnected lab for autonomous systems, generative media, and of
 
 
 
-<!--ФОРЖ:МУЗА:НАЧАЛО-->
-<div align="center">
-  <img src="repo-muse.svg" width="100%" alt="Муза rtynbirf: мастерская ФРИДРИХ · ПУТНИК, кузня ПОЛИМАТ, раунд 12 · REVE=РЕВО" />
-  <br/>
-  <img src="forge-divider.svg" width="62%" alt="делитель мастерской ФРИДРИХ · ПУТНИК" />
-</div>
-<!--ФОРЖ:МУЗА:КОНЕЦ-->
 
 
 
-<!--ФОРЖ:ПАСПОРТ:НАЧАЛО-->
-<div align="center">
-  <img src="revo-page.svg" width="100%" alt="РЕВО-паспорт страницы rtynbirf в каноне ORNAMENTAL MYTHO-REALISM: орнаментальная решётка, медальон-миф, строение файлов, лексикон — по фактическому контенту" />
-</div>
 
-| ФАЙЛОВ | ПАПОК | КОММИТОВ | ОБНОВЛЕНО | РЕЛИЗОВ |
-|---:|---:|---:|---|---:|
-| 178 | 14 | 737 | 2026-11-28 | 0 |
-<!--ФОРЖ:ПАСПОРТ:КОНЕЦ-->
+
 
 
 
@@ -273,3 +285,5 @@ EXPERIMENTAL / PROPOSED / PLANNED) и «проверка» (VERIFIED / NOT_TESTE
 | [Baseline README](docs/profile-frontpage/BASELINE-README-2026-11-25.md) | прежняя страница целиком (rollback) |
 
 *О проекте: орнаментальный мифо-ритмический язык — часть визуальной идентичности; технические определения, статусы и результаты при этом остаются буквальными и проверяемыми. REVE=РЕВО.*
+
+<!--ФОРЖ:ПОДВАЛ-->
